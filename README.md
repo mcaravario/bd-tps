@@ -8,4 +8,4 @@ Integrantes:
 | Federico Hosen    | 825/12  |
 | Martin Caravario  | 470/12  |
 | Guido Rajgnewerc  | 906/11  |
-| Christian Russo   |         |
+| Christian Russo   | 679/10  |
