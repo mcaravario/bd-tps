@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.14)  6 APR 2016 12:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.14)  2 MAY 2016 10:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -710,13 +710,13 @@ LaTeX Info: Redefining \nameref on input line 95.
 \@outlinefile=\write4
 \openout4 = `informe.out'.
 
- <DC.png, id=20, 802.9197pt x 287.6346pt>
+ <DC.png, id=36, 802.9197pt x 287.6346pt>
 File: DC.png Graphic file (type png)
 
 <use DC.png>
 Package pdftex.def Info: DC.png used on input line 107.
 (pdftex.def)             Requested size: 158.84137pt x 56.9055pt.
- <UBA.jpg, id=22, 233.4321pt x 233.9139pt>
+ <UBA.jpg, id=38, 233.4321pt x 233.9139pt>
 File: UBA.jpg Graphic file (type jpg)
  <use UBA.jpg>
 Package pdftex.def Info: UBA.jpg used on input line 109.
@@ -733,56 +733,103 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./DC.pn
-g> <./UBA.jpg>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 166.
+g> <./UBA.jpg>] <der1.png, id=50, 1117.17375pt x 730.73pt>
+File: der1.png Graphic file (type png)
+ <use der1.png>
+Package pdftex.def Info: der1.png used on input line 169.
+(pdftex.def)             Requested size: 569.06921pt x 341.43614pt.
 
- (/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
+<der2.png, id=51, 1119.18124pt x 753.81625pt>
+File: der2.png Graphic file (type png)
+ <use der2.png>
+Package pdftex.def Info: der2.png used on input line 170.
+(pdftex.def)             Requested size: 512.16556pt x 341.42262pt.
+
+<der3.png, id=52, 1117.17375pt x 724.7075pt>
+File: der3.png Graphic file (type png)
+ <use der3.png>
+Package pdftex.def Info: der3.png used on input line 171.
+(pdftex.def)             Requested size: 512.1674pt x 341.43088pt.
+
+<der4.png, id=53, 1117.17375pt x 770.88pt>
+File: der4.png Graphic file (type png)
+ <use der4.png>
+Package pdftex.def Info: der4.png used on input line 172.
+(pdftex.def)             Requested size: 512.1674pt x 341.42316pt.
+
+<der5.png, id=54, 1076.02pt x 738.76pt>
+File: der5.png Graphic file (type png)
+ <use der5.png>
+Package pdftex.def Info: der5.png used on input line 173.
+(pdftex.def)             Requested size: 540.60284pt x 341.43442pt.
+
+Overfull \hbox (131.10132pt too wide) in paragraph at lines 169--174
+[][]
+ []
+
+
+Overfull \hbox (59.19766pt too wide) in paragraph at lines 169--174
+[]
+ []
+
+
+Overfull \hbox (59.19951pt too wide) in paragraph at lines 169--174
+[]
+ []
+
+
+Overfull \hbox (59.19951pt too wide) in paragraph at lines 169--174
+[]
+ []
+
+
+Overfull \hbox (87.63495pt too wide) in paragraph at lines 169--174
+[] 
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 174.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 166.
- [2]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 174.
+ [2 <./der1.png>]
+[3 <./der2.png> <./der3.png>] [4 <./der4.png> <./der5.png>]
 
 AED: lastpage setting LastPage
-[3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 224.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 224.
+[5]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 228.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 228.
  (./informe.aux
 LaTeX Info: Redefining \. on input line 20.
 LaTeX Info: Redefining \% on input line 20.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 224.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 224.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 228.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 228.
 Package rerunfilecheck Info: File `informe.out' has not changed.
-(rerunfilecheck)             Checksum: FF66FAAA436239277E0E17D41A0F8719;230.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 224.
+(rerunfilecheck)             Checksum: 233DFBB30F77E627A38C59F44C0D3938;413.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 228.
  ) 
 Here is how much of TeX's memory you used:
- 8376 strings out of 493117
- 120368 string characters out of 6135433
+ 8411 strings out of 493117
+ 120758 string characters out of 6135433
  227198 words of memory out of 5000000
- 11695 multiletter control sequences out of 15000+600000
+ 11720 multiletter control sequences out of 15000+600000
  7262 words of font info for 29 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 29i,11n,43p,237b,384s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{page.4} has been referenced but does not exist, r
-eplaced by a fixed one
-
-</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
-/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></
-usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
-r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
-local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/lo
-cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loc
-al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy6.pfb>
-Output written on informe.pdf (3 pages, 847528 bytes).
+ 29i,11n,43p,527b,384s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
+usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
+r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
+local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
+ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy6.pfb>
+Output written on informe.pdf (5 pages, 1802372 bytes).
 PDF statistics:
- 76 PDF objects out of 1000 (max. 8388607)
- 60 compressed objects within 1 object stream
- 9 named destinations out of 1000 (max. 500000)
- 43 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 112 PDF objects out of 1000 (max. 8388607)
+ 84 compressed objects within 1 object stream
+ 14 named destinations out of 1000 (max. 500000)
+ 100 words of extra memory for PDF output out of 10000 (max. 10000000)
 
