@@ -214,43 +214,324 @@ el precioBase de la subasta si no hay una oferta realizada.
 \section{Modelo Relacional}
 
 
-\relacion{Facultad}{
-  \pk{idFacultad},
+\relacion{Persona}{
+  \pk{idUsuario},
+  nombre,
+  apellido,
+  DNI
+}{
+  \clavespkck{idUsuario}
+}
+
+\relacion{Empresa}{
+  \pk{\fk{idUsuario}},
+  RazonSocial.
+  CUIT,
+  \fk{idCatEmpresa}
+}{
+  \clavespkck{idUsuario} \\
+  \clavesfk{idUsuario, idCatEmpresa}
+}
+
+\relacion{CategoriaEmpresa}{
+  \pk{idCaEmpresa},
+  Nombre.
+  \fk{IdCategoriaPadre}
+}{
+  \clavespkck{idCaEmpresa} \\
+  \clavesfk{IdCategoriaPadre}
+}
+
+
+\relacion{Articulo}{
+  \pk{\fk{IdPublicacion}},
+  tipo
+}{
+  \clavespkck{IdPublicacion} \\
+  \clavesfk{IdPublicacion}
+}
+
+\relacion{Subasta}{
+  \pk{\fk{IdPublicacion}},
+  PrecioBase
+}{
+  \clavespkck{IdPublicacion} \\
+  \clavesfk{IdPublicacion}
+}
+
+
+\relacion{Oferta}{
+  \pk{\fk{IdPublicacion,idUsuario}},
+  \pk{FechaYHora},
+  Monto
+}{
+  \clavespkck{IdPublicacion,idUsuario,FechaYHora} \\
+  \clavesfk{IdPublicacion, idUsuario}
+}
+
+\relacion{Venta}{
+  \pk{\fk{IdPublicacion}},
+}{
+  \clavespkck{IdPublicacion} \\
+  \clavesfk{IdPublicacion}
+}
+
+\relacion{Servicio}{
+  \pk{\fk{IdPublicacion}},
+  Comision
+}{
+  \clavespkck{IdPublicacion} \\
+  \clavesfk{IdPublicacion}
+}
+
+\relacion{Vigente}{
+  \pk{\fk{IdPublicacion}}
+}{
+  \clavespkck{IdPublicacion} \\
+  \clavesfk{IdPublicacion}
+}
+
+\relacion{Finalizada}{
+  \pk{\fk{IdPublicacion}},
+  FechaFinalizacion
+}{
+  \clavespkck{IdPublicacion} \\
+  \clavesfk{IdPublicacion}
+}
+
+\relacion{Categoria}{
+  \pk{IdCategoriaPublicacion},
+  Nombre,
+  \fk{IdCategoriaPadre}
+}{
+  \clavespkck{IdCategoriaPublicacion} \\
+  \clavesfk{IdCategoriaPadre}
+}
+
+\relacion{CategoriaArticulo}{
+  \pk{\fk{IdCategoriaPublicacion}}
+}{
+  \clavespkck{IdCategoriaPublicacion} \\
+  \clavesfk{IdCategoriaPublicacion}
+}
+
+\relacion{publicaPorCategoria}{
+  \pk{\fk{IdCategoriaPublicacion}},
+  \pk{\fk{IdUsuario}},
+  cantidadVendidos
+}{
+  \clavespkck{IdCategoriaPublicacion,IdUsuario} \\
+  \clavesfk{IdCategoriaPublicacion,IdUsuario}
+}
+
+
+\relacion{CategoriaServicio}{
+  \pk{\fk{idCategoriaPublicacion}}
+}{
+  \clavespkck{idCategoriaPublicacion} \\
+  \clavesfk{idCategoriaPublicacion}
+}
+
+
+\relacion{Usuario}{
+  \pk{idUsuario},
+  tipo, 
+  cantCalificaciones,
+  puntajeAcumulado,
+  Email,
+  Telefono,
+  \fk{idDireccion},
+  \fk{idLocalidad}
+}{
+  \clavespkck{idUsuario} \\
+  \clavesfk{idDireccion,idLocalidad}
+}
+
+
+\relacion{Localidad}{
+  \pk{idLocalidad},
   nombre
 }{
-  \clavespkck{idFacultad}
+  \clavespkck{IdPublicacion} \\
 }
 
-\relacion{Empadronado}{
-  \pk{DNI},
-  nombre,
-  fechaDeNacimiento,
-  \fk{idFacultad},
-  claustro
+\relacion{Direccion}{
+  \pk{idDireccion},
+  \pk{idLocalidad},
+  Numero,
+  Calle
 }{
-  \clavespkck{DNI}
+  \clavespkck{(idDireccion, idLocalidad)} \\
+   \clavesfk{idLocalidad}
 }
 
-\relacion{Estudiante}{
-  \pkfk{DNI},
-  fechaDeInscripcion
+\relacion{Calificacion}{
+  \pk{idCalificacion},
+  \pk{\fk{idCompra}},
+  \fk{idUsuario},
+  puntaje,
+  TextoComentario,
+  TextoReplica
 }{
-  \clavespkckfk{DNI}
+  \clavespkck{(idCalificacion, idCompra)} \\
+   \clavesfk{idCompra,idUsuario}
 }
 
-\relacion{Graduado}{
-  \pkfk{DNI},
-  universidad
+\relacion{TipoDePublicacion}{
+  \pk{idTipoPublicacion},
+  Nombre,
+  Nivel,
+  SemanasParaCaducar,
+  Costo,
+  PorcentajeVenta
 }{
-  \clavespkckfk{DNI}
+  \clavespkck{(idCalificacion, idCompra)} \\
 }
+
+\relacion{Factura}{
+  \pk{idFactura},
+  TotalAPagar,
+  Fecha,
+  \fk{idUsuario},
+}{
+  \clavespkck{idFactura} \\
+   \clavesfk{idUsuario}
+}
+
+
+\relacion{Corresponde}{
+  \pk{\fk{idFactura}},
+  \pk{\fk{idPublicacion}}
+}{
+  \clavespkck{(idFactura, idPublicacion)} \\
+   \clavesfk{idFactura, idPublicacion}
+}
+
+
+\relacion{Pago}{
+  \pk{idPago},
+  \fk{idFactura},
+  TipoDePago
+}{
+  \clavespkck{idPago} \\
+   \clavesfk{idFactura}
+}
+
+
+\relacion{Efectivo}{
+  \pk{\fk{idPago}},
+}{
+  \clavespkck{idPago} \\
+   \clavesfk{idPago}
+}
+
+\relacion{Tarjeta}{
+  \pk{\fk{idPago}},
+  NumCuotas,
+  Numero,
+  Titular,
+  FechaVencimiento,
+  CodSeguridad
+}{
+  \clavespkck{idPago} \\
+   \clavesfk{idPago}
+}
+
+\relacion{Pregunta}{
+  \pk{idPregunta},
+    \pk{\fk{idPublicacion}},
+    TextoPregunta,
+    TextoRespuesta,
+    \fk{idUsuario}
+}{
+  \clavespkck{idPregunta,idPublicacion} \\
+   \clavesfk{idPublicacion, idUsuario}
+}
+
+\relacion{Compra}{
+  \pk{idCompra},
+    \fk{idPublicacion},
+  \fk{idPago},
+    \fk{idDireccion},
+    Fecha,
+    Cantidad
+    \fk{idUsuario}
+}{
+  \clavespkck{idCompra} \\
+   \clavesfk{idUsuario, idPublicacion,idPago,idDireccion}
+}
+
+\relacion{Busqueda}{
+  \pk{idBusqueda},
+    Texto
+}{
+  \clavespkck{idBusqueda} \\
+}
+
+\relacion{Realiza}{
+  \pk{\fk{idBusqueda}},
+   \pk{  \fk{idUsuario}}
+}{
+  \clavespkck{(idBusqueda,idUsuario)} \\
+   \clavesfk{idBusqueda,idUsuario}
+}
+
+\relacion{EsFavorita}{
+  \pk{\fk{idPublicacion}},
+   \pk{  \fk{idUsuario}}
+}{
+  \clavespkck{(idPublicacion,idUsuario)} \\
+   \clavesfk{idPublicacion,idUsuario}
+}
+
+\relacion{Visita}{
+  \pk{\fk{idPublicacion}},
+\pk{Fecha},
+  \pk{Hora}
+   \pk{ \fk{idUsuario}}
+}{
+  \clavespkck{(idPublicacion,idUsuario, Fecha, Hora)} \\
+   \clavesfk{idPublicacion,idUsuario}
+}
+
+
+\relacion{Publicacion}{
+  \pk{idPublicacion},
+\fk{idCategoria},
+\fk{idUsuario},
+\fk{IdTipoDePublicacion},
+Estado,
+FechaInicio,
+Titulo,
+CantidadDisponible,
+Precio
+}{
+  \clavespkck{idPublicacion} \\
+   \clavesfk{idCategoria,idUsuario, idTipoDePublicacion}
+}
+
+
 
 \section{Suposiciones}
+ Detalle de los supuestos asumidos para la resolucin del problema.
 
 \section{Diseno Fisico}
+En esta seccion detallamos las consultas ejecutadas para la creacion de las tablas en MySQL
+
+
+\begin{verbatim}
+a = LOAD `data' USING BinStorage AS (user);
+b = GROUP a BY user;
+c = FOREACH b GENERATE COUNT(a) AS cnt;
+d = ORDER c BY cnt;
+\end{verbatim}
+
+
+
 
 \section{Codigo}
-
+ Codigo correspondiente al sistema y a las consultas/stored procedures/triggers que se
+piden en el punto Otras Funcionalidades a Implementar
 \section{Conclusiones}
 
 
