@@ -173,7 +173,37 @@ Presentaremos una soluci\'on para el problema de un \textbf{Mercado Virtual} tom
 
 \subsection{Restricciones}
 
+\begin{enumerate}
+\item No puede haber dos DNI iguales. 
+\item La publicaci\'on del tipo Libre! tiene costo 0.
+\item Para cada compraventa existen a lo sumo 2 calificaciones, cada una correspondiente al comprador y vendedor.
+\item El nivel de la publicaci\'on es distinto para cada tipo de publicaci\'on.
+\item El usuario que compra una publicaci\'on no puede ser el usuario que publica.
+\item Si un usuario realiza una respuesta a un comentario, entonces dicho comentario es de una calificaci\'on y la calificaci\'on fue hecha por un usuario que hizo dicha  compra 
+\item Las publicaciones del tipo Rub\'iDelOriente aparecen primeras en las b\'usquedas. Luego aparecen en orden de mayor a menor costo de comisi\'on y por \'ultimo las de la categor\'ia Libre!.
+\item El costo por mes de Rub\'iDeOriente es Fijo y se pueden hacer 3 publicaciones por mes de este tipo usuario.
+\item El costo de las de Oro cobran m\'as porcentaje de la venta como comisi\'on que las de Plata
+\item El costo de las de Plata cobran m\'as porcentaje de la venta como comisi\'on que las de Bronce 
+\item El monto de una oferta en una subasta debe ser superior en al menos 1 peso a la oferta actual, e inferior al doble de la oferta actual
+\item Una calificaci\'on tiene completado el atributo textoR\'eplica, entonces tiene completado el atributo textoComentario
+\item El atributo puntaje de calificaci\'on est\'a entre [1, 10].
+\item El atributo nombre de la entidad Tipo s\'olo puede ser uno de los siguientes: Rub\'iDeOriente,  Oro,  Plata,  Bronce o Libre! 
+\item No se puede realizar una pregunta a una publicaci\'on que est\'a finalizada.
+\item El atributo cantidad de la entidad compra siempre es menor o igual al atributo cantidadDisponible de la publicacion.
+\item Si el atributo cantidadDisponible de la entidad Publicaci\'on vale 0, entonces la publicaci\'on est\'a finalizada. 
+	
+\item Dada una oferta, el monto de dicha oferta debe ser mayor en al menos 1 peso a todas las ofertas anteriores (en fecha), y al precioBase de la subasta. Adem\'as dicha oferta no puede superar el doble del precio base.
+\item El precio de una publicaci\'on que es de tipo subasta es igual a:
+el precioBase de la subasta si no hay una oferta realizada.
 
+\item  Un usuario no puede ofertar en una publicaci\'on finalizada. 
+\item  Si un usuario compr\'o una publicaci\'on de tipo subasta, entonces dicho usuario tiene que tener la oferta m\'as alta en dicha publicaci\'on. 
+\item El TotalAPagar de la Factura es lo que adeuda el Usuario al sistema en concepto de abonos a Rub\'iDeOriente y/o comisi\'on por las ventas de sus programador. 
+\item Un pago o se relaciona con una Publicaci\'on, o se relaciona con una Compra. Nunca con los dos.
+\item El atributo CantidadVendidos de la relaci\'on publicaPorCategoria es igual a todas las ventas que realiz\'o ese usuario en esa categor\'ia.
+\item El tipo dentro de la tabla Articulo puede ser o venta o subaste 
+
+\end{enumerate}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
