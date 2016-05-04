@@ -156,7 +156,8 @@ Russo, Christian  & 679/10 & christian.russo8@gmail.com\\
 \section{Introducción}
 
 Presentaremos una soluci\'on para el problema de un \textbf{Mercado Virtual} tomando como gu\'ia el \textbf{Khan El-Khalili} ubicado en El Cairo, Egipto. El problema en cuesti\'on contempla una serie de restricciones sobre como se realizan la combra y venta de productos por internet. Cada publicacion puede tener distintos tipos y ser de distintas formas, haciendo que esto impacte en la facturacion del usuario que publica. Por otro lado se cuenta con un sistema de comentarios y calificaciones.
-Utilizaremos las herramientas vistas en la materia, el modelado basado en el Diagrama de Entidad Relaci?on, su MR resultante y la base de datos final que presentaremos en MySQL.
+
+Utilizaremos las herramientas vistas en la materia, el modelado basado en el Diagrama de Entidad Relaci?on, su MR resultante y la base de datos final que presentaremos en MySQL.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Diagrama de Entidad Relación                                              %%
@@ -516,15 +517,611 @@ Precio
  Detalle de los supuestos asumidos para la resolucin del problema.
 
 \section{Diseno Fisico}
-En esta seccion detallamos las consultas ejecutadas para la creacion de las tablas en MySQL
-
-
+\subsection{Creacion de tablas}
+\subsubsection{Visita}
 \begin{verbatim}
-a = LOAD `data' USING BinStorage AS (user);
-b = GROUP a BY user;
-c = FOREACH b GENERATE COUNT(a) AS cnt;
-d = ORDER c BY cnt;
+CREATE TABLE visita(
+	idUsuario int NOT NULL,
+    idPublicacion int NOT NULL,
+    fecha date not null,
+    hora time not null,
+    PRIMARY KEY (idUsuario, idPublicacion, fecha, hora),
+    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario),
+    FOREIGN KEY (idPublicacion) REFERENCES publicacion(idPublicacion)
+)
 \end{verbatim}
+\subsubsection{Vigente}
+\begin{verbatim}
+CREATE TABLE Vigente(
+	idPublicacion int NOT NULL,
+	PRIMARY KEY (idPublicacion),
+    FOREIGN KEY (idPublicacion) REFERENCES Publicacion(idPublicacion)
+);
+\end{verbatim}
+\subsubsection{Venta}
+\begin{verbatim}
+CREATE TABLE Venta(
+	idPublicacion int NOT NULL,
+	PRIMARY KEY (idPublicacion),
+    FOREIGN KEY (idPublicacion) REFERENCES Publicacion(idPublicacion)
+);
+\end{verbatim}
+
+\subsubsection{Usuario}
+\begin{verbatim}
+CREATE TABLE usuario(
+	idUsuario INT NOT NULL AUTO_INCREMENT,
+	tipo varchar(255) NOT NULL,
+    cantCalificaciones int NOT NULL,
+    puntajeAcumulado int NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    telefono VARCHAR(255) NOT NULL,
+    idDireccion INT NOT NULL,
+    idLocalidad INT NOT NULL, 
+    PRIMARY KEY(idUsuario),
+    FOREIGN KEY (idDireccion) REFERENCES direccion(idDireccion),
+    FOREIGN KEY (idLocalidad) REFERENCES localidad(idLocalidad)
+)
+\end{verbatim}
+\subsubsection{Tipo de publicacion}
+\begin{verbatim}
+CREATE TABLE Tipo_de_Publicacion(
+	idTipoPublicacion int NOT NULL AUTO_INCREMENT,
+    nombre varchar(255) NOT NULL,
+    nivel int Not null,
+    semanasParaCaducar int,
+    costo int not null,
+    porcentajeVenta int not null,
+    PRIMARY KEY (idTipoPublicacion)
+);
+\end{verbatim}
+\subsubsection{Tarjeta}
+\begin{verbatim}
+CREATE TABLE tarjeta(
+	idPago int NOT NULL,
+    numCuotas int not null,
+    numero int(16) not null,
+    titular varchar(255) not null,
+    fechaVencimiento date not null,
+    codSeguridad int(3) not null,
+	PRIMARY KEY (idPago),
+    FOREIGN KEY (idPago) REFERENCES Pago(idPago)
+);
+\end{verbatim}
+\subsubsection{Subasta}
+\begin{verbatim}
+CREATE TABLE Subasta(
+	idPublicacion int NOT NULL,
+	precioBase int NOT NULL, 
+	PRIMARY KEY	(idPublicacion),
+	FOREIGN KEY (idPublicacion) REFERENCES Publicacion(idPublicacion)
+);
+\end{verbatim}
+\subsubsection{Servicio}
+\begin{verbatim}
+CREATE TABLE servicio(
+	idPublicacion int Not null,
+    comision int not null,
+    PRIMARY KEY (idPublicacion),
+    FOREIGN KEY (idPublicacion) REFERENCES publicacion(idPublicacion)
+)
+
+
+\end{verbatim}
+\subsubsection{Realiza}
+\begin{verbatim}
+CREATE TABLE realiza(
+	idBusqueda int NOT NULL AUTO_INCREMENT,
+	idUsuario int NOT NULL, 
+	PRIMARY KEY	(idBusqueda, idUsuario),
+    FOREIGN KEY (idBusqueda) REFERENCES busqueda(idBusqueda),
+    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario)
+);
+\end{verbatim}
+\subsubsection{Publicacion}
+\begin{verbatim}
+CREATE TABLE publicacion(
+	idPublicacion INT NOT NULL AUTO_INCREMENT,
+	idCategoria int NOT NULL,
+    idUsuario int not null,
+    idTipoDePublicacion int not null,
+    estado varchar(255) not null,
+    fechaInicio date not null,
+    titulo varchar(255) not null,
+    cantidadDisponible int not null,
+    precio int not null,
+    PRIMARY KEY(idPublicacion),
+    FOREIGN KEY (idCategoria) REFERENCES categoria(idCategoriaPublicacion),
+    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario),
+    FOREIGN KEY (idTipoDePublicacion) REFERENCES tipo_de_publicacion(idTipoPublicacion)
+)
+\end{verbatim}
+\subsubsection{Publica por categoria}
+\begin{verbatim}
+CREATE TABLE publica_por_categoria(
+	idCategoriaPublicacion int NOT NULL,
+	cantidadVendidos int not null,
+	idUsuario int not null,
+    PRIMARY KEY (idCategoriaPublicacion, idUsuario),
+    FOREIGN KEY (idCategoriaPublicacion) REFERENCES categoria(idCategoriaPublicacion),
+    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario)
+);
+
+\end{verbatim}
+\subsubsection{Pregunta}
+\begin{verbatim}
+CREATE TABLE pregunta(
+	idPregunta int Not null AUTO_INCREMENT,
+    idPublicacion int not null,
+    texto_pregunta text(1000),
+    texto_respuesta text(1000),
+	idUsuario int not null,
+    PRIMARY KEY (idPregunta, idPublicacion),
+    FOREIGN KEY (idPublicacion) REFERENCES publicacion(idpublicacion),
+    FOREIGN KEY (idUsuario) REFERENCES usuario(idusuario)
+)
+\end{verbatim}
+\subsubsection{Persona}
+\begin{verbatim}
+CREATE TABLE Persona(
+	idUsuario int NOT NULL,
+	nombre varchar(255) NOT NULL,
+	apellido varchar(255) NOT NULL,
+	DNI varchar(255) NOT NULL,
+    PRIMARY KEY (idUsuario),
+    FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)
+);
+\end{verbatim}
+\subsubsection{Pago}
+\begin{verbatim}
+CREATE TABLE pago(
+	idPago int not null AUTO_INCREMENT,
+	idFactura int,
+    tipoDePago varchar(255) not null, # check contraint (es efectivo o tarjeta)
+    PRIMARY KEY (idPago),
+    FOREIGN KEY (idFactura) REFERENCES factura(idFactura)
+)
+\end{verbatim}
+\subsubsection{Oferta}
+\begin{verbatim}
+CREATE TABLE Oferta(
+	idPublicacion int NOT NULL,
+	idUsuario int NOT NULL,
+	fecha date, 
+    hora TIME NOT NULL,
+	monto int NOT NULL,
+    PRIMARY KEY (idPublicacion,idUsuario,fecha, hora),
+    FOREIGN KEY (idPublicacion) REFERENCES Publicacion(idPublicacion),
+	FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)
+);
+
+
+
+\end{verbatim}
+\subsubsection{Localidad}
+\begin{verbatim}
+CREATE TABLE localidad(
+	idLocalidad INT NOT NULL AUTO_INCREMENT,
+    nombre varchar(255) NOT NULL,
+    PRIMARY KEY(idLocalidad)
+)
+\end{verbatim}
+\subsubsection{Finalizada}
+\begin{verbatim}
+CREATE TABLE Finalizada(
+	idPublicacion int NOT NULL,
+	fechaFinalizacion DATE NOT NULL,
+	PRIMARY KEY (idPublicacion),
+    FOREIGN KEY (idPublicacion) REFERENCES Publicacion(idPublicacion)
+);
+
+\end{verbatim}
+\subsubsection{Factura}
+\begin{verbatim}
+CREATE TABLE factura(
+	idFactura INT NOT NULL AUTO_INCREMENT,
+	totalAPagar int NOT NULL,
+    fecha date NOT NULL,
+    idUsuario int not null,
+    PRIMARY KEY(idFactura),
+    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario)
+)
+\end{verbatim}
+\subsubsection{es favorita}
+\begin{verbatim}
+CREATE TABLE es_favorita(
+	idUsuario int NOT NULL,
+    idPublicacion int NOT NULL,
+    PRIMARY KEY (idUsuario, idPublicacion),
+    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario),
+    FOREIGN KEY (idPublicacion) REFERENCES publicacion(idPublicacion)
+)
+\end{verbatim}
+\subsubsection{Empresa}
+\begin{verbatim}
+CREATE TABLE empresa(
+	idUsuario int NOT NULL,
+    RazonSocial varchar(255) not null,
+    cuit int not null,
+	idCatEmpresa int not null,
+    PRIMARY KEY (idUsuario),
+    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario),
+    FOREIGN KEY (idCatEmpresa) REFERENCES categoria_empresa(idCatEmpresa)
+)
+\end{verbatim}
+\subsubsection{Efectivo}
+\begin{verbatim}
+CREATE TABLE efectivo(
+	idPago int NOT NULL,
+	PRIMARY KEY (idPago),
+    FOREIGN KEY (idPago) REFERENCES pago(idPago)
+);
+\end{verbatim}
+\subsubsection{Direccion}
+\begin{verbatim}
+CREATE TABLE direccion(
+	idDireccion INT NOT NULL AUTO_INCREMENT,
+	idLocalidad INT NOT NULL,
+    numero int not null,
+    calle varchar(255) not null,
+    PRIMARY KEY(idDireccion, idLocalidad),
+    FOREIGN KEY (idLocalidad) REFERENCES localidad(idLocalidad)
+)
+\end{verbatim}
+\subsubsection{Corresponde}
+\begin{verbatim}
+CREATE TABLE corresponde(
+	idFactura int not null,
+    idPublicacion int not null,
+    PRIMARY KEY (idFactura, idPublicacion),
+    FOREIGN KEY (idFactura) REFERENCES factura(idFactura),
+    FOREIGN KEY (idPublicacion) REFERENCES publicacion(idPublicacion)
+)
+\end{verbatim}
+\subsubsection{Compra}
+\begin{verbatim}
+CREATE TABLE compra(
+	idCompra int not null AUTO_INCREMENT,
+    idUsuario int not null,
+    idPublicacion int not null,
+    idPago int not null,
+    idDireccion int,
+    fecha date not null,
+    cantidad int not null,
+    PRIMARY KEY (idCompra),
+    FOREIGN KEY (idUsuario) REFERENCES usuario(idusuario),
+    FOREIGN KEY (idPublicacion) REFERENCES publicacion(idPublicacion),
+    FOREIGN KEY (idPago) REFERENCES pago(idPago),
+    FOREIGN KEY (idDireccion) REFERENCES direccion(idDireccion)
+)
+
+\end{verbatim}
+\subsubsection{Categoria}
+\begin{verbatim}
+CREATE TABLE categoria(
+	idCategoriaPublicacion INT NOT NULL AUTO_INCREMENT,
+	nombre varchar(255) NOT NULL,
+    idCategoriaPadre int,
+    PRIMARY KEY(idCategoriaPublicacion),
+    FOREIGN KEY (idCategoriaPadre) REFERENCES categoria(idCategoriaPublicacion)
+)
+\end{verbatim}
+\subsubsection{Categoria Servicio}
+\begin{verbatim}
+CREATE TABLE Categoria_Servicio(
+	idCategoriaPublicacion int NOT NULL,
+    PRIMARY KEY (idCategoriaPublicacion),
+    FOREIGN KEY (idCategoriaPublicacion) REFERENCES categoria(idCategoriaPublicacion)
+)
+\end{verbatim}
+\subsubsection{Categoria Empresa}
+\begin{verbatim}
+CREATE TABLE categoria_empresa(
+	idCatEmpresa INT NOT NULL AUTO_INCREMENT,
+	nombre varchar(255) NOT NULL,
+    idCategoriaPadre int,
+    PRIMARY KEY(idCatEmpresa),
+    FOREIGN KEY (idCategoriaPadre) REFERENCES categoria_empresa(idCatEmpresa)
+)
+\end{verbatim}
+\subsubsection{Categoria Articulo}
+\begin{verbatim}
+CREATE TABLE Categoria_Articulo(
+	idCategoriaPublicacion int NOT NULL,
+    PRIMARY KEY (idCategoriaPublicacion),
+    FOREIGN KEY (idCategoriaPublicacion) REFERENCES categoria(idCategoriaPublicacion)
+)
+\end{verbatim}
+\subsubsection{Calificacion}
+\begin{verbatim}
+CREATE TABLE calificacion(
+	idCalificacion int Not null AUTO_INCREMENT,
+    idCompra int not null,
+    idUsuario int not null,
+    puntaje int not null,
+	textoComentario text(1000),
+    textoReplica text(1000),
+    
+    PRIMARY KEY (idCalificacion, idCompra),
+    FOREIGN KEY (idCompra) REFERENCES compra(idCompra),
+    FOREIGN KEY (idUsuario) REFERENCES usuario(idusuario)
+)
+\end{verbatim}
+\subsubsection{Busqueda}
+\begin{verbatim}
+CREATE TABLE busqueda(
+	idBusqueda int NOT NULL AUTO_INCREMENT,
+	texto text, 
+	PRIMARY KEY	(idBusqueda)
+);
+\end{verbatim}
+\subsubsection{Articulo}
+\begin{verbatim}
+CREATE TABLE Articulo(
+	idPublicacion int NOT NULL,
+	tipo varchar(255), 
+	CHECK (tipo in ('Subasta','Venta')),
+	PRIMARY KEY	(idPublicacion),
+	FOREIGN KEY (idPublicacion) REFERENCES Publicacion(idPublicacion)
+);
+\end{verbatim}
+\subsubsection{Triggers}
+\begin{verbatim}
+USE `tp1`;
+
+DELIMITER $$
+
+DROP TRIGGER IF EXISTS tp1.oferta_BEFORE_INSERT$$
+USE `tp1`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `tp1`.`ofertaValida` BEFORE INSERT ON `oferta` FOR EACH ROW
+BEGIN
+	IF NEW.monto > (select precio from publicacion where idPublicacion = new.idPublicacion) and NEW.monto <= (select 2*precio from publicacion where idPublicacion = new.idPublicacion) THEN
+		update publicacion set precio = new.monto where idPublicacion = new.idPublicacion;
+	END IF;
+ -- 
+END$$
+DELIMITER ;
+
+\end{verbatim}
+
+\subsection{Inserccion de datos de prueba}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsubsection{Visita}
+\begin{verbatim}
+INSERT INTO `tp1`.`visita` (`idUsuario`, `idPublicacion`, `fecha`, `hora`) VALUES ('1', '1', '2008-01-02', '20');
+INSERT INTO `tp1`.`visita` (`idUsuario`, `idPublicacion`, `fecha`, `hora`) VALUES ('1', '4', '2008-01-02', '21');
+\end{verbatim}
+\subsubsection{Vigente}
+\begin{verbatim}
+INSERT INTO `tp1`.`vigente` (`idPublicacion`) VALUES ('1');
+INSERT INTO `tp1`.`vigente` (`idPublicacion`) VALUES ('2');
+\end{verbatim}
+\subsubsection{Venta}
+\begin{verbatim}
+INSERT INTO `tp1`.`venta` (`idPublicacion`) VALUES ('1');
+INSERT INTO `tp1`.`venta` (`idPublicacion`) VALUES ('2');
+\end{verbatim}
+
+\subsubsection{Usuario}
+\begin{verbatim}
+INSERT INTO usuario (tipo, cantCalificaciones, puntajeAcumulado, email, telefono, idDireccion, idLocalidad) VALUES ('Persona',0,0,'christian.russo8@gmail.com', '48444479', 2,4);
+INSERT INTO usuario (tipo, cantCalificaciones, puntajeAcumulado, email, telefono, idDireccion, idLocalidad) VALUES ('Persona',0,0,'guido.raj@gmail.com', '154444444', 3,9);
+
+\end{verbatim}
+\subsubsection{Tipo de publicacion}
+\begin{verbatim}
+INSERT INTO `tp1`.`tipo_de_publicacion` (`idTipoPublicacion`, `nombre`, `nivel`, `semanasParaCaducar`, `costo`, `porcentajeVenta`) VALUES ('1', 'RubiDeOriente', '1', '10', '100', '10');
+INSERT INTO `tp1`.`tipo_de_publicacion` (`idTipoPublicacion`, `nombre`, `nivel`, `semanasParaCaducar`, `costo`, `porcentajeVenta`) VALUES ('2', 'Oro', '2', '12', '80', '8');
+
+\end{verbatim}
+\subsubsection{Tarjeta}
+\begin{verbatim}
+INSERT INTO `tp1`.`tarjeta` (`idPago`, `numCuotas`, `numero`, `titular`, `fechaVencimiento`, `codSeguridad`) VALUES ('2', '6', '1234567812345678', 'Christian Russo', '2008-01-02', '123');
+
+\end{verbatim}
+\subsubsection{Subasta}
+\begin{verbatim}
+INSERT INTO `tp1`.`subasta` (`idPublicacion`, `precioBase`) VALUES ('1', '100');
+
+\end{verbatim}
+\subsubsection{Servicio}
+\begin{verbatim}
+INSERT INTO `tp1`.`servicio` (`idPublicacion`, `comision`) VALUES ('5', '10');
+
+
+\end{verbatim}
+\subsubsection{Realiza}
+\begin{verbatim}
+INSERT INTO `tp1`.`realiza` (`idBusqueda`, `idUsuario`) VALUES ('1', '1');
+INSERT INTO `tp1`.`realiza` (`idBusqueda`, `idUsuario`) VALUES ('2', '3');
+\end{verbatim}
+\subsubsection{Publicacion}
+\begin{verbatim}
+INSERT INTO `tp1`.`publicacion` (`idPublicacion`, `idCategoria`, `idUsuario`, `idTipoDePublicacion`, `estado`, `fechaInicio`, `titulo`, `cantidadDisponible`, `precio`) VALUES ('1', '1', '1', '1', 'Vigente', '2008-01-02', 'Alfombra para auto', '2', '1000');
+INSERT INTO `tp1`.`publicacion` (`idPublicacion`, `idCategoria`, `idUsuario`, `idTipoDePublicacion`, `estado`, `fechaInicio`, `titulo`, `cantidadDisponible`, `precio`) VALUES ('2', '8', '1', '1', 'Vigente', '2008-01-02', 'Poni recien nacido', '1', '10000');
+
+\end{verbatim}
+\subsubsection{Publica por categoria}
+\begin{verbatim}
+INSERT INTO `tp1`.`publica_por_categoria` (`idCategoriaPublicacion`, `cantidadVendidos`, `idUsuario`) VALUES ('1', '0', '1');
+INSERT INTO `tp1`.`publica_por_categoria` (`idCategoriaPublicacion`, `cantidadVendidos`, `idUsuario`) VALUES ('2', '2', '3');
+
+\end{verbatim}
+\subsubsection{Pregunta}
+\begin{verbatim}
+INSERT INTO `tp1`.`pregunta` (`idPregunta`, `idPublicacion`, `texto_pregunta`, `texto_respuesta`, `idUsuario`) VALUES ('1', '1', 'Hola, queria saber si la alfombra esta nueva', 'No, esta usada', '4');
+INSERT INTO `tp1`.`pregunta` (`idPregunta`, `idPublicacion`, `texto_pregunta`, `idUsuario`) VALUES ('2', '1', 'Hola, las alfombras son para un Fiat?', '4');
+
+\end{verbatim}
+\subsubsection{Persona}
+\begin{verbatim}
+INSERT INTO `tp1`.`persona` (`idUsuario`, `nombre`, `apellido`, `DNI`) VALUES ('1', 'Christian', 'Russo', '35561654');
+INSERT INTO `tp1`.`persona` (`idUsuario`, `nombre`, `apellido`, `DNI`) VALUES ('3', 'Guido', 'Kaska', '35561666');
+
+\end{verbatim}
+\subsubsection{Pago}
+\begin{verbatim}
+INSERT INTO `tp1`.`pago` (`idPago`, `idFactura`, `tipoDePago`) VALUES ('1', '1', 'Efectivo');
+INSERT INTO `tp1`.`pago` (`idPago`, `idFactura`, `tipoDePago`) VALUES ('2', '2', 'Tarjeta');
+
+\end{verbatim}
+\subsubsection{Oferta}
+\begin{verbatim}
+INSERT INTO `tp1`.`oferta` (`idPublicacion`, `idUsuario`, `fecha`, `hora`, `monto`) VALUES ('1', '1', '2008-01-02', '10', '100');
+
+
+
+\end{verbatim}
+\subsubsection{Localidad}
+\begin{verbatim}
+INSERT INTO localidad (nombre) VALUES ('25 de Mayo');
+INSERT INTO localidad (nombre) VALUES ('9 de Julio');
+\end{verbatim}
+\subsubsection{Finalizada}
+\begin{verbatim}
+
+INSERT INTO `tp1`.`finalizada` (`idPublicacion`, `fechaFinalizacion`) VALUES ('4', '2008-02-02');
+
+\end{verbatim}
+\subsubsection{Factura}
+\begin{verbatim}
+
+INSERT INTO `tp1`.`factura` (`idFactura`, `totalAPagar`, `fecha`, `idUsuario`) VALUES ('1', '1000', '2008-01-02', '1');
+INSERT INTO `tp1`.`factura` (`idFactura`, `totalAPagar`, `fecha`, `idUsuario`) VALUES ('2', '574', '2008-01-02', '3');
+\end{verbatim}
+\subsubsection{es favorita}
+\begin{verbatim}
+
+INSERT INTO `tp1`.`es_favorita` (`idUsuario`, `idPublicacion`) VALUES ('1', '1');
+INSERT INTO `tp1`.`es_favorita` (`idUsuario`, `idPublicacion`) VALUES ('3', '3');
+\end{verbatim}
+\subsubsection{Empresa}
+\begin{verbatim}
+INSERT INTO `tp1`.`empresa` (`idUsuario`, `RazonSocial`, `cuit`, `idCatEmpresa`) VALUES ('1', 'Empresa1', '20355616542', '1');
+INSERT INTO `tp1`.`empresa` (`idUsuario`, `RazonSocial`, `cuit`, `idCatEmpresa`) VALUES ('2', 'Empresa2', '20355616542', '1');
+
+\end{verbatim}
+\subsubsection{Efectivo}
+\begin{verbatim}
+INSERT INTO `tp1`.`efectivo` (`idPago`) VALUES ('1');
+INSERT INTO `tp1`.`efectivo` (`idPago`) VALUES ('3');
+
+\end{verbatim}
+\subsubsection{Direccion}
+\begin{verbatim}
+
+INSERT INTO direccion (idLocalidad,numero,calle) VALUES ('6','6101',' BACACAY');
+INSERT INTO direccion (idLocalidad,numero,calle) VALUES ('24','489','BACON');
+\end{verbatim}
+\subsubsection{Corresponde}
+\begin{verbatim}
+
+\end{verbatim}
+\subsubsection{Compra}
+\begin{verbatim}
+
+INSERT INTO `tp1`.`corresponde` (`idFactura`, `idPublicacion`) VALUES ('1', '1');
+INSERT INTO `tp1`.`corresponde` (`idFactura`, `idPublicacion`) VALUES ('2', '2');
+\end{verbatim}
+\subsubsection{Categoria}
+\begin{verbatim}
+
+INSERT INTO categoria (nombre, idCategoriaPadre) VALUES ('Accesorios para Vehiculos',NULL);
+INSERT INTO categoria (nombre, idCategoriaPadre) VALUES ('Animales y Mascotas',NULL);
+\end{verbatim}
+\subsubsection{Categoria Servicio}
+\begin{verbatim}
+
+INSERT INTO `tp1`.`categoria_servicio` (`idCategoriaPublicacion`) VALUES ('2');
+INSERT INTO `tp1`.`categoria_servicio` (`idCategoriaPublicacion`) VALUES ('3');
+\end{verbatim}
+\subsubsection{Categoria Empresa}
+\begin{verbatim}
+
+INSERT INTO `tp1`.`categoria_empresa` (`idCatEmpresa`, `nombre`) VALUES ('1', 'Construccion');
+INSERT INTO `tp1`.`categoria_empresa` (`idCatEmpresa`, `nombre`, `idCategoriaPadre`) VALUES ('2', 'Carpinteria', '1');
+\end{verbatim}
+\subsubsection{Categoria Articulo}
+\begin{verbatim}
+
+INSERT INTO categoria_articulo(idCategoriaPublicacion) VALUES ('3');
+INSERT INTO categoria_articulo (idCategoriaPublicacion) VALUES ('5');
+\end{verbatim}
+\subsubsection{Calificacion}
+\begin{verbatim}
+INSERT INTO `tp1`.`calificacion` (`idCalificacion`, `idCompra`, `idUsuario`, `puntaje`, `textoComentario`, `textoReplica`) VALUES ('1', '3', '4', '10', 'Un capo!', 'Gracias');
+INSERT INTO `tp1`.`calificacion` (`idCalificacion`, `idCompra`, `idUsuario`, `puntaje`, `textoComentario`, `textoReplica`) VALUES ('2', '4', '4', '4', 'Me cago', 'Si');
+
+\end{verbatim}
+
+\subsubsection{Busqueda}
+\begin{verbatim}
+
+INSERT INTO `tp1`.`busqueda` (`idBusqueda`, `texto`) VALUES ('1', 'Conejos baratos');
+INSERT INTO `tp1`.`busqueda` (`idBusqueda`, `texto`) VALUES ('2', 'Alfombras para autos');
+\end{verbatim}
+
+\subsubsection{Articulo}
+
+INSERT INTO `tp1`.`articulo` (`idPublicacion`, `tipo`) VALUES ('1', 'Venta');
+INSERT INTO `tp1`.`articulo` (`idPublicacion`, `tipo`) VALUES ('2', 'Venta');
+\begin{verbatim}
+
+\end{verbatim}
+
+
+
+
 
 
 

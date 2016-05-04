@@ -4,5 +4,70 @@
 \BOOKMARK [1][-]{section.3}{Modelo Relacional}{}% 4
 \BOOKMARK [1][-]{section.4}{Suposiciones}{}% 5
 \BOOKMARK [1][-]{section.5}{Diseno Fisico}{}% 6
-\BOOKMARK [1][-]{section.6}{Codigo}{}% 7
-\BOOKMARK [1][-]{section.7}{Conclusiones}{}% 8
+\BOOKMARK [2][-]{subsection.5.1}{Creacion de tablas}{section.5}% 7
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Visita}{subsection.5.1}% 8
+\BOOKMARK [3][-]{subsubsection.5.1.2}{Vigente}{subsection.5.1}% 9
+\BOOKMARK [3][-]{subsubsection.5.1.3}{Venta}{subsection.5.1}% 10
+\BOOKMARK [3][-]{subsubsection.5.1.4}{Usuario}{subsection.5.1}% 11
+\BOOKMARK [3][-]{subsubsection.5.1.5}{Tipo de publicacion}{subsection.5.1}% 12
+\BOOKMARK [3][-]{subsubsection.5.1.6}{Tarjeta}{subsection.5.1}% 13
+\BOOKMARK [3][-]{subsubsection.5.1.7}{Subasta}{subsection.5.1}% 14
+\BOOKMARK [3][-]{subsubsection.5.1.8}{Servicio}{subsection.5.1}% 15
+\BOOKMARK [3][-]{subsubsection.5.1.9}{Realiza}{subsection.5.1}% 16
+\BOOKMARK [3][-]{subsubsection.5.1.10}{Publicacion}{subsection.5.1}% 17
+\BOOKMARK [3][-]{subsubsection.5.1.11}{Publica por categoria}{subsection.5.1}% 18
+\BOOKMARK [3][-]{subsubsection.5.1.12}{Pregunta}{subsection.5.1}% 19
+\BOOKMARK [3][-]{subsubsection.5.1.13}{Persona}{subsection.5.1}% 20
+\BOOKMARK [3][-]{subsubsection.5.1.14}{Pago}{subsection.5.1}% 21
+\BOOKMARK [3][-]{subsubsection.5.1.15}{Oferta}{subsection.5.1}% 22
+\BOOKMARK [3][-]{subsubsection.5.1.16}{Localidad}{subsection.5.1}% 23
+\BOOKMARK [3][-]{subsubsection.5.1.17}{Finalizada}{subsection.5.1}% 24
+\BOOKMARK [3][-]{subsubsection.5.1.18}{Factura}{subsection.5.1}% 25
+\BOOKMARK [3][-]{subsubsection.5.1.19}{es favorita}{subsection.5.1}% 26
+\BOOKMARK [3][-]{subsubsection.5.1.20}{Empresa}{subsection.5.1}% 27
+\BOOKMARK [3][-]{subsubsection.5.1.21}{Efectivo}{subsection.5.1}% 28
+\BOOKMARK [3][-]{subsubsection.5.1.22}{Direccion}{subsection.5.1}% 29
+\BOOKMARK [3][-]{subsubsection.5.1.23}{Corresponde}{subsection.5.1}% 30
+\BOOKMARK [3][-]{subsubsection.5.1.24}{Compra}{subsection.5.1}% 31
+\BOOKMARK [3][-]{subsubsection.5.1.25}{Categoria}{subsection.5.1}% 32
+\BOOKMARK [3][-]{subsubsection.5.1.26}{Categoria Servicio}{subsection.5.1}% 33
+\BOOKMARK [3][-]{subsubsection.5.1.27}{Categoria Empresa}{subsection.5.1}% 34
+\BOOKMARK [3][-]{subsubsection.5.1.28}{Categoria Articulo}{subsection.5.1}% 35
+\BOOKMARK [3][-]{subsubsection.5.1.29}{Calificacion}{subsection.5.1}% 36
+\BOOKMARK [3][-]{subsubsection.5.1.30}{Busqueda}{subsection.5.1}% 37
+\BOOKMARK [3][-]{subsubsection.5.1.31}{Articulo}{subsection.5.1}% 38
+\BOOKMARK [3][-]{subsubsection.5.1.32}{Triggers}{subsection.5.1}% 39
+\BOOKMARK [2][-]{subsection.5.2}{Inserccion de datos de prueba}{section.5}% 40
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Visita}{subsection.5.2}% 41
+\BOOKMARK [3][-]{subsubsection.5.2.2}{Vigente}{subsection.5.2}% 42
+\BOOKMARK [3][-]{subsubsection.5.2.3}{Venta}{subsection.5.2}% 43
+\BOOKMARK [3][-]{subsubsection.5.2.4}{Usuario}{subsection.5.2}% 44
+\BOOKMARK [3][-]{subsubsection.5.2.5}{Tipo de publicacion}{subsection.5.2}% 45
+\BOOKMARK [3][-]{subsubsection.5.2.6}{Tarjeta}{subsection.5.2}% 46
+\BOOKMARK [3][-]{subsubsection.5.2.7}{Subasta}{subsection.5.2}% 47
+\BOOKMARK [3][-]{subsubsection.5.2.8}{Servicio}{subsection.5.2}% 48
+\BOOKMARK [3][-]{subsubsection.5.2.9}{Realiza}{subsection.5.2}% 49
+\BOOKMARK [3][-]{subsubsection.5.2.10}{Publicacion}{subsection.5.2}% 50
+\BOOKMARK [3][-]{subsubsection.5.2.11}{Publica por categoria}{subsection.5.2}% 51
+\BOOKMARK [3][-]{subsubsection.5.2.12}{Pregunta}{subsection.5.2}% 52
+\BOOKMARK [3][-]{subsubsection.5.2.13}{Persona}{subsection.5.2}% 53
+\BOOKMARK [3][-]{subsubsection.5.2.14}{Pago}{subsection.5.2}% 54
+\BOOKMARK [3][-]{subsubsection.5.2.15}{Oferta}{subsection.5.2}% 55
+\BOOKMARK [3][-]{subsubsection.5.2.16}{Localidad}{subsection.5.2}% 56
+\BOOKMARK [3][-]{subsubsection.5.2.17}{Finalizada}{subsection.5.2}% 57
+\BOOKMARK [3][-]{subsubsection.5.2.18}{Factura}{subsection.5.2}% 58
+\BOOKMARK [3][-]{subsubsection.5.2.19}{es favorita}{subsection.5.2}% 59
+\BOOKMARK [3][-]{subsubsection.5.2.20}{Empresa}{subsection.5.2}% 60
+\BOOKMARK [3][-]{subsubsection.5.2.21}{Efectivo}{subsection.5.2}% 61
+\BOOKMARK [3][-]{subsubsection.5.2.22}{Direccion}{subsection.5.2}% 62
+\BOOKMARK [3][-]{subsubsection.5.2.23}{Corresponde}{subsection.5.2}% 63
+\BOOKMARK [3][-]{subsubsection.5.2.24}{Compra}{subsection.5.2}% 64
+\BOOKMARK [3][-]{subsubsection.5.2.25}{Categoria}{subsection.5.2}% 65
+\BOOKMARK [3][-]{subsubsection.5.2.26}{Categoria Servicio}{subsection.5.2}% 66
+\BOOKMARK [3][-]{subsubsection.5.2.27}{Categoria Empresa}{subsection.5.2}% 67
+\BOOKMARK [3][-]{subsubsection.5.2.28}{Categoria Articulo}{subsection.5.2}% 68
+\BOOKMARK [3][-]{subsubsection.5.2.29}{Calificacion}{subsection.5.2}% 69
+\BOOKMARK [3][-]{subsubsection.5.2.30}{Busqueda}{subsection.5.2}% 70
+\BOOKMARK [3][-]{subsubsection.5.2.31}{Articulo}{subsection.5.2}% 71
+\BOOKMARK [1][-]{section.6}{Codigo}{}% 72
+\BOOKMARK [1][-]{section.7}{Conclusiones}{}% 73

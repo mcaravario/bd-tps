@@ -254,3 +254,10 @@ INSERT INTO `tp1`.`publica_por_categoria` (`idCategoriaPublicacion`, `cantidadVe
 INSERT INTO `tp1`.`publica_por_categoria` (`idCategoriaPublicacion`, `cantidadVendidos`, `idUsuario`) VALUES ('3', '2', '4');
 INSERT INTO `tp1`.`publica_por_categoria` (`idCategoriaPublicacion`, `cantidadVendidos`, `idUsuario`) VALUES ('4', '10', '4');
 INSERT INTO `tp1`.`publica_por_categoria` (`idCategoriaPublicacion`, `cantidadVendidos`, `idUsuario`) VALUES ('1', '0', '3');
+
+
+-- Calificacion
+INSERT INTO `tp1`.`calificacion` (`idCalificacion`, `idCompra`, `idUsuario`, `puntaje`, `textoComentario`, `textoReplica`) VALUES ('1', '3', '4', '10', 'Un capo!', 'Gracias');
+INSERT INTO `tp1`.`calificacion` (`idCalificacion`, `idCompra`, `idUsuario`, `puntaje`, `textoComentario`, `textoReplica`) VALUES ('2', '4', '4', '4', 'Me cago', 'Si');
+INSERT INTO `tp1`.`calificacion` (`idCalificacion`, `idCompra`, `idUsuario`, `puntaje`, `textoComentario`, `textoReplica`) VALUES ('3', '1', '1', '6', 'Todo ok', 'Gracias');
+INSERT INTO `tp1`.`calificacion` (`idCalificacion`, `idCompra`, `idUsuario`, `puntaje`, `textoComentario`, `textoReplica`) VALUES ('4', '2', '3', '1', 'No me entrego', 'Me robo');
