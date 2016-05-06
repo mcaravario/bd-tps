@@ -26,7 +26,7 @@
 %%%%%%%%%% Constantes - Inicio %%%%%%%%%%
 \newcommand{\titulo}{Trabajo Práctico 1}
 \newcommand{\materia}{Bases de Datos}
-\newcommand{\integrantes}{Russo · Russo · Russo · Russo}
+\newcommand{\integrantes}{Hosen · Caravario · Rajgnewerc · Russo}
 \newcommand{\cuatrimestre}{Primer Cuatrimestre de 2016}
 %%%%%%%%%% Constantes - Fin %%%%%%%%%%
 
@@ -136,9 +136,9 @@ Universidad de Buenos Aires
 \hline
 Apellido y Nombre & LU & E-mail\\
 \hline
-Russo, Christian  & 679/10 & christian.russo8@gmail.com\\
-Russo, Christian  & 679/10 & christian.russo8@gmail.com\\
-Russo, Christian  & 679/10 & christian.russo8@gmail.com\\
+Federico Hosen  & 825/12 & federico.hosen@gmail.com\\
+Martin Caravario  & 470/12 & martin.caravario@gmail.com\\
+Guido Rajgnewerc  & 379/12 & guido.raj@gmail.com\\
 Russo, Christian  & 679/10 & christian.russo8@gmail.com\\
 \hline
 \end{tabular}
@@ -155,9 +155,9 @@ Russo, Christian  & 679/10 & christian.russo8@gmail.com\\
 
 \section{Introducción}
 
-Presentaremos una soluci\'on para el problema de un \textbf{Mercado Virtual} tomando como gu\'ia el \textbf{Khan El-Khalili} ubicado en El Cairo, Egipto. El problema en cuesti\'on contempla una serie de restricciones sobre como se realizan la combra y venta de productos por internet. Cada publicacion puede tener distintos tipos y ser de distintas formas, haciendo que esto impacte en la facturacion del usuario que publica. Por otro lado se cuenta con un sistema de comentarios y calificaciones.
+Presentaremos una soluci\'on para el problema de un \textbf{Mercado Virtual} tomando como gu\'ia el \textbf{Khan El-Khalili} ubicado en El Cairo, Egipto. El problema en cuesti\'on contempla una serie de restricciones sobre como se realizan la compra y venta de productos por internet. Cada publicaci\'on puede tener distintos tipos y ser de distintas formas, haciendo que esto impacte en la facturaci\'on del usuario que publica. Por otro lado se cuenta con un sistema de comentarios y calificaciones.
 
-Utilizaremos las herramientas vistas en la materia, el modelado basado en el Diagrama de Entidad Relaci?on, su MR resultante y la base de datos final que presentaremos en MySQL.
+Utilizaremos las herramientas vistas en la materia, el modelado basado en el Diagrama de Entidad Relaci\'on, su MR resultante y la base de datos final que presentaremos en MySQL.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Diagrama de Entidad Relación                                              %%
@@ -192,17 +192,14 @@ Utilizaremos las herramientas vistas en la materia, el modelado basado en el Dia
 \item No se puede realizar una pregunta a una publicaci\'on que est\'a finalizada.
 \item El atributo cantidad de la entidad compra siempre es menor o igual al atributo cantidadDisponible de la publicacion.
 \item Si el atributo cantidadDisponible de la entidad Publicaci\'on vale 0, entonces la publicaci\'on est\'a finalizada. 
-	
 \item Dada una oferta, el monto de dicha oferta debe ser mayor en al menos 1 peso a todas las ofertas anteriores (en fecha), y al precioBase de la subasta. Adem\'as dicha oferta no puede superar el doble del precio base.
-\item El precio de una publicaci\'on que es de tipo subasta es igual a:
-el precioBase de la subasta si no hay una oferta realizada.
-
+\item El precio de una publicaci\'on que es de tipo subasta es igual al precioBase de la subasta si no hay una oferta realizada.
 \item  Un usuario no puede ofertar en una publicaci\'on finalizada. 
 \item  Si un usuario compr\'o una publicaci\'on de tipo subasta, entonces dicho usuario tiene que tener la oferta m\'as alta en dicha publicaci\'on. 
 \item El TotalAPagar de la Factura es lo que adeuda el Usuario al sistema en concepto de abonos a Rub\'iDeOriente y/o comisi\'on por las ventas de sus programador. 
 \item Un pago o se relaciona con una Publicaci\'on, o se relaciona con una Compra. Nunca con los dos.
 \item El atributo CantidadVendidos de la relaci\'on publicaPorCategoria es igual a todas las ventas que realiz\'o ese usuario en esa categor\'ia.
-\item El tipo dentro de la tabla Articulo puede ser o venta o subaste 
+\item El tipo dentro de la tabla Art\'iculo puede ser o venta o subasta.
 
 \end{enumerate}
 
@@ -514,10 +511,17 @@ Precio
 
 
 \section{Suposiciones}
- Detalle de los supuestos asumidos para la resolucin del problema.
 
-\section{Diseno Fisico}
-\subsection{Creacion de tablas}
+\begin{enumerate}
+\item Para calcular el ganador de un anio espec\'ificio se calcula el que calificaci\'on tiene ese anio y el que mas pago al sitio y esos datos alcanzan para que el departamento de marketing haga una ponderaci\'on y calcule el ganador
+\item Si se realiza una oferta invalidad, es decir que no cumple con lo necesario de la subasta, esa oferta se guarda en la tabla oferta pero el monto de la publicaci\'on no se modifica. De esta forma la tabla oferta contendr\'a datos que son inv\'alidos pero la oferta siempre estar\'a con el valor correcto.
+
+\item Los datos de prueba cargados en la tablas no son consistentes en su totalidad, es decir puede existir un Usuario que publica un oferta y a la vez este usuario comprar la misma.
+
+\end{enumerate}
+
+\section{Disenio F\'isico}
+\subsection{Creaci\'on de tablas}
 \subsubsection{Visita}
 \begin{verbatim}
 CREATE TABLE visita(
@@ -563,7 +567,7 @@ CREATE TABLE usuario(
     FOREIGN KEY (idLocalidad) REFERENCES localidad(idLocalidad)
 )
 \end{verbatim}
-\subsubsection{Tipo de publicacion}
+\subsubsection{Tipo de publicaci\'on}
 \begin{verbatim}
 CREATE TABLE Tipo_de_Publicacion(
 	idTipoPublicacion int NOT NULL AUTO_INCREMENT,
@@ -597,6 +601,7 @@ CREATE TABLE Subasta(
 	FOREIGN KEY (idPublicacion) REFERENCES Publicacion(idPublicacion)
 );
 \end{verbatim}
+\newpage
 \subsubsection{Servicio}
 \begin{verbatim}
 CREATE TABLE servicio(
@@ -605,8 +610,6 @@ CREATE TABLE servicio(
     PRIMARY KEY (idPublicacion),
     FOREIGN KEY (idPublicacion) REFERENCES publicacion(idPublicacion)
 )
-
-
 \end{verbatim}
 \subsubsection{Realiza}
 \begin{verbatim}
@@ -618,7 +621,7 @@ CREATE TABLE realiza(
     FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario)
 );
 \end{verbatim}
-\subsubsection{Publicacion}
+\subsubsection{Publicaci\'on}
 \begin{verbatim}
 CREATE TABLE publicacion(
 	idPublicacion INT NOT NULL AUTO_INCREMENT,
@@ -636,7 +639,7 @@ CREATE TABLE publicacion(
     FOREIGN KEY (idTipoDePublicacion) REFERENCES tipo_de_publicacion(idTipoPublicacion)
 )
 \end{verbatim}
-\subsubsection{Publica por categoria}
+\subsubsection{Publica por categor\'ia}
 \begin{verbatim}
 CREATE TABLE publica_por_categoria(
 	idCategoriaPublicacion int NOT NULL,
@@ -648,6 +651,7 @@ CREATE TABLE publica_por_categoria(
 );
 
 \end{verbatim}
+\newpage
 \subsubsection{Pregunta}
 \begin{verbatim}
 CREATE TABLE pregunta(
@@ -694,9 +698,6 @@ CREATE TABLE Oferta(
     FOREIGN KEY (idPublicacion) REFERENCES Publicacion(idPublicacion),
 	FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)
 );
-
-
-
 \end{verbatim}
 \subsubsection{Localidad}
 \begin{verbatim}
@@ -714,7 +715,6 @@ CREATE TABLE Finalizada(
 	PRIMARY KEY (idPublicacion),
     FOREIGN KEY (idPublicacion) REFERENCES Publicacion(idPublicacion)
 );
-
 \end{verbatim}
 \subsubsection{Factura}
 \begin{verbatim}
@@ -727,7 +727,7 @@ CREATE TABLE factura(
     FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario)
 )
 \end{verbatim}
-\subsubsection{es favorita}
+\subsubsection{Es Favorita}
 \begin{verbatim}
 CREATE TABLE es_favorita(
 	idUsuario int NOT NULL,
@@ -757,7 +757,8 @@ CREATE TABLE efectivo(
     FOREIGN KEY (idPago) REFERENCES pago(idPago)
 );
 \end{verbatim}
-\subsubsection{Direccion}
+\newpage
+\subsubsection{Direcci\'on}
 \begin{verbatim}
 CREATE TABLE direccion(
 	idDireccion INT NOT NULL AUTO_INCREMENT,
@@ -796,7 +797,7 @@ CREATE TABLE compra(
 )
 
 \end{verbatim}
-\subsubsection{Categoria}
+\subsubsection{Categor\'ia}
 \begin{verbatim}
 CREATE TABLE categoria(
 	idCategoriaPublicacion INT NOT NULL AUTO_INCREMENT,
@@ -806,7 +807,7 @@ CREATE TABLE categoria(
     FOREIGN KEY (idCategoriaPadre) REFERENCES categoria(idCategoriaPublicacion)
 )
 \end{verbatim}
-\subsubsection{Categoria Servicio}
+\subsubsection{Categor\'ia Servicio}
 \begin{verbatim}
 CREATE TABLE Categoria_Servicio(
 	idCategoriaPublicacion int NOT NULL,
@@ -814,7 +815,7 @@ CREATE TABLE Categoria_Servicio(
     FOREIGN KEY (idCategoriaPublicacion) REFERENCES categoria(idCategoriaPublicacion)
 )
 \end{verbatim}
-\subsubsection{Categoria Empresa}
+\subsubsection{Categor\'ia Empresa}
 \begin{verbatim}
 CREATE TABLE categoria_empresa(
 	idCatEmpresa INT NOT NULL AUTO_INCREMENT,
@@ -824,7 +825,7 @@ CREATE TABLE categoria_empresa(
     FOREIGN KEY (idCategoriaPadre) REFERENCES categoria_empresa(idCatEmpresa)
 )
 \end{verbatim}
-\subsubsection{Categoria Articulo}
+\subsubsection{Categor\'ia Art\'iculo}
 \begin{verbatim}
 CREATE TABLE Categoria_Articulo(
 	idCategoriaPublicacion int NOT NULL,
@@ -832,7 +833,7 @@ CREATE TABLE Categoria_Articulo(
     FOREIGN KEY (idCategoriaPublicacion) REFERENCES categoria(idCategoriaPublicacion)
 )
 \end{verbatim}
-\subsubsection{Calificacion}
+\subsubsection{Calificaci\'on}
 \begin{verbatim}
 CREATE TABLE calificacion(
 	idCalificacion int Not null AUTO_INCREMENT,
@@ -847,7 +848,7 @@ CREATE TABLE calificacion(
     FOREIGN KEY (idUsuario) REFERENCES usuario(idusuario)
 )
 \end{verbatim}
-\subsubsection{Busqueda}
+\subsubsection{B\'usqueda}
 \begin{verbatim}
 CREATE TABLE busqueda(
 	idBusqueda int NOT NULL AUTO_INCREMENT,
@@ -855,7 +856,7 @@ CREATE TABLE busqueda(
 	PRIMARY KEY	(idBusqueda)
 );
 \end{verbatim}
-\subsubsection{Articulo}
+\subsubsection{Art\'iculo}
 \begin{verbatim}
 CREATE TABLE Articulo(
 	idPublicacion int NOT NULL,
@@ -865,7 +866,342 @@ CREATE TABLE Articulo(
 	FOREIGN KEY (idPublicacion) REFERENCES Publicacion(idPublicacion)
 );
 \end{verbatim}
+\newpage
 \subsubsection{Triggers}
+A continuacion se muestran los triggers utilizados en las tablas.
+\begin{verbatim}
+USE `tp1`;
+
+DELIMITER $$
+
+DROP TRIGGER IF EXISTS tp1.oferta_BEFORE_INSERT$$
+USE `tp1`$$
+CREATE DEFINER = CURRENT_USER TRIGGER ofertaValida BEFORE INSERT ON `oferta` FOR EACH ROW
+BEGIN
+	IF NEW.monto > (select precio from publicacion where idPublicacion = new.idPublicacion) and 
+	NEW.monto <= (select 2*precio from publicacion where idPublicacion = new.idPublicacion) THEN
+		update publicacion set precio = new.monto where idPublicacion = new.idPublicacion;
+	END IF;
+ -- 
+END$$
+DELIMITER ;
+
+\end{verbatim}
+
+\subsection{Insercci\'on de datos de prueba}
+
+A continuaci\'on se muestran las queries ejecutadas para insertar los datos.
+Observaciones:
+\begin{enumerate}
+\item Para cada tabla, utilizamos m\'as queries de las mostradas, pero para simplicidad del informe mostramos un subconjunto de ellas.
+\item Los datos ingresados en las tablas no est\'an en su totalidad de consistencia. Es decir, pueden existir usuarios que realizaron pagos pero no tienen compras. Es importante notar, que aunque existan inconsistencias en las tablas, las FK y CK se cumplen, sino seria imposible insertar datos.
+
+\end{enumerate}
+\subsubsection{Visita}
+\begin{verbatim}
+INSERT INTO visita (`idUsuario`, `idPublicacion`, `fecha`, `hora`) 
+				VALUES ('1', '1', '2008-01-02', '20');
+				
+INSERT INTO visita (`idUsuario`, `idPublicacion`, `fecha`, `hora`) 
+VALUES ('1', '4', '2008-01-02', '21');
+\end{verbatim}
+\subsubsection{Vigente}
+\begin{verbatim}
+INSERT INTO vigente (`idPublicacion`) 
+VALUES ('1');
+
+INSERT INTO vigente (`idPublicacion`) 
+VALUES ('2');
+\end{verbatim}
+\subsubsection{Venta}
+\begin{verbatim}
+INSERT INTO venta (`idPublicacion`) 
+VALUES ('1');
+
+INSERT INTO venta (`idPublicacion`) 
+VALUES ('2');
+\end{verbatim}
+\subsubsection{Usuario}
+\begin{verbatim}
+INSERT INTO usuario (tipo, cantCalificaciones, puntajeAcumulado, email,
+ telefono, idDireccion, idLocalidad) 
+VALUES ('Persona',0,0,'christian.russo8@gmail.com', '48444479', 2,4);
+
+INSERT INTO usuario (tipo, cantCalificaciones, puntajeAcumulado, email, 
+telefono, idDireccion, idLocalidad)
+VALUES ('Persona',0,0,'guido.raj@gmail.com', '154444444', 3,9);
+\end{verbatim}
+\subsubsection{Tipo de publicaci\'on}
+\begin{verbatim}
+INSERT INTO tipo_de_publicacion` (`idTipoPublicacion`, `nombre`, `nivel`,
+ `semanasParaCaducar`, `costo`, `porcentajeVenta`) 
+VALUES ('1', 'RubiDeOriente', '1', '10', '100', '10');
+
+INSERT INTO tipo_de_publicacion` (`idTipoPublicacion`, `nombre`, `nivel`, 
+`semanasParaCaducar`, `costo`, `porcentajeVenta`) 
+VALUES ('2', 'Oro', '2', '12', '80', '8');
+\end{verbatim}
+\subsubsection{Tarjeta}
+\begin{verbatim}
+INSERT INTO tarjeta (`idPago`, `numCuotas`, `numero`, `titular`, `fechaVencimiento`, `codSeguridad`)
+VALUES ('2', '6', '1234567812345678', 'Christian Russo', '2008-01-02', '123');
+\end{verbatim}
+\subsubsection{Subasta}
+\begin{verbatim}
+INSERT INTO subasta (`idPublicacion`, `precioBase`) 
+VALUES ('1', '100');
+\end{verbatim}
+\subsubsection{Servicio}
+\begin{verbatim}
+INSERT INTO servicio(`idPublicacion`, `comision`) 
+VALUES ('5', '10');
+\end{verbatim}
+\subsubsection{Realiza}
+\begin{verbatim}
+INSERT INTO realiza` (`idBusqueda`, `idUsuario`) 
+VALUES ('1', '1');
+
+INSERT INTO realiza (`idBusqueda`, `idUsuario`) 
+VALUES ('2', '3');
+\end{verbatim}
+\subsubsection{Publicaci\'on}
+\begin{verbatim}
+INSERT INTO publicacion`(`idPublicacion`, `idCategoria`, `idUsuario`, `idTipoDePublicacion`,
+ `estado`, `fechaInicio`, `titulo`, `cantidadDisponible`, `precio`) 
+VALUES ('1', '1', '1', '1', 'Vigente', '2008-01-02', 'Alfombra para auto', '2', '1000');
+
+INSERT INTO publicacion(`idPublicacion`, `idCategoria`, `idUsuario`, `idTipoDePublicacion`, 
+`estado`, `fechaInicio`, `titulo`, `cantidadDisponible`, `precio`) 
+VALUES ('2', '8', '1', '1', 'Vigente', '2008-01-02', 'Poni recien nacido', '1', '10000');
+\end{verbatim}
+\subsubsection{Publica por categor\'ia}
+\begin{verbatim}
+INSERT INTO publica_por_categoria(`idCategoriaPublicacion`, `cantidadVendidos`, `idUsuario`) 
+VALUES ('1', '0', '1');
+
+INSERT INTO publica_por_categoria (`idCategoriaPublicacion`, `cantidadVendidos`, `idUsuario`) 
+VALUES ('2', '2', '3');
+\end{verbatim}
+\subsubsection{Pregunta}
+\begin{verbatim}
+INSERT INTO pregunta (`idPregunta`, `idPublicacion`, `texto_pregunta`, `texto_respuesta`,
+ `idUsuario`) 
+VALUES ('1', '1', 'Hola, queria saber si la alfombra esta nueva', 'No, esta usada', '4');
+
+INSERT INTO pregunta (`idPregunta`, `idPublicacion`, `texto_pregunta`, `idUsuario`) 
+VALUES ('2', '1', 'Hola, las alfombras son para un Fiat?', '4');
+\end{verbatim}
+\subsubsection{Persona}
+\begin{verbatim}
+INSERT INTO persona (`idUsuario`, `nombre`, `apellido`, `DNI`) 
+VALUES ('1', 'Christian', 'Russo', '35561654');
+
+INSERT INTO persona (`idUsuario`, `nombre`, `apellido`, `DNI`) 
+VALUES ('3', 'Guido', 'Kaska', '35561666');
+\end{verbatim}
+\subsubsection{Pago}
+\begin{verbatim}
+INSERT INTO pago (`idPago`, `idFactura`, `tipoDePago`) 
+VALUES ('1', '1', 'Efectivo');
+
+INSERT INTO pago (`idPago`, `idFactura`, `tipoDePago`) 
+VALUES ('2', '2', 'Tarjeta');
+\end{verbatim}
+\subsubsection{Oferta}
+\begin{verbatim}
+INSERT INTO oferta (`idPublicacion`, `idUsuario`, `fecha`, `hora`, `monto`) 
+VALUES ('1', '1', '2008-01-02', '10', '100');
+\end{verbatim}
+\subsubsection{Localidad}
+\begin{verbatim}
+INSERT INTO localidad (nombre) VALUES ('25 de Mayo');
+
+INSERT INTO localidad (nombre) VALUES ('9 de Julio');
+\end{verbatim}
+\subsubsection{Finalizada}
+\begin{verbatim}
+
+INSERT INTO finalizada (`idPublicacion`, `fechaFinalizacion`) 
+VALUES ('4', '2008-02-02');
+\end{verbatim}
+\newpage
+\subsubsection{Factura}
+\begin{verbatim}
+
+INSERT INTO factura (`idFactura`, `totalAPagar`, `fecha`, `idUsuario`) 
+VALUES ('1', '1000', '2008-01-02', '1');
+
+INSERT INTO factura (`idFactura`, `totalAPagar`, `fecha`, `idUsuario`) 
+VALUES ('2', '574', '2008-01-02', '3');
+\end{verbatim}
+\subsubsection{Es Favorita}
+\begin{verbatim}
+
+INSERT INTO es_favorita (`idUsuario`, `idPublicacion`) 
+VALUES ('1', '1');
+
+INSERT INTO es_favorita (`idUsuario`, `idPublicacion`) 
+VALUES ('3', '3');
+\end{verbatim}
+\subsubsection{Empresa}
+\begin{verbatim}
+INSERT INTO empresa(`idUsuario`, `RazonSocial`, `cuit`, `idCatEmpresa`) 
+VALUES ('1', 'Empresa1', '20355616542', '1');
+
+INSERT INTO empresa (`idUsuario`, `RazonSocial`, `cuit`, `idCatEmpresa`) 
+VALUES ('2', 'Empresa2', '20355616542', '1');
+\end{verbatim}
+\subsubsection{Efectivo}
+\begin{verbatim}
+INSERT INTO efectivo (`idPago`) 
+VALUES ('1');
+
+INSERT INTO efectivo (`idPago`) 
+VALUES ('3');
+\end{verbatim}
+\subsubsection{Direcci\'on}
+\begin{verbatim}
+
+INSERT INTO direccion (idLocalidad,numero,calle) 
+VALUES ('6','6101',' BACACAY');
+
+INSERT INTO direccion (idLocalidad,numero,calle) 
+VALUES ('24','489','BACON');
+\end{verbatim}
+\subsubsection{Corresponde}
+\begin{verbatim}
+INSERT INTO corresponde (`idFactura`, `idPublicacion`) 
+VALUES ('1', '1');
+
+INSERT INTO corresponde (`idFactura`, `idPublicacion`) 
+VALUES ('2', '2');
+\end{verbatim}
+\subsubsection{Compra}
+\begin{verbatim}
+INSERT INTO compra(`idCompra`, `idUsuario`, `idPublicacion`, `idPago`, 
+`idDireccion`, `fecha`, `cantidad`) 
+VALUES ('1', '1', '2', '1', '1', '2008-01-02', '1');
+\end{verbatim}
+\subsubsection{Categor\'ia}
+\begin{verbatim}
+
+INSERT INTO categoria (nombre, idCategoriaPadre) 
+VALUES ('Accesorios para Vehiculos',NULL);
+
+INSERT INTO categoria (nombre, idCategoriaPadre) 
+VALUES ('Animales y Mascotas',NULL);
+\end{verbatim}
+\subsubsection{Categor\'ia Servicio}
+\begin{verbatim}
+
+INSERT INTO categoria_servicio (`idCategoriaPublicacion`) 
+VALUES ('2');
+
+INSERT INTO categoria_servicio (`idCategoriaPublicacion`) 
+VALUES ('3');
+\end{verbatim}
+\subsubsection{Categor\'ia Empresa}
+\begin{verbatim}
+
+INSERT INTO categoria_empresa (`idCatEmpresa`, `nombre`) 
+VALUES ('1', 'Construccion');
+
+INSERT INTO categoria_empresa (`idCatEmpresa`, `nombre`, `idCategoriaPadre`) 
+VALUES ('2', 'Carpinteria', '1');
+\end{verbatim}
+\subsubsection{Categor\'ia Art\'iculo}
+\begin{verbatim}
+
+INSERT INTO categoria_articulo (idCategoriaPublicacion) 
+VALUES ('3');
+
+INSERT INTO categoria_articulo (idCategoriaPublicacion) 
+VALUES ('5');
+\end{verbatim}
+\subsubsection{Calificaci\'on}
+\begin{verbatim}
+INSERT INTO calificacion (`idCalificacion`, `idCompra`, `idUsuario`, `puntaje`,
+ `textoComentario`, `textoReplica`) 
+VALUES ('1', '3', '4', '10', 'Un capo!', 'Gracias');
+
+INSERT INTO calificacion (`idCalificacion`, `idCompra`, `idUsuario`, `puntaje`, 
+`textoComentario`, `textoReplica`) 
+VALUES ('2', '4', '4', '4', 'Me cago', 'Si');
+\end{verbatim}
+
+\subsubsection{B\'usqueda}
+\begin{verbatim}
+
+INSERT INTO busqueda (`idBusqueda`, `texto`) 
+VALUES ('1', 'Conejos baratos');
+
+INSERT INTO busqueda (`idBusqueda`, `texto`) 
+VALUES ('2', 'Alfombras para autos');
+\end{verbatim}
+\newpage
+\subsubsection{Art\'iculo}
+\begin{verbatim}
+INSERT INTO articulo (`idPublicacion`, `tipo`) 
+VALUES ('1', 'Venta');
+
+INSERT INTO articulo (`idPublicacion`, `tipo`)
+VALUES ('2', 'Venta');
+\end{verbatim}
+
+\section{C\'odigo}
+\subsection{Consultas por Usuario}
+\subsubsection{Obtener, para un usuario especifico, informacion sobre los art\'iculos que ha comprado y vendido}
+\begin{verbatim}
+select titulo from publicacion p join 
+compra c on p.idPublicacion = c.idPublicacion join articulo a 
+on p.idPublicacion = a.idPublicacion 
+where p.idUsuario = 1 or c.idUsuario = 1 
+\end{verbatim}
+
+
+\subsubsection{Dado un usuario, los art\'iculos que visito con su fecha}
+\begin{verbatim}
+select titulo,email, fecha from visita v 
+join usuario u on v.idUsuario = u.idUsuario 
+join articulo a on a.idPublicacion = v.idPublicacion 
+join publicacion p on p.idPublicacion = v.idPublicacion 
+where  v.idUsuario = 3
+\end{verbatim}
+
+\subsubsection{Dado un usuario, los art\'iculos que tiene en su lista de favoritos.}
+\begin{verbatim}
+select titulo, email from es_favorita ef 
+join publicacion p on ef.idPublicacion = p.idPublicacion 
+join usuario u on ef.idusuario = u.idUsuario  
+where p.idUsuario = 1
+\end{verbatim}
+
+\subsubsection{Dado un usuario, las primeras 3 categor\'ias mas visitadas en el ultimo anio}
+\begin{verbatim}
+select idCategoria, u.idUsuario, count(*) as cantidad, nombre from visita v 
+join publicacion p on v.idPublicacion = p.idPublicacion 
+join usuario u on u.idUsuario = v.idUsuario and u.idUsuario = 1
+join categoria c on c.idCategoriaPublicacion = p.idCategoria
+where datediff(CURDATE(), fecha) <= 365 
+group by idCategoria, u.idUsuario
+order by cantidad desc
+limit 3
+\end{verbatim}
+\newpage
+\subsection{Consultas por categor\'ia de producto}
+\subsubsection{Obtener dado una categor\'ia de producto un listado de los vendedores que han publicado art\'iculos de dicha categor\'ia y la cantidad de ventas que hizo cada uno.
+}
+\begin{verbatim}
+select u.idUsuario,u.email,  sum(c.cantidad) as CantidadVendido from publicacion p 
+	join usuario u on u.idUsuario = p.idUsuario
+    join compra c on c.idPublicacion = p.idPublicacion
+	where p.idCategoria = 1
+    group by u.idUsuario, u.email
+\end{verbatim}
+
+\subsection{Funcion Ofertar}
+\subsubsection{Debe permitir al usuario ofertar una suma en una subasta, 1 peso mayor a la oferta actual y menor al doble. }
+
 \begin{verbatim}
 USE `tp1`;
 
@@ -875,7 +1211,8 @@ DROP TRIGGER IF EXISTS tp1.oferta_BEFORE_INSERT$$
 USE `tp1`$$
 CREATE DEFINER = CURRENT_USER TRIGGER `tp1`.`ofertaValida` BEFORE INSERT ON `oferta` FOR EACH ROW
 BEGIN
-	IF NEW.monto > (select precio from publicacion where idPublicacion = new.idPublicacion) and NEW.monto <= (select 2*precio from publicacion where idPublicacion = new.idPublicacion) THEN
+	IF NEW.monto > (select precio from publicacion where idPublicacion = new.idPublicacion) and 
+	NEW.monto <= (select 2*precio from publicacion where idPublicacion = new.idPublicacion) THEN
 		update publicacion set precio = new.monto where idPublicacion = new.idPublicacion;
 	END IF;
  -- 
@@ -883,253 +1220,57 @@ END$$
 DELIMITER ;
 
 \end{verbatim}
-
-\subsection{Inserccion de datos de prueba}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsubsection{Visita}
+\subsection{Consultas por Usuario y preguntas}
+\subsubsection{Obtener para un usuarios la lista de preguntas que hizo y su respuesta.}
 \begin{verbatim}
-INSERT INTO `tp1`.`visita` (`idUsuario`, `idPublicacion`, `fecha`, `hora`) VALUES ('1', '1', '2008-01-02', '20');
-INSERT INTO `tp1`.`visita` (`idUsuario`, `idPublicacion`, `fecha`, `hora`) VALUES ('1', '4', '2008-01-02', '21');
-\end{verbatim}
-\subsubsection{Vigente}
-\begin{verbatim}
-INSERT INTO `tp1`.`vigente` (`idPublicacion`) VALUES ('1');
-INSERT INTO `tp1`.`vigente` (`idPublicacion`) VALUES ('2');
-\end{verbatim}
-\subsubsection{Venta}
-\begin{verbatim}
-INSERT INTO `tp1`.`venta` (`idPublicacion`) VALUES ('1');
-INSERT INTO `tp1`.`venta` (`idPublicacion`) VALUES ('2');
+select email, texto_pregunta, texto_respuesta from pregunta p join usuario u 
+on p.Idusuario = u.idUsuario 
+where u.idUsuario = 4
 \end{verbatim}
 
-\subsubsection{Usuario}
+\subsection{Consultas por keyword}
+\subsubsection{Obtener para un cierto keyword la lista de publicaciones vigentes que tengan en el t\'itulo dicho keyword.}
 \begin{verbatim}
-INSERT INTO usuario (tipo, cantCalificaciones, puntajeAcumulado, email, telefono, idDireccion, idLocalidad) VALUES ('Persona',0,0,'christian.russo8@gmail.com', '48444479', 2,4);
-INSERT INTO usuario (tipo, cantCalificaciones, puntajeAcumulado, email, telefono, idDireccion, idLocalidad) VALUES ('Persona',0,0,'guido.raj@gmail.com', '154444444', 3,9);
-
+select * from publicacion p 
+join vigente v on  p.idPublicacion = v.idPublicacion
+where p.titulo LIKE "%alfombra%" and p.idCategoria = 2
 \end{verbatim}
-\subsubsection{Tipo de publicacion}
+\newpage
+\subsection{Consultas por ganadores}
+\subsubsection{ obtener, para un anio especifico, el ganador/es.}
+Primero calculamos los usuarios con mayor calificaci\'on anual:
 \begin{verbatim}
-INSERT INTO `tp1`.`tipo_de_publicacion` (`idTipoPublicacion`, `nombre`, `nivel`, `semanasParaCaducar`, `costo`, `porcentajeVenta`) VALUES ('1', 'RubiDeOriente', '1', '10', '100', '10');
-INSERT INTO `tp1`.`tipo_de_publicacion` (`idTipoPublicacion`, `nombre`, `nivel`, `semanasParaCaducar`, `costo`, `porcentajeVenta`) VALUES ('2', 'Oro', '2', '12', '80', '8');
 
-\end{verbatim}
-\subsubsection{Tarjeta}
-\begin{verbatim}
-INSERT INTO `tp1`.`tarjeta` (`idPago`, `numCuotas`, `numero`, `titular`, `fechaVencimiento`, `codSeguridad`) VALUES ('2', '6', '1234567812345678', 'Christian Russo', '2008-01-02', '123');
-
-\end{verbatim}
-\subsubsection{Subasta}
-\begin{verbatim}
-INSERT INTO `tp1`.`subasta` (`idPublicacion`, `precioBase`) VALUES ('1', '100');
-
-\end{verbatim}
-\subsubsection{Servicio}
-\begin{verbatim}
-INSERT INTO `tp1`.`servicio` (`idPublicacion`, `comision`) VALUES ('5', '10');
+select * from (Select ca.idUsuario, sum(puntaje)/count(*) as reputacionAnual from calificacion ca
+join compra c on ca.idCompra = c.idCompra
+where fecha like "%2008%"
+group by ca.idUsuario) as reps
+where reps.reputacionAnual in (select max(reputacionAnual) from (
+Select sum(puntaje)/count(*) as reputacionAnual from calificacion ca
+join compra c on ca.idCompra = c.idCompra
+where fecha like "%2008%"
+group by ca.idUsuario) as maximo)
 
 
 \end{verbatim}
-\subsubsection{Realiza}
+
+Luego calculamos los usuarios que m\'as pagaron al sitio
 \begin{verbatim}
-INSERT INTO `tp1`.`realiza` (`idBusqueda`, `idUsuario`) VALUES ('1', '1');
-INSERT INTO `tp1`.`realiza` (`idBusqueda`, `idUsuario`) VALUES ('2', '3');
-\end{verbatim}
-\subsubsection{Publicacion}
-\begin{verbatim}
-INSERT INTO `tp1`.`publicacion` (`idPublicacion`, `idCategoria`, `idUsuario`, `idTipoDePublicacion`, `estado`, `fechaInicio`, `titulo`, `cantidadDisponible`, `precio`) VALUES ('1', '1', '1', '1', 'Vigente', '2008-01-02', 'Alfombra para auto', '2', '1000');
-INSERT INTO `tp1`.`publicacion` (`idPublicacion`, `idCategoria`, `idUsuario`, `idTipoDePublicacion`, `estado`, `fechaInicio`, `titulo`, `cantidadDisponible`, `precio`) VALUES ('2', '8', '1', '1', 'Vigente', '2008-01-02', 'Poni recien nacido', '1', '10000');
-
-\end{verbatim}
-\subsubsection{Publica por categoria}
-\begin{verbatim}
-INSERT INTO `tp1`.`publica_por_categoria` (`idCategoriaPublicacion`, `cantidadVendidos`, `idUsuario`) VALUES ('1', '0', '1');
-INSERT INTO `tp1`.`publica_por_categoria` (`idCategoriaPublicacion`, `cantidadVendidos`, `idUsuario`) VALUES ('2', '2', '3');
-
-\end{verbatim}
-\subsubsection{Pregunta}
-\begin{verbatim}
-INSERT INTO `tp1`.`pregunta` (`idPregunta`, `idPublicacion`, `texto_pregunta`, `texto_respuesta`, `idUsuario`) VALUES ('1', '1', 'Hola, queria saber si la alfombra esta nueva', 'No, esta usada', '4');
-INSERT INTO `tp1`.`pregunta` (`idPregunta`, `idPublicacion`, `texto_pregunta`, `idUsuario`) VALUES ('2', '1', 'Hola, las alfombras son para un Fiat?', '4');
-
-\end{verbatim}
-\subsubsection{Persona}
-\begin{verbatim}
-INSERT INTO `tp1`.`persona` (`idUsuario`, `nombre`, `apellido`, `DNI`) VALUES ('1', 'Christian', 'Russo', '35561654');
-INSERT INTO `tp1`.`persona` (`idUsuario`, `nombre`, `apellido`, `DNI`) VALUES ('3', 'Guido', 'Kaska', '35561666');
-
-\end{verbatim}
-\subsubsection{Pago}
-\begin{verbatim}
-INSERT INTO `tp1`.`pago` (`idPago`, `idFactura`, `tipoDePago`) VALUES ('1', '1', 'Efectivo');
-INSERT INTO `tp1`.`pago` (`idPago`, `idFactura`, `tipoDePago`) VALUES ('2', '2', 'Tarjeta');
-
-\end{verbatim}
-\subsubsection{Oferta}
-\begin{verbatim}
-INSERT INTO `tp1`.`oferta` (`idPublicacion`, `idUsuario`, `fecha`, `hora`, `monto`) VALUES ('1', '1', '2008-01-02', '10', '100');
-
-
-
-\end{verbatim}
-\subsubsection{Localidad}
-\begin{verbatim}
-INSERT INTO localidad (nombre) VALUES ('25 de Mayo');
-INSERT INTO localidad (nombre) VALUES ('9 de Julio');
-\end{verbatim}
-\subsubsection{Finalizada}
-\begin{verbatim}
-
-INSERT INTO `tp1`.`finalizada` (`idPublicacion`, `fechaFinalizacion`) VALUES ('4', '2008-02-02');
-
-\end{verbatim}
-\subsubsection{Factura}
-\begin{verbatim}
-
-INSERT INTO `tp1`.`factura` (`idFactura`, `totalAPagar`, `fecha`, `idUsuario`) VALUES ('1', '1000', '2008-01-02', '1');
-INSERT INTO `tp1`.`factura` (`idFactura`, `totalAPagar`, `fecha`, `idUsuario`) VALUES ('2', '574', '2008-01-02', '3');
-\end{verbatim}
-\subsubsection{es favorita}
-\begin{verbatim}
-
-INSERT INTO `tp1`.`es_favorita` (`idUsuario`, `idPublicacion`) VALUES ('1', '1');
-INSERT INTO `tp1`.`es_favorita` (`idUsuario`, `idPublicacion`) VALUES ('3', '3');
-\end{verbatim}
-\subsubsection{Empresa}
-\begin{verbatim}
-INSERT INTO `tp1`.`empresa` (`idUsuario`, `RazonSocial`, `cuit`, `idCatEmpresa`) VALUES ('1', 'Empresa1', '20355616542', '1');
-INSERT INTO `tp1`.`empresa` (`idUsuario`, `RazonSocial`, `cuit`, `idCatEmpresa`) VALUES ('2', 'Empresa2', '20355616542', '1');
-
-\end{verbatim}
-\subsubsection{Efectivo}
-\begin{verbatim}
-INSERT INTO `tp1`.`efectivo` (`idPago`) VALUES ('1');
-INSERT INTO `tp1`.`efectivo` (`idPago`) VALUES ('3');
-
-\end{verbatim}
-\subsubsection{Direccion}
-\begin{verbatim}
-
-INSERT INTO direccion (idLocalidad,numero,calle) VALUES ('6','6101',' BACACAY');
-INSERT INTO direccion (idLocalidad,numero,calle) VALUES ('24','489','BACON');
-\end{verbatim}
-\subsubsection{Corresponde}
-\begin{verbatim}
-
-\end{verbatim}
-\subsubsection{Compra}
-\begin{verbatim}
-
-INSERT INTO `tp1`.`corresponde` (`idFactura`, `idPublicacion`) VALUES ('1', '1');
-INSERT INTO `tp1`.`corresponde` (`idFactura`, `idPublicacion`) VALUES ('2', '2');
-\end{verbatim}
-\subsubsection{Categoria}
-\begin{verbatim}
-
-INSERT INTO categoria (nombre, idCategoriaPadre) VALUES ('Accesorios para Vehiculos',NULL);
-INSERT INTO categoria (nombre, idCategoriaPadre) VALUES ('Animales y Mascotas',NULL);
-\end{verbatim}
-\subsubsection{Categoria Servicio}
-\begin{verbatim}
-
-INSERT INTO `tp1`.`categoria_servicio` (`idCategoriaPublicacion`) VALUES ('2');
-INSERT INTO `tp1`.`categoria_servicio` (`idCategoriaPublicacion`) VALUES ('3');
-\end{verbatim}
-\subsubsection{Categoria Empresa}
-\begin{verbatim}
-
-INSERT INTO `tp1`.`categoria_empresa` (`idCatEmpresa`, `nombre`) VALUES ('1', 'Construccion');
-INSERT INTO `tp1`.`categoria_empresa` (`idCatEmpresa`, `nombre`, `idCategoriaPadre`) VALUES ('2', 'Carpinteria', '1');
-\end{verbatim}
-\subsubsection{Categoria Articulo}
-\begin{verbatim}
-
-INSERT INTO categoria_articulo(idCategoriaPublicacion) VALUES ('3');
-INSERT INTO categoria_articulo (idCategoriaPublicacion) VALUES ('5');
-\end{verbatim}
-\subsubsection{Calificacion}
-\begin{verbatim}
-INSERT INTO `tp1`.`calificacion` (`idCalificacion`, `idCompra`, `idUsuario`, `puntaje`, `textoComentario`, `textoReplica`) VALUES ('1', '3', '4', '10', 'Un capo!', 'Gracias');
-INSERT INTO `tp1`.`calificacion` (`idCalificacion`, `idCompra`, `idUsuario`, `puntaje`, `textoComentario`, `textoReplica`) VALUES ('2', '4', '4', '4', 'Me cago', 'Si');
-
+select * from (Select ca.idUsuario, sum(puntaje)/count(*) as reputacionAnual from calificacion ca
+join compra c on ca.idCompra = c.idCompra
+where fecha like "%2008%"
+group by ca.idUsuario) as reps
+where reps.reputacionAnual in (select max(reputacionAnual) from (
+Select sum(puntaje)/count(*) as reputacionAnual from calificacion ca
+join compra c on ca.idCompra = c.idCompra
+where fecha like "%2008%"
+group by ca.idUsuario) as maximo)
 \end{verbatim}
 
-\subsubsection{Busqueda}
-\begin{verbatim}
-
-INSERT INTO `tp1`.`busqueda` (`idBusqueda`, `texto`) VALUES ('1', 'Conejos baratos');
-INSERT INTO `tp1`.`busqueda` (`idBusqueda`, `texto`) VALUES ('2', 'Alfombras para autos');
-\end{verbatim}
-
-\subsubsection{Articulo}
-
-INSERT INTO `tp1`.`articulo` (`idPublicacion`, `tipo`) VALUES ('1', 'Venta');
-INSERT INTO `tp1`.`articulo` (`idPublicacion`, `tipo`) VALUES ('2', 'Venta');
-\begin{verbatim}
-
-\end{verbatim}
-
-
-
-
-
-
-
-
-\section{Codigo}
- Codigo correspondiente al sistema y a las consultas/stored procedures/triggers que se
-piden en el punto Otras Funcionalidades a Implementar
+Con estos dos resultados se los enviamos al departamento del marketing para que eval\'ue al ganador.
 \section{Conclusiones}
 
-
+Luego de realizar este trabajo pr\'actico concluimos que a la hora de necesitar realizar las tablas de una base de datos de un sistema de gran tamanio, es conveniente armar diagramas como el DER y MR. 
+Estos diagramas nos ayudaron enormemente a resolver las queries pedidas y poder hacer las tablas sin errores. 
+M\'as all\'a que hacer el MR a partir de un DER es un trabajo tedioso, es muy recomendable hacerlo dado que nosotros para realizar las queries pod\'iamos ver los campos y la relaciones entre tablas f\'acilmente as\'i tambi\'en como las FK y CK de cada una.
 \end{document}
