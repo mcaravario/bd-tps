@@ -513,14 +513,14 @@ Precio
 \section{Suposiciones}
 
 \begin{enumerate}
-\item Para calcular el ganador de un anio espec\'ificio se calcula el que calificaci\'on tiene ese anio y el que mas pago al sitio y esos datos alcanzan para que el departamento de marketing haga una ponderaci\'on y calcule el ganador
+\item Para calcular el ganador de un a\~no espec\'ificio se calcula el que calificaci\'on tiene ese a\~no y el que mas pago al sitio y esos datos alcanzan para que el departamento de marketing haga una ponderaci\'on y calcule el ganador
 \item Si se realiza una oferta invalidad, es decir que no cumple con lo necesario de la subasta, esa oferta se guarda en la tabla oferta pero el monto de la publicaci\'on no se modifica. De esta forma la tabla oferta contendr\'a datos que son inv\'alidos pero la oferta siempre estar\'a con el valor correcto.
 
 \item Los datos de prueba cargados en la tablas no son consistentes en su totalidad, es decir puede existir un Usuario que publica un oferta y a la vez este usuario comprar la misma.
 
 \end{enumerate}
 
-\section{Disenio F\'isico}
+\section{Dise\~nio F\'isico}
 \subsection{Creaci\'on de tablas}
 \subsubsection{Visita}
 \begin{verbatim}
@@ -1176,7 +1176,7 @@ join usuario u on ef.idusuario = u.idUsuario
 where p.idUsuario = 1
 \end{verbatim}
 
-\subsubsection{Dado un usuario, las primeras 3 categor\'ias mas visitadas en el ultimo anio}
+\subsubsection{Dado un usuario, las primeras 3 categor\'ias mas visitadas en el ultimo a\~nio}
 \begin{verbatim}
 select idCategoria, u.idUsuario, count(*) as cantidad, nombre from visita v 
 join publicacion p on v.idPublicacion = p.idPublicacion 
@@ -1237,7 +1237,7 @@ where p.titulo LIKE "%alfombra%" and p.idCategoria = 2
 \end{verbatim}
 \newpage
 \subsection{Consultas por ganadores}
-\subsubsection{ obtener, para un anio especifico, el ganador/es.}
+\subsubsection{ obtener, para un a\~nio especifico, el ganador/es.}
 Primero calculamos los usuarios con mayor calificaci\'on anual:
 \begin{verbatim}
 
@@ -1270,7 +1270,7 @@ group by ca.idUsuario) as maximo)
 Con estos dos resultados se los enviamos al departamento del marketing para que eval\'ue al ganador.
 \section{Conclusiones}
 
-Luego de realizar este trabajo pr\'actico concluimos que a la hora de necesitar realizar las tablas de una base de datos de un sistema de gran tamanio, es conveniente armar diagramas como el DER y MR. 
+Luego de realizar este trabajo pr\'actico concluimos que a la hora de necesitar realizar las tablas de una base de datos de un sistema de gran tama\~no, es conveniente armar diagramas como el DER y MR. 
 Estos diagramas nos ayudaron enormemente a resolver las queries pedidas y poder hacer las tablas sin errores. 
 M\'as all\'a que hacer el MR a partir de un DER es un trabajo tedioso, es muy recomendable hacerlo dado que nosotros para realizar las queries pod\'iamos ver los campos y la relaciones entre tablas f\'acilmente as\'i tambi\'en como las FK y CK de cada una.
 \end{document}

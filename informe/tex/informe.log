@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.14)  5 MAY 2016 23:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.14)  5 MAY 2016 23:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -921,15 +921,22 @@ LaTeX Info: Redefining \% on input line 20.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1276.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1276.
 
-Package rerunfilecheck Info: File `informe.out' has not changed.
-(rerunfilecheck)             Checksum: 7E6193F4F9688C03DAC8F2512A3130A6;6866.
+
+
+Package rerunfilecheck Warning: File `informe.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `informe.out':
+(rerunfilecheck)             Before: 7E6193F4F9688C03DAC8F2512A3130A6;6866
+(rerunfilecheck)             After:  3B011EEB61BCECD979226D10C1FE85D2;6875.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1276.
  ) 
 Here is how much of TeX's memory you used:
- 8628 strings out of 493117
- 124404 string characters out of 6135433
+ 8629 strings out of 493117
+ 124412 string characters out of 6135433
  233211 words of memory out of 5000000
- 11809 multiletter control sequences out of 15000+600000
+ 11810 multiletter control sequences out of 15000+600000
  7430 words of font info for 30 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  29i,11n,43p,531b,475s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -941,7 +948,7 @@ r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
 local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
 ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/lo
 cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy6.pfb>
-Output written on informe.pdf (22 pages, 1864765 bytes).
+Output written on informe.pdf (22 pages, 1865192 bytes).
 PDF statistics:
  585 PDF objects out of 1000 (max. 8388607)
  534 compressed objects within 6 object streams
