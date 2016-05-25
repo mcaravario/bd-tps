@@ -1,25 +1,21 @@
 {
 	"IdUsuario": 1,
 	"Empresa": {
-		"RazonSocial":"",
+		"RazonSocial":"avc",
 		"CUIT":"12-37480876-2",
-		"IdCategoria":12,
+		"IdCategoria":12
 	},
-	"Persona":{
-		"Nombre":,
-		"Apellido":,
-		"DNI":,
-	},
+	"Persona":{},
 	"Publicaciones": 
 	[
 		{
 			"Id": 65,
-			"Estado": "Vigente", // "Vigente" o "Finalizado" 
+			"Estado": "Vigente",
 			"FechaInicio": "3-06-2013",
 			"Titulo": "Hago zanjas a domicilio",
 			"CantidadDisponible":5,
 			"Precio": 200,
-			"TipoPublicacion": "Servicio", // "Articulo", "Servicio" o "Mixta"
+			"TipoPublicacion": "Servicio",
 			"Compras":
 			[
 				{
@@ -28,43 +24,39 @@
 					"Fecha": "12-05-2016",
 					"Cantidad": 5,
 					"CalificacionDelVendedor": {
-						"Puntaje": 8, // De 1 a 10 
+						"Puntaje": 8, 
 						"TextoComentario": "Todo ok.", 
-						"TextoReplica": "Todo muy eficiente.",
+						"TextoReplica": "Todo muy eficiente."
 
 					},
 					"CalificacionDelComprador": {
-						"Puntaje": 6, // De 1 a 10 
+						"Puntaje": 6, 
 						"TextoComentario": "Tardó mucho el envío.", 
-						"TextoReplica": "Garca.",
+						"TextoReplica": "Garca."
 					}
 				}
 			]
 		}
-	],
+	]
 }
 {
 	"IdUsuario": 1,
-	"Empresa": {
-		"RazonSocial":,
-		"CUIT":,
-		"IdCategoria":,
-	},
+	"Empresa": {},
 	"Persona":{
 		"Nombre": "Jorge",
 		"Apellido":"Gonzalez",
-		"DNI": "123.456.789",
+		"DNI": "123.456.789"
 	},
 	"Publicaciones": 
 	[
 		{
 			"Id": 5,
-			"Estado": "Vigente", // "Vigente" o "Finalizado" 
+			"Estado": "Vigente",  
 			"FechaInicio": "3-06-2013",
 			"Titulo": "Pony",
 			"CantidadDisponible":1,
 			"Precio": 1000,
-			"TipoPublicacion": "Articulo", // "Articulo", "Servicio" o "Mixta"
+			"TipoPublicacion": "Articulo", 
 			"Compras":
 			[
 				{
@@ -73,18 +65,18 @@
 					"Fecha": "12-05-2016",
 					"Cantidad": 2,
 					"CalificacionDelVendedor": {
-						"Puntaje": 3, // De 1 a 10 
+						"Puntaje": 3, 
 						"TextoComentario": "ok.", 
-						"TextoReplica": "eficiente.",
+						"TextoReplica": "eficiente."
 
 					},
 					"CalificacionDelComprador": {
-						"Puntaje": 6, // De 1 a 10 
+						"Puntaje": 6, 
 						"TextoComentario": "Tardó mucho", 
-						"TextoReplica": "gil",
+						"TextoReplica": "gil"
 					}
 				}
 			]
 		}
-	],
+	]
 }
