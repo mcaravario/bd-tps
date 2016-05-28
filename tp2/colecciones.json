@@ -1,0 +1,88 @@
+// Resuelve consultas: 1 y 2
+// Coleccion de Usuario
+{
+	"IdUsuario": 1,
+	"Empresa": {
+		"RazonSocial":,
+		"CUIT":,
+		"IdCategoria":,
+	},
+	"Persona":{
+		"Nombre":,
+		"Apellido":,
+		"DNI":,
+	},
+	"Apellido":"Gonzalez",
+	"DNI": "123.456.789",
+	"Publicaciones": 
+	[
+		{
+			"Id": 65,
+			"Estado": "Vigente", // "Vigente" o "Finalizado" 
+			"FechaInicio": "3-06-2013",
+			"Titulo": "Hago zanjas a domicilio",
+			"CantidadDisponible":,
+			"Precio": 200,
+			"TipoPublicacion": "Servicio", // "Articulo", "Servicio" o "Mixta"
+			"Compras":
+			[
+				{
+					"idCompra": 5351,
+					"idUsuarioComprador": 1023,
+					"Fecha": "12-05-2016",
+					"Cantidad": 5,
+					"CalificacionDelVendedor": {
+						"Puntaje": 8, // De 1 a 10 
+						"TextoComentario": "Todo ok.", 
+						"TextoReplica": "Todo muy eficiente.",
+
+					},
+					"CalificacionDelComprador": {
+						"Puntaje": 6, // De 1 a 10 
+						"TextoComentario": "Tardó mucho el envío.", 
+						"TextoReplica": "Garca.",
+					}
+				}
+			]
+
+		}
+	],
+
+}
+
+// Resuelve consultas: 3
+// Coleccion de compra
+{
+	"idCompra": 656897,
+	"idUsuarioComprador": 65468,
+	"Fecha": "2-06-2014",
+	"Cantidad": 2,
+	"Publicacion": {
+		"idPublicacion": 2365,
+		"Precio": 3655,
+		"TipoSuscripcion": {
+			"Costo": 230,
+			"PorcentajeVenta": 20, //entre 0 y 100
+			"Nombre": "RubíDeOriente"
+		}
+	}
+}
+
+// Resuelve consultas: 4
+// Coleccion de facturas
+{
+	"idFactura": 687468,
+	"IdUsuario": 654,
+	"Fecha": "16-9-2015",
+	"TotalAPagar": 5624,
+	"estoyPagando": [
+		{
+			"idPublicacion": 54,
+			"TipoSuscripcion": "Rubi"
+		},
+		{
+	 		"idPublicacion": 54,
+		 	"TipoSuscripcion": "Libre"
+		 }
+	]
+}

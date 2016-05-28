@@ -1,0 +1,5 @@
+Preguntas
+
+1.- Con "Monto total facturado por año" es el mondo que efectivamente fue PAGADO, o lo que debe ser pagado.
+
+2.- Haría falta tener una colección de publicaciones, o basta con navergarlas desde la colección de usuarios. Si navego por usuarios, podría recorrer usuarios sin publicaciones, haciéndo la consulta más lenta. Al tener una colección exclusiva para publicaciones, se recorren sólo las publicaciones, siendo el costo más barato posible para realizar la consulta.
