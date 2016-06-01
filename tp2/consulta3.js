@@ -5,10 +5,10 @@ var getComision = function(compra){
   return pub.Precio * (subs.PorcentajeVenta / 100);
 };
 
-var map = function(compra){
+var map = function(){
   emit("todos", {
-  'idCompra': compra.idCompra,
-  'comision': getComision(compra)});
+  'idCompra': this.idCompra,
+  'comision': getComision(this)});
 };
 
 var reduce = function(k, vs){
