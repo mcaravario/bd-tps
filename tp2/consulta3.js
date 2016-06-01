@@ -6,7 +6,7 @@ var getComision = function(compra){
 };
 
 var map = function(compra){
-  return emit("todos", {
+  emit("todos", {
   'idCompra': compra.idCompra,
   'comision': getComision(compra)});
 };
