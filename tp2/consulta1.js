@@ -1,12 +1,10 @@
 // El importe total de ventas por usuario.
-var m = function(){
-  var publicaciones = this["Publicaciones"];
-  for each (p in publicaciones){
-   for each (c in p["Compras"]){
-    var monto = c["Cantidad"]*p["Precio"];
-    emit(this["IdUsuario"], monto);
-    }
-  }
+// Coleccion compra
+var m = function(){ 
+	emit(this.publicacion.idUsuario, this.publicacion.precio * this.cantidad)	
 }
 
-var r = function(key,values){return [key, Array.sum(values)]}
+var r = function(k, vs){
+	emit(k, Array.sum(vs))
+}
+

@@ -1,20 +1,10 @@
 //La reputacion historica de cada usuario segun la calificacion.
+// Coleccion compra
 var m = function(){
-  var publicaciones = this["Publicaciones"];
-  for each (p in publicaciones){
-    if (Array.length(p["Compras"]) > 0){
-     for each (c in compras){
-      emit(this["IdUsuario"], c["CalificacionesDelComprador"]["Puntaje"]);
-     }   
-    }
-  }
-}    
-  
-var r = function(key,values){
-  var total = 0;
-  for each (v in values){
-    total += v;
-  }
-  var avg = total / Array.length(values);
-  return [key, avg];
+	emit(this.idUsuarioComprador, this.CalificacionDelVendedor);
+	emit(this.Publicacion.idUsuario, this.CalificacionDelComprador);
+}
+
+var r = function(k, vs){
+	emit(k, Array.sum(vs) / vs.length);
 }

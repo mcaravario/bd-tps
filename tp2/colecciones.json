@@ -1,4 +1,4 @@
-// Resuelve consultas: 1 y 2
+// Deprecado
 // Coleccion de Usuario
 {
 	"IdUsuario": 1,
@@ -13,44 +13,18 @@
 		"DNI":,
 	},
 	"Apellido":"Gonzalez",
-	"DNI": "123.456.789",
-	"Publicaciones": 
-	[
-		{
-			"Id": 65,
-			"Estado": "Vigente", // "Vigente" o "Finalizado" 
-			"FechaInicio": "3-06-2013",
-			"Titulo": "Hago zanjas a domicilio",
-			"CantidadDisponible":,
-			"Precio": 200,
-			"TipoPublicacion": "Servicio", // "Articulo", "Servicio" o "Mixta"
-			"Compras":
-			[
-				{
-					"idCompra": 5351,
-					"idUsuarioComprador": 1023,
-					"Fecha": "12-05-2016",
-					"Cantidad": 5,
-					"CalificacionDelVendedor": {
-						"Puntaje": 8, // De 1 a 10 
-						"TextoComentario": "Todo ok.", 
-						"TextoReplica": "Todo muy eficiente.",
-
-					},
-					"CalificacionDelComprador": {
-						"Puntaje": 6, // De 1 a 10 
-						"TextoComentario": "Tardó mucho el envío.", 
-						"TextoReplica": "Garca.",
-					}
-				}
-			]
-
-		}
-	],
-
+	"DNI": "123.456.789"
 }
 
-// Resuelve consultas: 3
+// Resuelve consulta 6
+//Coleccion de publicacione.
+{
+	"Id": 65,
+	"TipoPublicacion": "Servicio", // "Articulo", "Servicio" o "Mixta"
+}
+
+
+// Resuelve consultas: 1, 2 y 3
 // Coleccion de compra
 {
 	"idCompra": 656897,
@@ -59,16 +33,17 @@
 	"Cantidad": 2,
 	"Publicacion": {
 		"idPublicacion": 2365,
+		"idUsuario": 123,
 		"Precio": 3655,
 		"TipoSuscripcion": {
-			"Costo": 230,
 			"PorcentajeVenta": 20, //entre 0 y 100
-			"Nombre": "RubíDeOriente"
 		}
-	}
+	},
+	"CalificacionDelVendedor": 8,
+	"CalificacionDelComprador": 6
 }
 
-// Resuelve consultas: 4
+// Resuelve consultas: 4 y 5
 // Coleccion de facturas
 {
 	"idFactura": 687468,
