@@ -5,12 +5,12 @@
 	"Empresa": {
 		"RazonSocial":,
 		"CUIT":,
-		"IdCategoria":,
+		"IdCategoria":
 	},
 	"Persona":{
 		"Nombre":,
 		"Apellido":,
-		"DNI":,
+		"DNI":
 	},
 	"Apellido":"Gonzalez",
 	"DNI": "123.456.789"
