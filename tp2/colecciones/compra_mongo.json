@@ -7,7 +7,7 @@
 "idPublicacion":  2 ,
 "idUsuario":  1 ,
 "Precio":  14 ,
-"PorcentajeVenta: ":  10
+"PorcentajeVenta":  10
 } ,
 "nombre":  " RubiDeOriente "
 }
@@ -20,7 +20,7 @@
 "idPublicacion":  4 ,
 "idUsuario":  3 ,
 "Precio":  250 ,
-"PorcentajeVenta: ":  7
+"PorcentajeVenta":  7
 } ,
 "nombre":  " Plata "
 }
@@ -33,7 +33,7 @@
 "idPublicacion":  1 ,
 "idUsuario":  4 ,
 "Precio":  1002 ,
-"PorcentajeVenta: ":  10
+"PorcentajeVenta":  10
 } ,
 "nombre":  " RubiDeOriente "
 }
@@ -46,7 +46,7 @@
 "idPublicacion":  1 ,
 "idUsuario":  4 ,
 "Precio":  1002 ,
-"PorcentajeVenta: ":  10
+"PorcentajeVenta":  10
 } ,
 "nombre":  " RubiDeOriente "
 }

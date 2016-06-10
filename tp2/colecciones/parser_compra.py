@@ -13,7 +13,7 @@ for a in data:
 	print '"idPublicacion": ', a['idPublicacion'],","
 	print '"idUsuario": ', a['idUsuario'],","
 	print '"Precio": ', a['precio'],","
-	print '"PorcentajeVenta: ": ', a['porcentajeVenta']
+	print '"PorcentajeVenta": ', a['porcentajeVenta']
 	print "}" ,","
 	print '"nombre": ', '"', a['nombre'], '"'
 	print '}'
