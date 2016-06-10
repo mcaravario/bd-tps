@@ -7,9 +7,7 @@
 		"idPublicacion": 2365,
 		"idUsuario": 123,
 		"Precio": 3655,
-		"TipoSuscripcion": {
-			"PorcentajeVenta": 20, //entre 0 y 100
-		}
+		"PorcentajeVenta": 20
 	},
 	"CalificacionDelVendedor": 8,
 	"CalificacionDelComprador": 6

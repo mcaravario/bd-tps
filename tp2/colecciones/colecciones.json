@@ -1,26 +1,8 @@
-// Deprecado
-// Coleccion de Usuario
-{
-	"IdUsuario": 1,
-	"Empresa": {
-		"RazonSocial":,
-		"CUIT":,
-		"IdCategoria":
-	},
-	"Persona":{
-		"Nombre":,
-		"Apellido":,
-		"DNI":
-	},
-	"Apellido":"Gonzalez",
-	"DNI": "123.456.789"
-}
-
 // Resuelve consulta 6
 //Coleccion de publicacione.
 {
 	"Id": 65,
-	"TipoPublicacion": "Servicio", // "Articulo", "Servicio" o "Mixta"
+	"TipoPublicacion": "Servicio"// "Articulo", "Servicio" o "Mixta"
 }
 
 
@@ -35,9 +17,7 @@
 		"idPublicacion": 2365,
 		"idUsuario": 123,
 		"Precio": 3655,
-		"TipoSuscripcion": {
-			"PorcentajeVenta": 20, //entre 0 y 100
-		}
+		"PorcentajeVenta": 20 //entre 0 y 100
 	},
 	"CalificacionDelVendedor": 8,
 	"CalificacionDelComprador": 6
