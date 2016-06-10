@@ -1,4 +1,4 @@
-// Monto total facturado por año 
+// Monto total facturado por año para usuarios rubi oriente
 // Coleccion factura
 
 // TODO modificar los fst y snd por [], o ver como crear tuplas
