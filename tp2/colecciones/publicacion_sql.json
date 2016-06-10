@@ -1,0 +1,22 @@
+[
+	{
+		"idPublicacion" : 1,
+		"Nombre" : "RubiDeOriente"
+	},
+	{
+		"idPublicacion" : 2,
+		"Nombre" : "RubiDeOriente"
+	},
+	{
+		"idPublicacion" : 3,
+		"Nombre" : "RubiDeOriente"
+	},
+	{
+		"idPublicacion" : 4,
+		"Nombre" : "Plata"
+	},
+	{
+		"idPublicacion" : 5,
+		"Nombre" : "Plata"
+	}
+]
