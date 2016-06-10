@@ -20,11 +20,11 @@
 		"idUsuario" : 4,
 		"fecha" : "2008-01-02",
 		"totalAPagar" : 123,
-		"idPublicacion" : 5,
+		"idPublicacion" : 4,
 		"nombre" : "Plata"
 	},
 	{
-		"idFactura" : 4,
+		"idFactura" : 3,
 		"idUsuario" : 4,
 		"fecha" : "2008-01-02",
 		"totalAPagar" : 454,

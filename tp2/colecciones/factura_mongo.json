@@ -1,0 +1,40 @@
+{
+"idFactura":  1 ,
+"IdUsuario":  1 ,
+"Fecha":  " 2008-01-02 " ,
+"TotalAPagar":  1000 ,
+"estoyPagando": [
+{
+"idPublicacion": 1 ,
+"TipoSuscripcion": " RubiDeOriente "
+}
+]
+}
+{
+"idFactura":  2 ,
+"IdUsuario":  3 ,
+"Fecha":  " 2008-01-02 " ,
+"TotalAPagar":  574 ,
+"estoyPagando": [
+{
+"idPublicacion": 2 ,
+"TipoSuscripcion": " RubiDeOriente "
+}
+]
+}
+{
+"idFactura":  3 ,
+"IdUsuario":  4 ,
+"Fecha":  " 2008-01-02 " ,
+"TotalAPagar":  577 ,
+"estoyPagando": [
+{
+"idPublicacion": 4 ,
+"TipoSuscripcion": " Plata "
+},
+{
+"idPublicacion": 5 ,
+"TipoSuscripcion": " Plata "
+}
+]
+}
