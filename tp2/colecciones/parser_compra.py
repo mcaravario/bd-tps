@@ -1,10 +1,8 @@
 import json
 from pprint import pprint
 
-with open('usuarios.json') as data_file:    
+with open(raw_input()) as data_file:    
     data = json.load(data_file)
-    print '['
-    i = 1
 for a in data:
 	print "{"
 	print '"idCompra": ' , a['idCompra'], ","
@@ -18,9 +16,4 @@ for a in data:
 	print '"PorcentajeVenta: ": ', a['porcentajeVenta']
 	print "}" ,","
 	print '"nombre": ', '"', a['nombre'], '"'
-	if i != len(data):
-		print '},'
-	else:
-		print '}'
-	i = i +1
-print ']'
+	print '}'
