@@ -1,4 +1,4 @@
-select f.idFactura, p.idUsuario, f.fecha, f.totalAPagar, p.idPublicacion, p.tipoSuscripcion
+select f.idFactura, p.idUsuario, f.fecha, f.totalAPagar, p.idPublicacion, tp.nombre
 
 from factura f
 
@@ -8,5 +8,5 @@ on c.idFactura = f.idFactura
 inner join publicacion p
 on c.idPublicacion = p.idPublicacion
 
-inner join tipoDePublicacion tp
-on tp.idTipoPublicacion = p.idTipoPublicacion
+inner join tipo_de_publicacion tp
+on tp.idTipoPublicacion = p.idTipoDePublicacion

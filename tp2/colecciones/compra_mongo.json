@@ -1,4 +1,3 @@
-[
 {
 "idCompra":  1 ,
 "idUsuario":  1 ,
@@ -8,10 +7,10 @@
 "idPublicacion":  2 ,
 "idUsuario":  1 ,
 "Precio":  14 ,
-"PorcentajeVenta: ":  10
+"PorcentajeVenta":  10
 } ,
 "nombre":  " RubiDeOriente "
-},
+}
 {
 "idCompra":  2 ,
 "idUsuario":  3 ,
@@ -21,10 +20,10 @@
 "idPublicacion":  4 ,
 "idUsuario":  3 ,
 "Precio":  250 ,
-"PorcentajeVenta: ":  7
+"PorcentajeVenta":  7
 } ,
 "nombre":  " Plata "
-},
+}
 {
 "idCompra":  3 ,
 "idUsuario":  4 ,
@@ -34,10 +33,10 @@
 "idPublicacion":  1 ,
 "idUsuario":  4 ,
 "Precio":  1002 ,
-"PorcentajeVenta: ":  10
+"PorcentajeVenta":  10
 } ,
 "nombre":  " RubiDeOriente "
-},
+}
 {
 "idCompra":  4 ,
 "idUsuario":  4 ,
@@ -47,8 +46,7 @@
 "idPublicacion":  1 ,
 "idUsuario":  4 ,
 "Precio":  1002 ,
-"PorcentajeVenta: ":  10
+"PorcentajeVenta":  10
 } ,
 "nombre":  " RubiDeOriente "
 }
-]
