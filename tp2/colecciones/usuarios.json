@@ -1,82 +1,46 @@
-{
-	"IdUsuario": 1,
-	"Empresa": {
-		"RazonSocial":"avc",
-		"CUIT":"12-37480876-2",
-		"IdCategoria":12
+[
+	{
+		"idCompra" : 1,
+		"idUsuario" : 1,
+		"fecha" : "2008-01-02",
+		"cantidad" : 1,
+		"idPublicacion" : 2,
+		"precio" : 14,
+		"costo" : 100,
+		"porcentajeVenta" : 10,
+		"nombre" : "RubiDeOriente"
 	},
-	"Persona":{},
-	"Publicaciones": 
-	[
-		{
-			"Id": 65,
-			"Estado": "Vigente",
-			"FechaInicio": "3-06-2013",
-			"Titulo": "Hago zanjas a domicilio",
-			"CantidadDisponible":5,
-			"Precio": 200,
-			"TipoPublicacion": "Servicio",
-			"Compras":
-			[
-				{
-					"idCompra": 5351,
-					"idUsuarioComprador": 1023,
-					"Fecha": "12-05-2016",
-					"Cantidad": 5,
-					"CalificacionDelVendedor": {
-						"Puntaje": 8, 
-						"TextoComentario": "Todo ok.", 
-						"TextoReplica": "Todo muy eficiente."
-
-					},
-					"CalificacionDelComprador": {
-						"Puntaje": 6, 
-						"TextoComentario": "Tardó mucho el envío.", 
-						"TextoReplica": "Garca."
-					}
-				}
-			]
-		}
-	]
-}
-{
-	"IdUsuario": 1,
-	"Empresa": {},
-	"Persona":{
-		"Nombre": "Jorge",
-		"Apellido":"Gonzalez",
-		"DNI": "123.456.789"
+	{
+		"idCompra" : 2,
+		"idUsuario" : 3,
+		"fecha" : "2008-01-02",
+		"cantidad" : 1,
+		"idPublicacion" : 4,
+		"precio" : 250,
+		"costo" : 60,
+		"porcentajeVenta" : 7,
+		"nombre" : "Plata"
 	},
-	"Publicaciones": 
-	[
-		{
-			"Id": 5,
-			"Estado": "Vigente",  
-			"FechaInicio": "3-06-2013",
-			"Titulo": "Pony",
-			"CantidadDisponible":1,
-			"Precio": 1000,
-			"TipoPublicacion": "Articulo", 
-			"Compras":
-			[
-				{
-					"idCompra": 150,
-					"idUsuarioComprador": 1,
-					"Fecha": "12-05-2016",
-					"Cantidad": 2,
-					"CalificacionDelVendedor": {
-						"Puntaje": 3, 
-						"TextoComentario": "ok.", 
-						"TextoReplica": "eficiente."
-
-					},
-					"CalificacionDelComprador": {
-						"Puntaje": 6, 
-						"TextoComentario": "Tardó mucho", 
-						"TextoReplica": "gil"
-					}
-				}
-			]
-		}
-	]
-}
+	{
+		"idCompra" : 3,
+		"idUsuario" : 4,
+		"fecha" : "2008-01-02",
+		"cantidad" : 1,
+		"idPublicacion" : 1,
+		"precio" : 1002,
+		"costo" : 100,
+		"porcentajeVenta" : 10,
+		"nombre" : "RubiDeOriente"
+	},
+	{
+		"idCompra" : 4,
+		"idUsuario" : 4,
+		"fecha" : "2008-01-02",
+		"cantidad" : 3,
+		"idPublicacion" : 1,
+		"precio" : 1002,
+		"costo" : 100,
+		"porcentajeVenta" : 10,
+		"nombre" : "RubiDeOriente"
+	}
+]
