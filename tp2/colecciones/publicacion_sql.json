@@ -1,22 +1,22 @@
 [
 	{
 		"idPublicacion" : 1,
-		"Nombre" : "RubiDeOriente"
-	},
-	{
-		"idPublicacion" : 2,
-		"Nombre" : "RubiDeOriente"
+		"TipoPublicacion" : "articulo"
 	},
 	{
 		"idPublicacion" : 3,
-		"Nombre" : "RubiDeOriente"
+		"TipoPublicacion" : "articulo"
+	},
+	{
+		"idPublicacion" : 2,
+		"TipoPublicacion" : "articulo"
 	},
 	{
 		"idPublicacion" : 4,
-		"Nombre" : "Plata"
+		"TipoPublicacion" : "mixto"
 	},
 	{
 		"idPublicacion" : 5,
-		"Nombre" : "Plata"
+		"TipoPublicacion" : "servicio"
 	}
 ]
