@@ -6,15 +6,15 @@ with open(raw_input()) as data_file:
 for a in data:
 	print "{"
 	print '"idCompra": ' , a['idCompra'], ","
-	print '"idUsuario": ', a['idUsuario'],","
+	print '"idUsuario": ', a['idUsarioComprador'],","
 	print '"fecha": ', '"',a['fecha'],'"',","
 	print '"cantidad": ', a['cantidad'],","
 	print '"Publicacion": {'
 	print '"idPublicacion": ', a['idPublicacion'],","
-	print '"idUsuario": ', a['idUsuario'],","
+	print '"idUsuario": ', a['idUsuarioVendedor'],","
 	print '"Precio": ', a['precio'],","
 	print '"PorcentajeVenta": ', a['porcentajeVenta']
 	print "}" ,","
-	print '"calificacionVendedor": ', '"', a['CalificacionDelVendedor'], '",'
-	print '"calificacionComprador": ', '"', a['CalificacionDelComprador'], '"'
+	print '"calificacionVendedor": ', a['CalificacionDelVendedor'], ','
+	print '"calificacionComprador": ', a['CalificacionDelComprador'], ''
 	print '}'

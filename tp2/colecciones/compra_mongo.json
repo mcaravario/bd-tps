@@ -5,12 +5,12 @@
 "cantidad":  1 ,
 "Publicacion": {
 "idPublicacion":  2 ,
-"idUsuario":  1 ,
+"idUsuario":  3 ,
 "Precio":  14 ,
 "PorcentajeVenta":  10
 } ,
-"calificacionVendedor":  1 ,
-"calificacionComprador":  6 
+"calificacionVendedor":  2 ,
+"calificacionComprador":  4 
 }
 {
 "idCompra":  2 ,
@@ -19,12 +19,12 @@
 "cantidad":  1 ,
 "Publicacion": {
 "idPublicacion":  4 ,
-"idUsuario":  3 ,
+"idUsuario":  4 ,
 "Precio":  250 ,
 "PorcentajeVenta":  7
 } ,
 "calificacionVendedor":  8 ,
-"calificacionComprador":  6 
+"calificacionComprador":  2 
 }
 {
 "idCompra":  3 ,
@@ -33,11 +33,11 @@
 "cantidad":  1 ,
 "Publicacion": {
 "idPublicacion":  1 ,
-"idUsuario":  4 ,
+"idUsuario":  1 ,
 "Precio":  1002 ,
 "PorcentajeVenta":  10
 } ,
-"calificacionVendedor":  10 ,
+"calificacionVendedor":  3 ,
 "calificacionComprador":  2 
 }
 {
@@ -47,10 +47,10 @@
 "cantidad":  3 ,
 "Publicacion": {
 "idPublicacion":  1 ,
-"idUsuario":  4 ,
+"idUsuario":  1 ,
 "Precio":  1002 ,
 "PorcentajeVenta":  10
 } ,
-"calificacionVendedor":   2 ,
-"calificacionComprador":   5 
+"calificacionVendedor":  10 ,
+"calificacionComprador":  1 
 }
