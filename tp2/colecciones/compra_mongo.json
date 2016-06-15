@@ -9,8 +9,8 @@
 "Precio":  14 ,
 "PorcentajeVenta":  10
 } ,
-"calificacionVendedor":  " 1 ",
-"calificacionComprador":  " 6 "
+"calificacionVendedor":  1 ,
+"calificacionComprador":  6 
 }
 {
 "idCompra":  2 ,
@@ -23,8 +23,8 @@
 "Precio":  250 ,
 "PorcentajeVenta":  7
 } ,
-"calificacionVendedor":  " 8 ",
-"calificacionComprador":  " 6 "
+"calificacionVendedor":  8 ,
+"calificacionComprador":  6 
 }
 {
 "idCompra":  3 ,
@@ -37,8 +37,8 @@
 "Precio":  1002 ,
 "PorcentajeVenta":  10
 } ,
-"calificacionVendedor":  " 10 ",
-"calificacionComprador":  " 2 "
+"calificacionVendedor":  10 ,
+"calificacionComprador":  2 
 }
 {
 "idCompra":  4 ,
@@ -51,6 +51,6 @@
 "Precio":  1002 ,
 "PorcentajeVenta":  10
 } ,
-"calificacionVendedor":  " 2 ",
-"calificacionComprador":  " 5 "
+"calificacionVendedor":   2 ,
+"calificacionComprador":   5 
 }
