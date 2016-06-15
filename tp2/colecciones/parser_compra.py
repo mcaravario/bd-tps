@@ -15,5 +15,6 @@ for a in data:
 	print '"Precio": ', a['precio'],","
 	print '"PorcentajeVenta": ', a['porcentajeVenta']
 	print "}" ,","
-	print '"nombre": ', '"', a['nombre'], '"'
+	print '"calificacionVendedor": ', '"', a['CalificacionDelVendedor'], '"'
+	print '"calificacionComprador": ', '"', a['CalificacionDelComprador'], '"'
 	print '}'
