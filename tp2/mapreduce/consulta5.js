@@ -3,27 +3,44 @@
 
 // TODO modificar los fst y snd por [], o ver como crear tuplas
 
-var getAño(fecha){
-	return fecha.trim().substring(0,4);
-}
-
 var ej5_m1 = function(){
-	emit([getAño(this.fecha), this.IdUsuario], [this.TotalAPagar, hayAlgunoRubi(this.estoyPagagando)])	
-}
+
+	var esRuby = function(e, i, arr){
+		return e.TipoSuscripcion.trim()	== "RubiDeOriente"
+	};
+	
+	var getAño = function(fecha){
+		return fecha.trim().substring(0,4);
+	}
+
+	emit(
+		{ 
+			"año": getAño(this.Fecha),
+	 		"usuario": this.IdUsuario
+		}, 
+		{
+			"totalAPagar": this.TotalAPagar,
+			"esRuby": this.estoyPagando.some(esRuby)
+		});	
+};
 
 var ej5_r1 = function(k, vs){
 	if (vs.some(function(a){
-		return a.snd();	})){
-		emit(k, Array.sum(vs.map(function(e){return e[1]}))	
+		return a.esRuby;	
+	}))
+	{
+		return Array.sum(vs.map(function(e){return e.totalAPagar}));	
 	}
 }
 
 
-// checkear fuertemente
 var ej5_m2 = function(){
-	emit(this.fst().fst(), this.snd());
+	if (this.value.esRuby)
+	{
+		emit(this._id.año, this.value.totalAPagar);
+	}
 }
 
 var ej5_r2 = function(k, vs){
-	emit(k, Array.sum(vs))
+	return Array.sum(vs);
 }
