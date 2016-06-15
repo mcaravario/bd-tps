@@ -1,9 +1,10 @@
 \BOOKMARK [1][-]{section.1}{Introducci\363n}{}% 1
 \BOOKMARK [1][-]{section.2}{Parte 1 - Disenio}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{Diagrama Entidad relacion}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{Documentos}{section.2}% 4
-\BOOKMARK [2][-]{subsection.2.3}{Consultas SQL}{section.2}% 5
-\BOOKMARK [2][-]{subsection.2.4}{Implementacion MongoDB}{section.2}% 6
-\BOOKMARK [1][-]{section.3}{Parte 2 - Map Reduce}{}% 7
-\BOOKMARK [1][-]{section.4}{Parte 3 - Sharding}{}% 8
-\BOOKMARK [1][-]{section.5}{Conclusiones}{}% 9
+\BOOKMARK [2][-]{subsection.2.2}{Colecciones}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Migracion datos SQL a Colecciones}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Consultas SQL}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{Implementacion MongoDB}{section.2}% 7
+\BOOKMARK [1][-]{section.3}{Parte 2 - Map Reduce}{}% 8
+\BOOKMARK [1][-]{section.4}{Parte 3 - Sharding}{}% 9
+\BOOKMARK [1][-]{section.5}{Conclusiones}{}% 10
