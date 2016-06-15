@@ -1,10 +1,10 @@
 // El total de publicaciones por tipo de publicacion (productos, servicios o
 // mixtas)
 
-var m = function(){
+var ej6_m = function(){
 	emit(this.TipoPublicacion, 1);
 }
 
-var r = function(k,vs){
+var ej6_r = function(k,vs){
 	emit(k, vs.length)
 };

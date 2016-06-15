@@ -7,11 +7,11 @@ var getAño(fecha){
 	return fecha.trim().substring(0,4);
 }
 
-var m1 = function(){
+var ej5_m1 = function(){
 	emit([getAño(this.fecha), this.IdUsuario], [this.TotalAPagar, hayAlgunoRubi(this.estoyPagagando)])	
 }
 
-var r1 = function(k, vs){
+var ej5_r1 = function(k, vs){
 	if (vs.some(function(a){
 		return a.snd();	})){
 		emit(k, Array.sum(vs.map(function(e){return e[1]}))	
@@ -20,10 +20,10 @@ var r1 = function(k, vs){
 
 
 // checkear fuertemente
-var m2 = function(){
+var ej5_m2 = function(){
 	emit(this.fst().fst(), this.snd());
 }
 
-var r2 = function(k, vs){
+var ej5_r2 = function(k, vs){
 	emit(k, Array.sum(vs))
 }
