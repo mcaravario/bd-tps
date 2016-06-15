@@ -9,7 +9,8 @@
 "Precio":  14 ,
 "PorcentajeVenta":  10
 } ,
-"nombre":  " RubiDeOriente "
+"calificacionVendedor":  " 1 ",
+"calificacionComprador":  " 6 "
 }
 {
 "idCompra":  2 ,
@@ -22,7 +23,8 @@
 "Precio":  250 ,
 "PorcentajeVenta":  7
 } ,
-"nombre":  " Plata "
+"calificacionVendedor":  " 8 ",
+"calificacionComprador":  " 6 "
 }
 {
 "idCompra":  3 ,
@@ -35,7 +37,8 @@
 "Precio":  1002 ,
 "PorcentajeVenta":  10
 } ,
-"nombre":  " RubiDeOriente "
+"calificacionVendedor":  " 10 ",
+"calificacionComprador":  " 2 "
 }
 {
 "idCompra":  4 ,
@@ -48,5 +51,6 @@
 "Precio":  1002 ,
 "PorcentajeVenta":  10
 } ,
-"nombre":  " RubiDeOriente "
+"calificacionVendedor":  " 2 ",
+"calificacionComprador":  " 5 "
 }

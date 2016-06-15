@@ -8,7 +8,9 @@
 		"precio" : 14,
 		"costo" : 100,
 		"porcentajeVenta" : 10,
-		"nombre" : "RubiDeOriente"
+		"nombre" : "RubiDeOriente",
+		"CalificacionDelVendedor": 1,
+		"CalificacionDelComprador": 6
 	},
 	{
 		"idCompra" : 2,
@@ -19,7 +21,9 @@
 		"precio" : 250,
 		"costo" : 60,
 		"porcentajeVenta" : 7,
-		"nombre" : "Plata"
+		"nombre" : "Plata",
+		"CalificacionDelVendedor": 8,
+		"CalificacionDelComprador": 6
 	},
 	{
 		"idCompra" : 3,
@@ -30,7 +34,9 @@
 		"precio" : 1002,
 		"costo" : 100,
 		"porcentajeVenta" : 10,
-		"nombre" : "RubiDeOriente"
+		"nombre" : "RubiDeOriente",
+		"CalificacionDelVendedor": 10,
+		"CalificacionDelComprador": 2
 	},
 	{
 		"idCompra" : 4,
@@ -41,6 +47,8 @@
 		"precio" : 1002,
 		"costo" : 100,
 		"porcentajeVenta" : 10,
-		"nombre" : "RubiDeOriente"
+		"nombre" : "RubiDeOriente",
+		"CalificacionDelVendedor": 2,
+		"CalificacionDelComprador": 5
 	}
 ]
