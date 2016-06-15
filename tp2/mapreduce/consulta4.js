@@ -2,12 +2,13 @@
 // Coleccion factura
 
 var getAño(fecha){
+	return fecha.trim().substring(0,4);
 }
 
-var m = function(){
+var ej4_m = function(){
 	emit(getAño(this.fecha), this.TotalAPagar)	
 }
 
-var r = function(k, vs){
+var ej4_r = function(k, vs){
 	emit(k, Array.sum(vs))
 }

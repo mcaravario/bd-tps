@@ -1,6 +1,6 @@
 //Las operaciones con comision mas alta.
 
-var map = function(){
+var ej3_m = function(){
 
 	var getComision = function(compra){
  	 var subs = compra.Publicacion;
@@ -12,7 +12,7 @@ var map = function(){
   'comision': getComision(this)});
 };
 
-var reduce = function(k, vs){
+var ej3_r = function(k, vs){
   var max = Math.max(...vs.map(function(v){
       return v.comision;
   }));
