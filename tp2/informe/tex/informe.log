@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.14)  15 JUN 2016 15:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.14)  15 JUN 2016 15:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -829,27 +829,27 @@ LaTeX Info: Redefining \% on input line 20.
 )
 \openout1 = `informe.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 138.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 138.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 174.
+LaTeX Font Info:    ... okay on input line 174.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 174.
+LaTeX Font Info:    ... okay on input line 174.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 174.
+LaTeX Font Info:    ... okay on input line 174.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 174.
+LaTeX Font Info:    ... okay on input line 174.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 174.
+LaTeX Font Info:    ... okay on input line 174.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 174.
+LaTeX Font Info:    ... okay on input line 174.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 174.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 174.
 
  (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    ... okay on input line 174.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 174.
+LaTeX Font Info:    ... okay on input line 174.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -885,15 +885,15 @@ LaTeX Font Info:    ... okay on input line 138.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \. on input line 138.
-LaTeX Info: Redefining \% on input line 138.
+LaTeX Info: Redefining \. on input line 174.
+LaTeX Info: Redefining \% on input line 174.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             macros/latex/contrib/pageslts/ 
 (lastpage)             or
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             install/macros/latex/contrib/pageslts.tds.zip
-(lastpage)             ! on input line 138.
+(lastpage)             ! on input line 174.
 \c@lstlisting=\count133
 (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -924,7 +924,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box38
-Package hyperref Info: Link coloring OFF on input line 138.
+Package hyperref Info: Link coloring OFF on input line 174.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -934,9 +934,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count140
 )
-LaTeX Info: Redefining \ref on input line 138.
-LaTeX Info: Redefining \pageref on input line 138.
-LaTeX Info: Redefining \nameref on input line 138.
+LaTeX Info: Redefining \ref on input line 174.
+LaTeX Info: Redefining \pageref on input line 174.
+LaTeX Info: Redefining \nameref on input line 174.
 
 (./informe.out) (./informe.out)
 \@outlinefile=\write4
@@ -946,23 +946,23 @@ LaTeX Info: Redefining \nameref on input line 138.
 File: DC.png Graphic file (type png)
 
 <use DC.png>
-Package pdftex.def Info: DC.png used on input line 150.
+Package pdftex.def Info: DC.png used on input line 186.
 (pdftex.def)             Requested size: 158.84137pt x 56.9055pt.
  <UBA.jpg, id=102, 233.4321pt x 233.9139pt>
 File: UBA.jpg Graphic file (type jpg)
  <use UBA.jpg>
-Package pdftex.def Info: UBA.jpg used on input line 152.
+Package pdftex.def Info: UBA.jpg used on input line 188.
 (pdftex.def)             Requested size: 56.78708pt x 56.9055pt.
 LaTeX Font Info:    Font shape `T1/fve/m/n' will be
-(Font)              scaled to size 22.39185pt on input line 162.
+(Font)              scaled to size 22.39185pt on input line 198.
 LaTeX Font Info:    Font shape `T1/fve/m/n' will be
-(Font)              scaled to size 12.9599pt on input line 168.
-LaTeX Font Info:    Try loading font information for U+msa on input line 178.
+(Font)              scaled to size 12.9599pt on input line 204.
+LaTeX Font Info:    Try loading font information for U+msa on input line 214.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 178.
+LaTeX Font Info:    Try loading font information for U+msb on input line 214.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -971,83 +971,90 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./DC.pn
 g> <./UBA.jpg>]
 LaTeX Font Info:    Font shape `T1/fve/b/n' will be
-(Font)              scaled to size 12.9599pt on input line 199.
+(Font)              scaled to size 12.9599pt on input line 235.
 LaTeX Font Info:    Font shape `T1/fve/m/n' will be
-(Font)              scaled to size 10.79993pt on input line 209.
+(Font)              scaled to size 10.79993pt on input line 245.
 LaTeX Font Info:    Font shape `T1/fve/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 209.
+(Font)              scaled to size 10.79993pt on input line 245.
  <der.png, id=112, 1157.32375pt x 813.0375pt>
 File: der.png Graphic file (type png)
  <use der.png>
-Package pdftex.def Info: der.png used on input line 212.
+Package pdftex.def Info: der.png used on input line 248.
 (pdftex.def)             Requested size: 512.1496pt x 359.78459pt.
 
-Overfull \hbox (59.1817pt too wide) in paragraph at lines 212--213
+Overfull \hbox (59.1817pt too wide) in paragraph at lines 248--249
 [][] 
  []
 
-LaTeX Font Info:    Try loading font information for TS1+fve on input line 224.
+LaTeX Font Info:    Try loading font information for TS1+fve on input line 260.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/bera/ts1fve.fd
 File: ts1fve.fd 2004/09/07 scalable font definitions for TS1/fve.
 )
 LaTeX Font Info:    Font shape `TS1/fve/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 224.
+(Font)              scaled to size 8.99994pt on input line 260.
  [2 <./der.png>]
 LaTeX Font Info:    Font shape `T1/fve/b/n' will be
-(Font)              scaled to size 8.99994pt on input line 229.
-LaTeX Font Info:    Try loading font information for T1+fvm on input line 231.
+(Font)              scaled to size 8.99994pt on input line 265.
+LaTeX Font Info:    Try loading font information for T1+fvm on input line 267.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/bera/t1fvm.fd
 File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 )
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 231.
+(Font)              scaled to size 8.99994pt on input line 267.
 LaTeX Font Info:    Font shape `T1/fve/m/n' will be
-(Font)              scaled to size 6.29996pt on input line 232.
+(Font)              scaled to size 6.29996pt on input line 268.
  [3] [4] [5]
-Overfull \hbox (186.35062pt too wide) in paragraph at lines 367--367
+Overfull \hbox (186.35062pt too wide) in paragraph at lines 403--403
 []\T1/fvm/m/n/10 select c.idCompra, c.idUsuario,c.fecha, c.cantidad, c.idPublic
 acion, p.precio, tp.costo, tp.porcentajeVenta, tp.nombre 
  []
 
 
-Overfull \hbox (2.1402pt too wide) in paragraph at lines 400--400
+Overfull \hbox (2.1402pt too wide) in paragraph at lines 436--436
 []\T1/fvm/m/n/10 mongoimport --db tp2 --collection publicacion --drop --file ./
 publicacion_mongo.json[] 
  []
 
+LaTeX Font Info:    Font shape `T1/fve/m/n' will be
+(Font)              scaled to size 7.19995pt on input line 446.
+LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
+(Font)              scaled to size 7.19995pt on input line 446.
+LaTeX Font Info:    Font shape `T1/fvm/b/n' will be
+(Font)              scaled to size 7.19995pt on input line 447.
 [6] 
 AED: lastpage setting LastPage
 [7]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 427.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 427.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 477.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 477.
  (./informe.aux
 LaTeX Info: Redefining \. on input line 20.
 LaTeX Info: Redefining \% on input line 20.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 427.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 427.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 477.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 477.
 Package rerunfilecheck Info: File `informe.out' has not changed.
 (rerunfilecheck)             Checksum: 69857327033907AA214ED403A733B25D;1595.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 427.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 477.
  ) 
 Here is how much of TeX's memory you used:
- 11282 strings out of 493117
- 158095 string characters out of 6135433
- 326817 words of memory out of 5000000
- 14478 multiletter control sequences out of 15000+600000
- 32098 words of font info for 42 fonts, out of 8000000 for 9000
+ 11388 strings out of 493117
+ 159412 string characters out of 6135433
+ 327697 words of memory out of 5000000
+ 14572 multiletter control sequences out of 15000+600000
+ 36578 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 30i,11n,43p,279b,1153s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 30i,11n,43p,279b,1187s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2014/texmf-dist/fonts/type1/public/bera/fveb8a.pfb></usr/local/texlive/2
 014/texmf-dist/fonts/type1/public/bera/fver8a.pfb></usr/local/texlive/2014/texm
-f-dist/fonts/type1/public/bera/fvmr8a.pfb>
-Output written on informe.pdf (7 pages, 889215 bytes).
+f-dist/fonts/type1/public/bera/fvmb8a.pfb></usr/local/texlive/2014/texmf-dist/f
+onts/type1/public/bera/fvmr8a.pfb>
+Output written on informe.pdf (7 pages, 893431 bytes).
 PDF statistics:
- 214 PDF objects out of 1000 (max. 8388607)
- 195 compressed objects within 2 object streams
- 69 named destinations out of 1000 (max. 500000)
+ 229 PDF objects out of 1000 (max. 8388607)
+ 208 compressed objects within 3 object streams
+ 77 named destinations out of 1000 (max. 500000)
  208 words of extra memory for PDF output out of 10000 (max. 10000000)
 
