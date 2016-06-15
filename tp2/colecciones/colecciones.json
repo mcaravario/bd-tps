@@ -1,7 +1,7 @@
 // Resuelve consulta 6
 //Coleccion de publicacione.
 {
-	"Id": 65,
+	"idPublicacion": 65,
 	"TipoPublicacion": "Servicio"// "Articulo", "Servicio" o "Mixta"
 }
 
