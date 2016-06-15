@@ -4,6 +4,7 @@
 // TODO modificar los fst y snd por [], o ver como crear tuplas
 
 var getAño(fecha){
+	return fecha.trim().substring(0,4);
 }
 
 var m1 = function(){
