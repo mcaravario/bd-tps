@@ -1,4 +1,4 @@
-select c.idCompra, c.idUsuario,c.fecha, c.cantidad, c.idPublicacion, p.precio, tp.costo, tp.porcentajeVenta, tp.nombre, ca.puntaje
+select c.idCompra, c.idUsuario as idUsarioComprador,p.idUsuario as idUsuarioVendedor,c.fecha, c.cantidad, c.idPublicacion, p.precio, tp.costo, tp.porcentajeVenta, tp.nombre, ca.puntaje
 from compra c 
 join publicacion p
  

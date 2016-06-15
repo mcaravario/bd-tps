@@ -1,7 +1,8 @@
 [
 	{
 		"idCompra" : 1,
-		"idUsuario" : 1,
+		"idUsarioComprador" : 1,
+		"idUsuarioVendedor" : 3,
 		"fecha" : "2008-01-02",
 		"cantidad" : 1,
 		"idPublicacion" : 2,
@@ -9,12 +10,13 @@
 		"costo" : 100,
 		"porcentajeVenta" : 10,
 		"nombre" : "RubiDeOriente",
-		"CalificacionDelVendedor": 1,
-		"CalificacionDelComprador": 6
+		"CalificacionDelVendedor": 2,
+		"CalificacionDelComprador": 4
 	},
 	{
 		"idCompra" : 2,
-		"idUsuario" : 3,
+		"idUsarioComprador" : 3,
+		"idUsuarioVendedor" : 4,
 		"fecha" : "2008-01-02",
 		"cantidad" : 1,
 		"idPublicacion" : 4,
@@ -23,11 +25,12 @@
 		"porcentajeVenta" : 7,
 		"nombre" : "Plata",
 		"CalificacionDelVendedor": 8,
-		"CalificacionDelComprador": 6
+		"CalificacionDelComprador": 2
 	},
 	{
 		"idCompra" : 3,
-		"idUsuario" : 4,
+		"idUsarioComprador" : 4,
+		"idUsuarioVendedor" : 1,
 		"fecha" : "2008-01-02",
 		"cantidad" : 1,
 		"idPublicacion" : 1,
@@ -35,12 +38,13 @@
 		"costo" : 100,
 		"porcentajeVenta" : 10,
 		"nombre" : "RubiDeOriente",
-		"CalificacionDelVendedor": 10,
+		"CalificacionDelVendedor": 3,
 		"CalificacionDelComprador": 2
 	},
 	{
 		"idCompra" : 4,
-		"idUsuario" : 4,
+		"idUsarioComprador" : 4,
+		"idUsuarioVendedor" : 1,
 		"fecha" : "2008-01-02",
 		"cantidad" : 3,
 		"idPublicacion" : 1,
@@ -48,7 +52,7 @@
 		"costo" : 100,
 		"porcentajeVenta" : 10,
 		"nombre" : "RubiDeOriente",
-		"CalificacionDelVendedor": 2,
-		"CalificacionDelComprador": 5
+		"CalificacionDelVendedor": 10,
+		"CalificacionDelComprador": 1
 	}
 ]

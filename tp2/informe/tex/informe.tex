@@ -337,8 +337,8 @@ for a in data:
   print '"Precio": ', a['precio'],","
   print '"PorcentajeVenta": ', a['porcentajeVenta']
   print "}" ,","
-  print '"calificacionVendedor": ', '"', a['CalificacionDelVendedor'], '",'
-  print '"calificacionComprador": ', '"', a['CalificacionDelComprador'], '"'
+  print '"calificacionVendedor": ', a['CalificacionDelVendedor'], ','
+  print '"calificacionComprador": ', a['CalificacionDelComprador'], ''
   print '}'
 
 \end{verbatim}
@@ -401,7 +401,7 @@ on t.idTipoPublicacion = p.idTipoPublicacion
 \subsubsection{SQL de Compras}
 
 \begin{verbatim}
-select c.idCompra, c.idUsuario,c.fecha, c.cantidad, c.idPublicacion, p.precio, tp.costo, tp.porcentajeVenta, tp.nombre, ca.puntaje
+select c.idCompra, c.idUsuario as idUsarioComprador,p.idUsuario as idUsuarioVendedor,c.fecha, c.cantidad, c.idPublicacion, p.precio, tp.costo, tp.porcentajeVenta, tp.nombre, ca.puntaje
 from compra c 
 join publicacion p
  
