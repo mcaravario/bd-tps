@@ -6,5 +6,5 @@ var ej6_m = function(){
 }
 
 var ej6_r = function(k,vs){
-	emit(k, vs.length)
+	return  vs.length;
 };
