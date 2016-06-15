@@ -530,7 +530,47 @@ var ej4_r = function(k, vs){
 El monto total facturado por año de las operaciones pertenecientes a usuarios con suscripciones Rubi Oriente.
 
 \begin{lstlisting}
+var ej5_m1 = function(){
 
+  var esRuby = function(e, i, arr){
+    return e.TipoSuscripcion.trim() == "RubiDeOriente"
+  };
+  
+  var getAno = function(fecha){
+    return fecha.trim().substring(0,4);
+  }
+
+  emit(
+    { 
+      "ano": getAno(this.Fecha),
+      "usuario": this.IdUsuario
+    }, 
+    {
+      "totalAPagar": this.TotalAPagar,
+      "esRuby": this.estoyPagando.some(esRuby)
+    }); 
+};
+
+var ej5_r1 = function(k, vs){
+  if (vs.some(function(a){
+    return a.esRuby;  
+  }))
+  {
+    return Array.sum(vs.map(function(e){return e.totalAPagar}));  
+  }
+}
+
+
+var ej5_m2 = function(){
+  if (this.value.esRuby)
+  {
+    emit(this._id.ano, this.value.totalAPagar);
+  }
+}
+
+var ej5_r2 = function(k, vs){
+  return Array.sum(vs);
+}
 \end{lstlisting}
 
 
