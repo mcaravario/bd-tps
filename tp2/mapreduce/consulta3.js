@@ -1,10 +1,9 @@
 //Las operaciones con comision mas alta.
 
 var ej3_m = function(){
-
 	var getComision = function(compra){
  	 var subs = compra.Publicacion;
-	  return subs.Precio * (subs.PorcentajeVenta / 100);
+	  return (subs.Precio * compra.cantidad) * (subs.PorcentajeVenta / 100);
 	};
 
   emit("todos", {
