@@ -29,7 +29,7 @@
 %%%%%%%%%% Constantes - Inicio %%%%%%%%%%
 \newcommand{\titulo}{Trabajo Práctico 2}
 \newcommand{\materia}{Bases de Datos}
-\newcommand{\integrantes}{Hosen · Caravario · Rajgnewerc · Russo}
+\newcommand{\integrantes}{Hosen · Marto Caravario · Rajgnewerc · Russo}
 \newcommand{\cuatrimestre}{Primer Cuatrimestre de 2016}
 %%%%%%%%%% Constantes - Fin %%%%%%%%%%
 
@@ -180,7 +180,7 @@ Universidad de Buenos Aires
 Apellido y Nombre & LU & E-mail\\
 \hline
 Federico Hosen  & 825/12 & federico.hosen@gmail.com\\
-Martin Caravario  & 470/12 & martin.caravario@gmail.com\\
+Martin 'Marto' Caravario  & 470/12 & martin.caravario@gmail.com\\
 Guido Rajngewerc  & 379/12 & guido.raj@gmail.com\\
 Christian Russo  & 679/10 & christian.russo8@gmail.com\\
 \hline
@@ -198,17 +198,13 @@ Christian Russo  & 679/10 & christian.russo8@gmail.com\\
 
 \section{Introducción}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+En el siguiente trabajo se desarrolla un modelo de Bases de Datos NoSQL con MongoDB teniendo el cuenta el problema descripto en el TP1.
+Para esto se utilizo una seccion del DER completo del TP1 y se diseñaron los documentos correspondientes para realizar las consultas pedidas en el enunciado del TP2.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Parte 1                                                                   %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Parte 1 - Disenio}
+\section{Parte 1 - Diseño}
 
 \subsection{Diagrama Entidad relacion}
 
@@ -216,14 +212,21 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 \includegraphics[width=18cm]{der}
 \end{figure}
 
-Explicacion de porque quedo ese der.
+Las consultas pedidas solamente necesitan de usuarios, ventas, reputaciones, calificaciones, comisiones y facturas. Por lo tanto usamos:
+
+\begin{itemize}
+\item Para usuarios y ventas, las tablas de Usuarios, Publicaciones y Compra
+\item Para reputaciones de usuarios, las tablas de Calificacion y Usuario
+\item Para comisiones, usamos las tablas de Publicacion y Tipo de Publicacion.
+\item Para monto de facturas, usamos las tabla de Facturas
+\end{itemize}
 
 \newpage
 \subsection{Colecciones}
 
 A continuacion mostramos las colecciones que utilizamos para resolver las consultas propuestas en el enunciado
 
-Coleccion de publicaciones
+\subsubsection{Publicaciones}
 
 \begin{lstlisting}[language=json,firstnumber=1]
 {
@@ -232,10 +235,10 @@ Coleccion de publicaciones
 }
 \end{lstlisting}
 
-Coleccion de compra
+\subsubsection{Compra}
+
 
 \begin{lstlisting}[language=json,firstnumber=1]
-{
 {
   "idCompra": 656897,
   "idUsuarioComprador": 65468,
@@ -249,11 +252,11 @@ Coleccion de compra
   },
   "CalificacionDelVendedor": 8,
   "CalificacionDelComprador": 6
-}}
+}
 \end{lstlisting}
 
 
-Coleccion de Factura:
+\subsubsection{Factura}
 
 \begin{lstlisting}[language=json,firstnumber=1]
 {
@@ -273,12 +276,12 @@ Coleccion de Factura:
   ]
 }
 \end{lstlisting}
-
+\newpage
 \subsection{Migracion datos SQL a Colecciones}
 Para migrar los datos de SQL (MySQLWorkwench) al formato de JSON que se necesita en MongoDB lo que hicimos fue exportar los datos directo desde MySQLWorkwench, pero estos se exportan en JSON plano, es decir no quedaba formateado de la forma que nosotros queriamos. 
 Para solucionar este problema realizamos unos algoritmos en python para formatearlos a mano. Estos algoritmos reciben como input el JSON plano y devuelven un JSON formateado para MongoDB
 
-Parser para el JSON de la compra:
+\subsubsection{Parser para el JSON de la compra}
 
 \begin{verbatim}
 import json
@@ -303,8 +306,8 @@ for a in data:
 
 \end{verbatim}
 
-
-Parser para el JSON de la Facutra:
+\newpage
+\subsubsection{Parser para el JSON de la Facutra}
 
 \begin{verbatim}
 import json
@@ -342,14 +345,13 @@ for a in c:
 
 \end{verbatim}
 
-Nota: para la coleccion de publicaciones no tuvimos que hacer ningun algoritmo.
+\textbf{Nota:} para la coleccion de publicaciones no tuvimos que hacer ningun algoritmo.
 
 
 \subsection{Consultas SQL}
 
 A continuacion listamos las consultas realizadas para conseguir los datos necesarios para nuestras colecciones:
-
-Para la coleccion de Publicaciones:
+\subsubsection{SQL de Publicaciones}
 
 \begin{verbatim}
 select p.idPublicacion, t.Nombre
@@ -358,7 +360,8 @@ inner join TipoDePublicacion t
 on t.idTipoPublicacion = p.idTipoPublicacion
 \end{verbatim}
 
-Para la coleccion de Compras:
+\newpage
+\subsubsection{SQL de Compras}
 
 \begin{verbatim}
 select c.idCompra, c.idUsuario,c.fecha, c.cantidad, c.idPublicacion, p.precio, tp.costo, tp.porcentajeVenta, tp.nombre  
@@ -371,7 +374,7 @@ on p.idTipoDePublicacion = tp.idTipoPublicacion
 
 \end{verbatim}
 
-Para la coleccion de Facturas:
+\subsubsection{SQL de Facturas}
 \begin{verbatim}
 select f.idFactura, p.idUsuario, f.fecha, f.totalAPagar, p.idPublicacion, tp.nombre
 
@@ -389,13 +392,29 @@ on tp.idTipoPublicacion = p.idTipoDePublicacion
 \end{verbatim}
 
 \subsection{Implementacion MongoDB}
-Implementar en MongoDB la base de datos de documentos para almacenar la informacion y cargarla con datos
-de prueba
+Para implementar la base de datos de documentos en mongoDB utilizamos los JSON de las colecciones descriptos anteriormente y los importamos de la siguiente forma:
+
+\begin{verbatim}
+mongoimport --db tp2 --collection compras --drop --file ./compra_mongo.json 
+mongoimport --db tp2 --collection facturas --drop --file ./factura_mongo.json
+mongoimport --db tp2 --collection publicacion --drop --file ./publicacion_mongo.json
+\end{verbatim}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Parte 2                                                                   %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Parte 2 - Map Reduce}
-
+\subsection{Ejercicio 1}
+El importe total de ventas por usuario.
+\subsection{Ejercicio 2}
+La reputaci\'on hist\'orica de cada usuario seg\'un la calificaci\'on.
+\subsection{Ejercicio 3}
+Las operaciones con comisi\'on m\'as alta.
+\subsection{Ejercicio 4}
+El monto total facturado por año.
+\subsection{Ejercicio 5}
+El monto total facturado por año de las operaciones pertenecientes a usuarios con suscripciones Rubi Oriente.
+\subsection{Ejercicio 6}
+El total de publicaciones por tipo de publicaci\'on (productos, servicios o mixtas).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Parte 3                                                                   %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
