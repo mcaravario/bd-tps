@@ -446,7 +446,7 @@ mongoimport --db tp2 --collection publicacion --drop --file ./publicacion_mongo.
 El importe total de ventas por usuario.
 
 
-\begin{lstlisting}[caption=mapreduce1]
+\begin{lstlisting}
 var ej1_m = function(){ 
   emit(this.Publicacion.idUsuario, this.Publicacion.Precio * this.cantidad) 
 }
@@ -460,14 +460,77 @@ var ej1_r = function(k, vs){
 
 \subsection{Ejercicio 2}
 La reputaci\'on hist\'orica de cada usuario seg\'un la calificaci\'on.
+
+\begin{lstlisting}
+var ej2_m = function(){
+  if(this.calificacionVendedor != null) emit(this.idUsuario, this.calificacionVendedor);
+  if(this.calificacionComprador != null) emit(this.Publicacion.idUsuario, this.calificacionComprador);
+}
+
+var ej2_r = function(k, vs){
+  return ( Array.sum(vs) / vs.length);
+}
+\end{lstlisting}
+
 \subsection{Ejercicio 3}
 Las operaciones con comisi\'on m\'as alta.
+
+\begin{lstlisting}
+var ej3_m = function(){
+  var getComision = function(compra){
+   var subs = compra.Publicacion;
+    return (subs.Precio * compra.cantidad) * (subs.PorcentajeVenta / 100);
+  };
+
+  emit("todos", {
+  'idCompra': this.idCompra,
+  'comision': getComision(this)});
+};
+
+var ej3_r = function(k, vs){
+  var max = Math.max(...vs.map(function(v){
+      return v.comision;
+  }));
+  return {"resultado": vs.filter(function(v){
+    return v.comision >= max;
+  }), "max": max};
+};
+
+\end{lstlisting}
+
+
+
 \subsection{Ejercicio 4}
 El monto total facturado por año.
+
+\begin{lstlisting}
+var ej4_m = function(){
+  var getAno = function(fecha){
+    return fecha.trim().substring(0,4);
+  }
+  emit(getAno(this.Fecha), this.TotalAPagar)  
+}
+
+var ej4_r = function(k, vs){
+  return Array.sum(vs);
+}
+
+\end{lstlisting}
+
 \subsection{Ejercicio 5}
 El monto total facturado por año de las operaciones pertenecientes a usuarios con suscripciones Rubi Oriente.
+
+\begin{lstlisting}
+
+\end{lstlisting}
+
+
 \subsection{Ejercicio 6}
 El total de publicaciones por tipo de publicaci\'on (productos, servicios o mixtas).
+
+\begin{lstlisting}[caption=Ejercicio 6]
+
+\end{lstlisting}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Parte 3                                                                   %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
