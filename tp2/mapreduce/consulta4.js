@@ -1,14 +1,16 @@
 // Monto total facturado por año
 // Coleccion factura
 
-var getAño(fecha){
-	return fecha.trim().substring(0,4);
-}
 
 var ej4_m = function(){
-	emit(getAño(this.fecha), this.TotalAPagar)	
+	
+	var getAño = function(fecha){
+		return fecha.trim().substring(0,4);
+	}
+
+	emit(getAño(this.Fecha), this.TotalAPagar)	
 }
 
 var ej4_r = function(k, vs){
-	emit(k, Array.sum(vs))
+	return Array.sum(vs);
 }
