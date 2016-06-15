@@ -384,20 +384,29 @@ for a in c:
 
 \textbf{Nota:} para la coleccion de publicaciones no tuvimos que hacer ningun algoritmo.
 
-
+\newpage
 \subsection{Consultas SQL}
 
 A continuacion listamos las consultas realizadas para conseguir los datos necesarios para nuestras colecciones:
 \subsubsection{SQL de Publicaciones}
 
+
 \begin{verbatim}
-select p.idPublicacion, t.Nombre
-from publicaciones p
-inner join TipoDePublicacion t
-on t.idTipoPublicacion = p.idTipoPublicacion
+select p.idPublicacion,   
+CASE
+  when s.idPublicacion is not null and (v.idPublicacion is not null or su.idPublicacion is not null) then "mixto"
+  when s.idPublicacion is not null then "servicio"
+    when v.idPublicacion is not null then "articulo"
+    when su.idPublicacion is not null then "articulo"
+END
+as TipoPublicacion
+from publicacion p
+left join servicio s on s.idPublicacion = p.idPublicacion
+left join venta v on v.idPublicacion = p.idPublicacion
+left join subasta su on su.idPublicacion = p.idPublicacion
 \end{verbatim}
 
-\newpage
+
 \subsubsection{SQL de Compras}
 
 \begin{verbatim}
@@ -429,7 +438,7 @@ inner join tipo_de_publicacion tp
 on tp.idTipoPublicacion = p.idTipoDePublicacion
 
 \end{verbatim}
-
+\newpage
 \subsection{Implementacion MongoDB}
 Para implementar la base de datos de documentos en mongoDB utilizamos los JSON de las colecciones descriptos anteriormente y los importamos de la siguiente forma:
 
@@ -529,7 +538,13 @@ El monto total facturado por año de las operaciones pertenecientes a usuarios c
 El total de publicaciones por tipo de publicaci\'on (productos, servicios o mixtas).
 
 \begin{lstlisting}[caption=Ejercicio 6]
+var ej6_m = function(){
+  emit(this.TipoPublicacion, 1);
+}
 
+var ej6_r = function(k,vs){
+  return  vs.length;
+};
 \end{lstlisting}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Parte 3                                                                   %%
