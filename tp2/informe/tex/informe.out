@@ -21,4 +21,7 @@
 \BOOKMARK [2][-]{subsection.3.5}{Ejercicio 5}{section.3}% 21
 \BOOKMARK [2][-]{subsection.3.6}{Ejercicio 6}{section.3}% 22
 \BOOKMARK [1][-]{section.4}{Parte 3 - Sharding}{}% 23
-\BOOKMARK [1][-]{section.5}{Conclusiones}{}% 24
+\BOOKMARK [2][-]{subsection.4.1}{Inserccion de datos en la base de datos}{section.4}% 24
+\BOOKMARK [2][-]{subsection.4.2}{Resultados}{section.4}% 25
+\BOOKMARK [2][-]{subsection.4.3}{Creacion de Shards}{section.4}% 26
+\BOOKMARK [1][-]{section.5}{Conclusiones}{}% 27

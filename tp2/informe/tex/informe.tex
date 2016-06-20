@@ -593,7 +593,35 @@ var ej6_r = function(k,vs){
 
 \subsection{Inserccion de datos en la base de datos}
 Para insertar 500000 registros en la base de datos lo que hicimos fue generar un script en Python que nos devuelva 500000 publicaciones. 
-Nota: A la coleccion de publicaciones le agregamos un atributo extra "idUsuarioVendedor"
+Nota: A la coleccion de publicaciones le agregamos un atributo extra "idUsuarioVendedor" para poder usarlo como atributo clave a la hora de ahcer experimentos de sharding.
+
+El pseudocodigo para la generacion de los 500000 registros:
+\begin{verbatim}
+import json
+from pprint import pprint
+import random
+from random import randint
+
+
+foo = ['articulo', 'servicio', 'mixto']
+for x in range(1,500000):
+  print '{'
+  print '"idPublicacion":', x,","
+  print '"TipoPublicacion":', ",",random.choice(foo),","
+  print '"idUsuarioVendedor":',randint(0,8000)
+  print '}'
+
+\end{verbatim}
+
+
+A continuacion, para insertar estos datos en la base de datos de mongo, hicimos un scrpit de JavaScript para correrlo desde el Shell de mongo y que pueda importar todos estos datos en los distintos shards
+
+\subsection{Resultados}
+
+\emph{poner que devuelve \color{red}db.publicaciones.getShardDistribution() y sh.status() } 
+
+\subsection{Creacion de Shards}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Conclusiones                                                              %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
