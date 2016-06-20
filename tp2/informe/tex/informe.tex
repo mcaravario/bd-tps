@@ -604,17 +604,34 @@ from random import randint
 
 
 foo = ['articulo', 'servicio', 'mixto']
+print 'var pubs = ['
 for x in range(1,500000):
   print '{'
   print '"idPublicacion":', x,","
   print '"TipoPublicacion":', ",",random.choice(foo),","
   print '"idUsuarioVendedor":',randint(0,8000)
-  print '}'
+  print '},'
+print ']'
 
 \end{verbatim}
 
 
 A continuacion, para insertar estos datos en la base de datos de mongo, hicimos un scrpit de JavaScript para correrlo desde el Shell de mongo y que pueda importar todos estos datos en los distintos shards
+
+\section{Indice Simple}
+
+\subsection{Resultados}
+
+poner que devuelve db.publicaciones.getShardDistribution() y sh.status() 
+
+\subsection{Creacion de Shards}
+
+Poner como hicimos para crear los shards
+
+\subsection{Evolucion de Shards}
+Poner el grafico y explicarlo
+
+\section{Indice Hash}
 
 \subsection{Resultados}
 
@@ -622,8 +639,16 @@ A continuacion, para insertar estos datos en la base de datos de mongo, hicimos 
 
 \subsection{Creacion de Shards}
 
+Poner como hicimos para crear los shards
+
+\subsection{Evolucion de Shards}
+Poner el grafico y explicarlo
+
+
+\section{Indice Simple vs Indice Hash}
+aca escribir la conclusion 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Conclusiones                                                              %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Conclusiones}
+
 \end{document}
