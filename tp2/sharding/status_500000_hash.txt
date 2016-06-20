@@ -1,0 +1,104 @@
+mongos> sh.status({"verbose": 1})
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"minCompatibleVersion" : 5,
+	"currentVersion" : 6,
+	"clusterId" : ObjectId("57676868eb934e625d07ccd0")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+	{  "_id" : "shard10002",  "host" : "localhost:10002" }
+	{  "_id" : "shard10003",  "host" : "localhost:10003" }
+	{  "_id" : "shard10004",  "host" : "localhost:10004" }
+  active mongoses:
+	{  "_id" : "fhosen-UX303UA:10006",  "ping" : ISODate("2016-06-20T04:22:09.956Z"),  "up" : NumberLong(1801),  "waiting" : true,  "mongoVersion" : "3.2.7" }
+  balancer:
+	Currently enabled:  yes
+	Currently running:  no
+	Failed balancer rounds in last 5 attempts:  0
+	Migration Results for the last 24 hours: 
+		57 : Success
+  databases:
+	{  "_id" : "test_sharding",  "primary" : "shard10000",  "partitioned" : true }
+		test_sharding.publicaciones
+			shard key: { "idUsuarioVendedor" : "hashed" }
+			unique: false
+			balancing: true
+			chunks:
+				shard10000	16
+				shard10001	14
+				shard10002	14
+				shard10003	13
+				shard10004	13
+			{ "idUsuarioVendedor" : { "$minKey" : 1 } } -->> { "idUsuarioVendedor" : NumberLong("-8872771037012549084") } on : shard10000 Timestamp(5, 72) 
+			{ "idUsuarioVendedor" : NumberLong("-8872771037012549084") } -->> { "idUsuarioVendedor" : NumberLong("-8451453410526357903") } on : shard10000 Timestamp(5, 73) 
+			{ "idUsuarioVendedor" : NumberLong("-8451453410526357903") } -->> { "idUsuarioVendedor" : NumberLong("-8373907467221772764") } on : shard10000 Timestamp(5, 74) 
+			{ "idUsuarioVendedor" : NumberLong("-8373907467221772764") } -->> { "idUsuarioVendedor" : NumberLong("-8029032850867987819") } on : shard10000 Timestamp(9, 2) 
+			{ "idUsuarioVendedor" : NumberLong("-8029032850867987819") } -->> { "idUsuarioVendedor" : NumberLong("-7665446314883149567") } on : shard10000 Timestamp(9, 3) 
+			{ "idUsuarioVendedor" : NumberLong("-7665446314883149567") } -->> { "idUsuarioVendedor" : NumberLong("-7587670780441361190") } on : shard10000 Timestamp(9, 4) 
+			{ "idUsuarioVendedor" : NumberLong("-7587670780441361190") } -->> { "idUsuarioVendedor" : NumberLong("-7378697629483820640") } on : shard10000 Timestamp(5, 41) 
+			{ "idUsuarioVendedor" : NumberLong("-7378697629483820640") } -->> { "idUsuarioVendedor" : NumberLong("-7007031513199229014") } on : shard10000 Timestamp(5, 69) 
+			{ "idUsuarioVendedor" : NumberLong("-7007031513199229014") } -->> { "idUsuarioVendedor" : NumberLong("-6612593357328373522") } on : shard10000 Timestamp(5, 70) 
+			{ "idUsuarioVendedor" : NumberLong("-6612593357328373522") } -->> { "idUsuarioVendedor" : NumberLong("-6472098712416567007") } on : shard10000 Timestamp(5, 71) 
+			{ "idUsuarioVendedor" : NumberLong("-6472098712416567007") } -->> { "idUsuarioVendedor" : NumberLong("-6055881267755905105") } on : shard10000 Timestamp(5, 54) 
+			{ "idUsuarioVendedor" : NumberLong("-6055881267755905105") } -->> { "idUsuarioVendedor" : NumberLong("-5739360539431262625") } on : shard10000 Timestamp(5, 55) 
+			{ "idUsuarioVendedor" : NumberLong("-5739360539431262625") } -->> { "idUsuarioVendedor" : NumberLong("-5615670846527927888") } on : shard10000 Timestamp(5, 56) 
+			{ "idUsuarioVendedor" : NumberLong("-5615670846527927888") } -->> { "idUsuarioVendedor" : NumberLong("-5534023222112865480") } on : shard10000 Timestamp(5, 29) 
+			{ "idUsuarioVendedor" : NumberLong("-5534023222112865480") } -->> { "idUsuarioVendedor" : NumberLong("-5135425877509036870") } on : shard10000 Timestamp(8, 0) 
+			{ "idUsuarioVendedor" : NumberLong("-5135425877509036870") } -->> { "idUsuarioVendedor" : NumberLong("-4735433800472241409") } on : shard10000 Timestamp(9, 0) 
+			{ "idUsuarioVendedor" : NumberLong("-4735433800472241409") } -->> { "idUsuarioVendedor" : NumberLong("-4626798536588403829") } on : shard10001 Timestamp(9, 1) 
+			{ "idUsuarioVendedor" : NumberLong("-4626798536588403829") } -->> { "idUsuarioVendedor" : NumberLong("-4264409422468962936") } on : shard10001 Timestamp(5, 45) 
+			{ "idUsuarioVendedor" : NumberLong("-4264409422468962936") } -->> { "idUsuarioVendedor" : NumberLong("-3940545103625021103") } on : shard10001 Timestamp(5, 46) 
+			{ "idUsuarioVendedor" : NumberLong("-3940545103625021103") } -->> { "idUsuarioVendedor" : NumberLong("-3816821899634661368") } on : shard10001 Timestamp(5, 47) 
+			{ "idUsuarioVendedor" : NumberLong("-3816821899634661368") } -->> { "idUsuarioVendedor" : NumberLong("-3689348814741910320") } on : shard10001 Timestamp(5, 14) 
+			{ "idUsuarioVendedor" : NumberLong("-3689348814741910320") } -->> { "idUsuarioVendedor" : NumberLong("-3306315559678790024") } on : shard10001 Timestamp(7, 2) 
+			{ "idUsuarioVendedor" : NumberLong("-3306315559678790024") } -->> { "idUsuarioVendedor" : NumberLong("-2888006577712301429") } on : shard10001 Timestamp(7, 3) 
+			{ "idUsuarioVendedor" : NumberLong("-2888006577712301429") } -->> { "idUsuarioVendedor" : NumberLong("-2758865795057765464") } on : shard10001 Timestamp(7, 4) 
+			{ "idUsuarioVendedor" : NumberLong("-2758865795057765464") } -->> { "idUsuarioVendedor" : NumberLong("-2397154142496128683") } on : shard10001 Timestamp(8, 2) 
+			{ "idUsuarioVendedor" : NumberLong("-2397154142496128683") } -->> { "idUsuarioVendedor" : NumberLong("-2062778043064462721") } on : shard10001 Timestamp(8, 3) 
+			{ "idUsuarioVendedor" : NumberLong("-2062778043064462721") } -->> { "idUsuarioVendedor" : NumberLong("-1941243377389717979") } on : shard10001 Timestamp(8, 4) 
+			{ "idUsuarioVendedor" : NumberLong("-1941243377389717979") } -->> { "idUsuarioVendedor" : NumberLong("-1844674407370955160") } on : shard10001 Timestamp(5, 35) 
+			{ "idUsuarioVendedor" : NumberLong("-1844674407370955160") } -->> { "idUsuarioVendedor" : NumberLong("-1521088580856074092") } on : shard10002 Timestamp(8, 5) 
+			{ "idUsuarioVendedor" : NumberLong("-1521088580856074092") } -->> { "idUsuarioVendedor" : NumberLong("-1170622593057321282") } on : shard10002 Timestamp(8, 6) 
+			{ "idUsuarioVendedor" : NumberLong("-1170622593057321282") } -->> { "idUsuarioVendedor" : NumberLong("-1034930533682693958") } on : shard10002 Timestamp(8, 7) 
+			{ "idUsuarioVendedor" : NumberLong("-1034930533682693958") } -->> { "idUsuarioVendedor" : NumberLong("-643992411084150371") } on : shard10002 Timestamp(6, 2) 
+			{ "idUsuarioVendedor" : NumberLong("-643992411084150371") } -->> { "idUsuarioVendedor" : NumberLong("-280406934664603028") } on : shard10002 Timestamp(6, 3) 
+			{ "idUsuarioVendedor" : NumberLong("-280406934664603028") } -->> { "idUsuarioVendedor" : NumberLong("-121229724608850391") } on : shard10002 Timestamp(6, 4) 
+			{ "idUsuarioVendedor" : NumberLong("-121229724608850391") } -->> { "idUsuarioVendedor" : NumberLong(0) } on : shard10002 Timestamp(5, 38) 
+			{ "idUsuarioVendedor" : NumberLong(0) } -->> { "idUsuarioVendedor" : NumberLong("390279495430998372") } on : shard10002 Timestamp(5, 57) 
+			{ "idUsuarioVendedor" : NumberLong("390279495430998372") } -->> { "idUsuarioVendedor" : NumberLong("737707641505631236") } on : shard10002 Timestamp(5, 58) 
+			{ "idUsuarioVendedor" : NumberLong("737707641505631236") } -->> { "idUsuarioVendedor" : NumberLong("836927843379984662") } on : shard10002 Timestamp(5, 59) 
+			{ "idUsuarioVendedor" : NumberLong("836927843379984662") } -->> { "idUsuarioVendedor" : NumberLong("1217776263100380771") } on : shard10002 Timestamp(5, 60) 
+			{ "idUsuarioVendedor" : NumberLong("1217776263100380771") } -->> { "idUsuarioVendedor" : NumberLong("1622593285905464464") } on : shard10002 Timestamp(5, 61) 
+			{ "idUsuarioVendedor" : NumberLong("1622593285905464464") } -->> { "idUsuarioVendedor" : NumberLong("1754412563789484887") } on : shard10002 Timestamp(5, 62) 
+			{ "idUsuarioVendedor" : NumberLong("1754412563789484887") } -->> { "idUsuarioVendedor" : NumberLong("1844674407370955160") } on : shard10002 Timestamp(5, 20) 
+			{ "idUsuarioVendedor" : NumberLong("1844674407370955160") } -->> { "idUsuarioVendedor" : NumberLong("2241623097140140272") } on : shard10001 Timestamp(6, 0) 
+			{ "idUsuarioVendedor" : NumberLong("2241623097140140272") } -->> { "idUsuarioVendedor" : NumberLong("2590363070166846647") } on : shard10003 Timestamp(6, 1) 
+			{ "idUsuarioVendedor" : NumberLong("2590363070166846647") } -->> { "idUsuarioVendedor" : NumberLong("2682554045120860974") } on : shard10003 Timestamp(5, 80) 
+			{ "idUsuarioVendedor" : NumberLong("2682554045120860974") } -->> { "idUsuarioVendedor" : NumberLong("3022773908081659700") } on : shard10003 Timestamp(5, 84) 
+			{ "idUsuarioVendedor" : NumberLong("3022773908081659700") } -->> { "idUsuarioVendedor" : NumberLong("3461148549643984532") } on : shard10003 Timestamp(5, 85) 
+			{ "idUsuarioVendedor" : NumberLong("3461148549643984532") } -->> { "idUsuarioVendedor" : NumberLong("3569383787645072228") } on : shard10003 Timestamp(5, 86) 
+			{ "idUsuarioVendedor" : NumberLong("3569383787645072228") } -->> { "idUsuarioVendedor" : NumberLong("3689348814741910320") } on : shard10003 Timestamp(5, 26) 
+			{ "idUsuarioVendedor" : NumberLong("3689348814741910320") } -->> { "idUsuarioVendedor" : NumberLong("4078283135058593321") } on : shard10003 Timestamp(5, 75) 
+			{ "idUsuarioVendedor" : NumberLong("4078283135058593321") } -->> { "idUsuarioVendedor" : NumberLong("4457757272008931744") } on : shard10003 Timestamp(5, 76) 
+			{ "idUsuarioVendedor" : NumberLong("4457757272008931744") } -->> { "idUsuarioVendedor" : NumberLong("4579175471194849396") } on : shard10003 Timestamp(5, 77) 
+			{ "idUsuarioVendedor" : NumberLong("4579175471194849396") } -->> { "idUsuarioVendedor" : NumberLong("4971564689217511736") } on : shard10003 Timestamp(5, 81) 
+			{ "idUsuarioVendedor" : NumberLong("4971564689217511736") } -->> { "idUsuarioVendedor" : NumberLong("5353047801924053479") } on : shard10003 Timestamp(5, 82) 
+			{ "idUsuarioVendedor" : NumberLong("5353047801924053479") } -->> { "idUsuarioVendedor" : NumberLong("5426079978668692252") } on : shard10003 Timestamp(5, 83) 
+			{ "idUsuarioVendedor" : NumberLong("5426079978668692252") } -->> { "idUsuarioVendedor" : NumberLong("5534023222112865480") } on : shard10003 Timestamp(5, 32) 
+			{ "idUsuarioVendedor" : NumberLong("5534023222112865480") } -->> { "idUsuarioVendedor" : NumberLong("5909202981589488109") } on : shard10001 Timestamp(7, 0) 
+			{ "idUsuarioVendedor" : NumberLong("5909202981589488109") } -->> { "idUsuarioVendedor" : NumberLong("6274850075045027580") } on : shard10004 Timestamp(7, 1) 
+			{ "idUsuarioVendedor" : NumberLong("6274850075045027580") } -->> { "idUsuarioVendedor" : NumberLong("6398393858645324079") } on : shard10004 Timestamp(5, 65) 
+			{ "idUsuarioVendedor" : NumberLong("6398393858645324079") } -->> { "idUsuarioVendedor" : NumberLong("6762361203070952722") } on : shard10004 Timestamp(5, 48) 
+			{ "idUsuarioVendedor" : NumberLong("6762361203070952722") } -->> { "idUsuarioVendedor" : NumberLong("7160352744164295209") } on : shard10004 Timestamp(5, 49) 
+			{ "idUsuarioVendedor" : NumberLong("7160352744164295209") } -->> { "idUsuarioVendedor" : NumberLong("7279660874893761669") } on : shard10004 Timestamp(5, 50) 
+			{ "idUsuarioVendedor" : NumberLong("7279660874893761669") } -->> { "idUsuarioVendedor" : NumberLong("7378697629483820640") } on : shard10004 Timestamp(5, 17) 
+			{ "idUsuarioVendedor" : NumberLong("7378697629483820640") } -->> { "idUsuarioVendedor" : NumberLong("7739435034074340518") } on : shard10004 Timestamp(5, 66) 
+			{ "idUsuarioVendedor" : NumberLong("7739435034074340518") } -->> { "idUsuarioVendedor" : NumberLong("8134806178409895600") } on : shard10004 Timestamp(5, 67) 
+			{ "idUsuarioVendedor" : NumberLong("8134806178409895600") } -->> { "idUsuarioVendedor" : NumberLong("8270354444139517716") } on : shard10004 Timestamp(5, 68) 
+			{ "idUsuarioVendedor" : NumberLong("8270354444139517716") } -->> { "idUsuarioVendedor" : NumberLong("8639614377382660367") } on : shard10004 Timestamp(5, 51) 
+			{ "idUsuarioVendedor" : NumberLong("8639614377382660367") } -->> { "idUsuarioVendedor" : NumberLong("9076937511398607656") } on : shard10004 Timestamp(5, 52) 
+			{ "idUsuarioVendedor" : NumberLong("9076937511398607656") } -->> { "idUsuarioVendedor" : NumberLong("9181650846339864993") } on : shard10004 Timestamp(5, 53) 
+			{ "idUsuarioVendedor" : NumberLong("9181650846339864993") } -->> { "idUsuarioVendedor" : { "$maxKey" : 1 } } on : shard10004 Timestamp(5, 23) 

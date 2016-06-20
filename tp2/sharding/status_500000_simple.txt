@@ -1,0 +1,142 @@
+mongos> sh.status() --verbose
+2016-06-20T01:06:56.852-0300 E QUERY    [thread1] SyntaxError: missing ; before statement @(shell):1:14
+
+mongos> sh.status({"verbose": 1})
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"minCompatibleVersion" : 5,
+	"currentVersion" : 6,
+	"clusterId" : ObjectId("57676868eb934e625d07ccd0")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+	{  "_id" : "shard10002",  "host" : "localhost:10002" }
+	{  "_id" : "shard10003",  "host" : "localhost:10003" }
+	{  "_id" : "shard10004",  "host" : "localhost:10004" }
+  active mongoses:
+	{  "_id" : "fhosen-UX303UA:10006",  "ping" : ISODate("2016-06-20T04:07:12.366Z"),  "up" : NumberLong(904),  "waiting" : true,  "mongoVersion" : "3.2.7" }
+  balancer:
+	Currently enabled:  yes
+	Currently running:  no
+	Failed balancer rounds in last 5 attempts:  0
+	Migration Results for the last 24 hours: 
+		49 : Success
+  databases:
+	{  "_id" : "test_sharding",  "primary" : "shard10000",  "partitioned" : true }
+		test_sharding.publicaciones
+			shard key: { "idUsuarioVendedor" : 1 }
+			unique: false
+			balancing: true
+			chunks:
+				shard10000	23
+				shard10001	21
+				shard10002	20
+				shard10003	20
+				shard10004	21
+			{ "idUsuarioVendedor" : { "$minKey" : 1 } } -->> { "idUsuarioVendedor" : 0 } on : shard10003 Timestamp(42, 0) 
+			{ "idUsuarioVendedor" : 0 } -->> { "idUsuarioVendedor" : 158 } on : shard10001 Timestamp(44, 0) 
+			{ "idUsuarioVendedor" : 158 } -->> { "idUsuarioVendedor" : 316 } on : shard10001 Timestamp(50, 0) 
+			{ "idUsuarioVendedor" : 316 } -->> { "idUsuarioVendedor" : 375 } on : shard10000 Timestamp(50, 1) 
+			{ "idUsuarioVendedor" : 375 } -->> { "idUsuarioVendedor" : 460 } on : shard10001 Timestamp(49, 0) 
+			{ "idUsuarioVendedor" : 460 } -->> { "idUsuarioVendedor" : 547 } on : shard10004 Timestamp(49, 1) 
+			{ "idUsuarioVendedor" : 547 } -->> { "idUsuarioVendedor" : 558 } on : shard10004 Timestamp(47, 4) 
+			{ "idUsuarioVendedor" : 558 } -->> { "idUsuarioVendedor" : 643 } on : shard10000 Timestamp(50, 2) 
+			{ "idUsuarioVendedor" : 643 } -->> { "idUsuarioVendedor" : 726 } on : shard10000 Timestamp(50, 3) 
+			{ "idUsuarioVendedor" : 726 } -->> { "idUsuarioVendedor" : 746 } on : shard10000 Timestamp(50, 4) 
+			{ "idUsuarioVendedor" : 746 } -->> { "idUsuarioVendedor" : 751 } on : shard10004 Timestamp(24, 0) 
+			{ "idUsuarioVendedor" : 751 } -->> { "idUsuarioVendedor" : 862 } on : shard10004 Timestamp(15, 1) 
+			{ "idUsuarioVendedor" : 862 } -->> { "idUsuarioVendedor" : 986 } on : shard10004 Timestamp(10, 10) 
+			{ "idUsuarioVendedor" : 986 } -->> { "idUsuarioVendedor" : 1081 } on : shard10001 Timestamp(41, 0) 
+			{ "idUsuarioVendedor" : 1081 } -->> { "idUsuarioVendedor" : 1175 } on : shard10000 Timestamp(43, 0) 
+			{ "idUsuarioVendedor" : 1175 } -->> { "idUsuarioVendedor" : 1193 } on : shard10003 Timestamp(45, 0) 
+			{ "idUsuarioVendedor" : 1193 } -->> { "idUsuarioVendedor" : 1295 } on : shard10004 Timestamp(34, 0) 
+			{ "idUsuarioVendedor" : 1295 } -->> { "idUsuarioVendedor" : 1398 } on : shard10000 Timestamp(34, 1) 
+			{ "idUsuarioVendedor" : 1398 } -->> { "idUsuarioVendedor" : 1400 } on : shard10000 Timestamp(31, 16) 
+			{ "idUsuarioVendedor" : 1400 } -->> { "idUsuarioVendedor" : 1404 } on : shard10001 Timestamp(47, 0) 
+			{ "idUsuarioVendedor" : 1404 } -->> { "idUsuarioVendedor" : 1493 } on : shard10003 Timestamp(46, 2) 
+			{ "idUsuarioVendedor" : 1493 } -->> { "idUsuarioVendedor" : 1578 } on : shard10003 Timestamp(46, 3) 
+			{ "idUsuarioVendedor" : 1578 } -->> { "idUsuarioVendedor" : 1608 } on : shard10003 Timestamp(46, 4) 
+			{ "idUsuarioVendedor" : 1608 } -->> { "idUsuarioVendedor" : 1707 } on : shard10002 Timestamp(47, 1) 
+			{ "idUsuarioVendedor" : 1707 } -->> { "idUsuarioVendedor" : 1811 } on : shard10000 Timestamp(37, 0) 
+			{ "idUsuarioVendedor" : 1811 } -->> { "idUsuarioVendedor" : 1813 } on : shard10001 Timestamp(37, 1) 
+			{ "idUsuarioVendedor" : 1813 } -->> { "idUsuarioVendedor" : 1821 } on : shard10002 Timestamp(20, 1) 
+			{ "idUsuarioVendedor" : 1821 } -->> { "idUsuarioVendedor" : 1962 } on : shard10000 Timestamp(26, 1) 
+			{ "idUsuarioVendedor" : 1962 } -->> { "idUsuarioVendedor" : 2106 } on : shard10000 Timestamp(23, 9) 
+			{ "idUsuarioVendedor" : 2106 } -->> { "idUsuarioVendedor" : 2112 } on : shard10000 Timestamp(23, 10) 
+			{ "idUsuarioVendedor" : 2112 } -->> { "idUsuarioVendedor" : 2206 } on : shard10004 Timestamp(39, 5) 
+			{ "idUsuarioVendedor" : 2206 } -->> { "idUsuarioVendedor" : 2299 } on : shard10004 Timestamp(39, 6) 
+			{ "idUsuarioVendedor" : 2299 } -->> { "idUsuarioVendedor" : 2333 } on : shard10004 Timestamp(39, 7) 
+			{ "idUsuarioVendedor" : 2333 } -->> { "idUsuarioVendedor" : 2428 } on : shard10004 Timestamp(39, 8) 
+			{ "idUsuarioVendedor" : 2428 } -->> { "idUsuarioVendedor" : 2524 } on : shard10004 Timestamp(39, 9) 
+			{ "idUsuarioVendedor" : 2524 } -->> { "idUsuarioVendedor" : 2558 } on : shard10004 Timestamp(39, 10) 
+			{ "idUsuarioVendedor" : 2558 } -->> { "idUsuarioVendedor" : 2600 } on : shard10004 Timestamp(15, 16) 
+			{ "idUsuarioVendedor" : 2600 } -->> { "idUsuarioVendedor" : 2696 } on : shard10004 Timestamp(39, 2) 
+			{ "idUsuarioVendedor" : 2696 } -->> { "idUsuarioVendedor" : 2793 } on : shard10004 Timestamp(39, 3) 
+			{ "idUsuarioVendedor" : 2793 } -->> { "idUsuarioVendedor" : 2826 } on : shard10004 Timestamp(39, 4) 
+			{ "idUsuarioVendedor" : 2826 } -->> { "idUsuarioVendedor" : 2917 } on : shard10004 Timestamp(39, 23) 
+			{ "idUsuarioVendedor" : 2917 } -->> { "idUsuarioVendedor" : 3009 } on : shard10004 Timestamp(39, 24) 
+			{ "idUsuarioVendedor" : 3009 } -->> { "idUsuarioVendedor" : 3042 } on : shard10004 Timestamp(39, 25) 
+			{ "idUsuarioVendedor" : 3042 } -->> { "idUsuarioVendedor" : 3082 } on : shard10004 Timestamp(15, 19) 
+			{ "idUsuarioVendedor" : 3082 } -->> { "idUsuarioVendedor" : 3261 } on : shard10004 Timestamp(10, 4) 
+			{ "idUsuarioVendedor" : 3261 } -->> { "idUsuarioVendedor" : 3368 } on : shard10000 Timestamp(31, 2) 
+			{ "idUsuarioVendedor" : 3368 } -->> { "idUsuarioVendedor" : 3474 } on : shard10000 Timestamp(31, 3) 
+			{ "idUsuarioVendedor" : 3474 } -->> { "idUsuarioVendedor" : 3496 } on : shard10000 Timestamp(31, 4) 
+			{ "idUsuarioVendedor" : 3496 } -->> { "idUsuarioVendedor" : 3601 } on : shard10001 Timestamp(31, 5) 
+			{ "idUsuarioVendedor" : 3601 } -->> { "idUsuarioVendedor" : 3704 } on : shard10001 Timestamp(31, 6) 
+			{ "idUsuarioVendedor" : 3704 } -->> { "idUsuarioVendedor" : 3743 } on : shard10001 Timestamp(31, 7) 
+			{ "idUsuarioVendedor" : 3743 } -->> { "idUsuarioVendedor" : 3842 } on : shard10001 Timestamp(34, 5) 
+			{ "idUsuarioVendedor" : 3842 } -->> { "idUsuarioVendedor" : 3943 } on : shard10001 Timestamp(34, 6) 
+			{ "idUsuarioVendedor" : 3943 } -->> { "idUsuarioVendedor" : 3980 } on : shard10001 Timestamp(34, 7) 
+			{ "idUsuarioVendedor" : 3980 } -->> { "idUsuarioVendedor" : 4046 } on : shard10001 Timestamp(15, 10) 
+			{ "idUsuarioVendedor" : 4046 } -->> { "idUsuarioVendedor" : 4174 } on : shard10001 Timestamp(27, 2) 
+			{ "idUsuarioVendedor" : 4174 } -->> { "idUsuarioVendedor" : 4300 } on : shard10001 Timestamp(27, 3) 
+			{ "idUsuarioVendedor" : 4300 } -->> { "idUsuarioVendedor" : 4307 } on : shard10001 Timestamp(27, 4) 
+			{ "idUsuarioVendedor" : 4307 } -->> { "idUsuarioVendedor" : 4430 } on : shard10001 Timestamp(27, 5) 
+			{ "idUsuarioVendedor" : 4430 } -->> { "idUsuarioVendedor" : 4551 } on : shard10001 Timestamp(27, 6) 
+			{ "idUsuarioVendedor" : 4551 } -->> { "idUsuarioVendedor" : 4558 } on : shard10001 Timestamp(27, 7) 
+			{ "idUsuarioVendedor" : 4558 } -->> { "idUsuarioVendedor" : 4592 } on : shard10001 Timestamp(15, 4) 
+			{ "idUsuarioVendedor" : 4592 } -->> { "idUsuarioVendedor" : 4670 } on : shard10001 Timestamp(8, 4) 
+			{ "idUsuarioVendedor" : 4670 } -->> { "idUsuarioVendedor" : 4770 } on : shard10003 Timestamp(33, 2) 
+			{ "idUsuarioVendedor" : 4770 } -->> { "idUsuarioVendedor" : 4869 } on : shard10003 Timestamp(33, 3) 
+			{ "idUsuarioVendedor" : 4869 } -->> { "idUsuarioVendedor" : 4903 } on : shard10003 Timestamp(33, 4) 
+			{ "idUsuarioVendedor" : 4903 } -->> { "idUsuarioVendedor" : 5002 } on : shard10003 Timestamp(34, 2) 
+			{ "idUsuarioVendedor" : 5002 } -->> { "idUsuarioVendedor" : 5102 } on : shard10003 Timestamp(34, 3) 
+			{ "idUsuarioVendedor" : 5102 } -->> { "idUsuarioVendedor" : 5137 } on : shard10003 Timestamp(34, 4) 
+			{ "idUsuarioVendedor" : 5137 } -->> { "idUsuarioVendedor" : 5206 } on : shard10003 Timestamp(15, 13) 
+			{ "idUsuarioVendedor" : 5206 } -->> { "idUsuarioVendedor" : 5326 } on : shard10003 Timestamp(27, 11) 
+			{ "idUsuarioVendedor" : 5326 } -->> { "idUsuarioVendedor" : 5449 } on : shard10003 Timestamp(27, 12) 
+			{ "idUsuarioVendedor" : 5449 } -->> { "idUsuarioVendedor" : 5452 } on : shard10003 Timestamp(27, 13) 
+			{ "idUsuarioVendedor" : 5452 } -->> { "idUsuarioVendedor" : 5576 } on : shard10003 Timestamp(27, 8) 
+			{ "idUsuarioVendedor" : 5576 } -->> { "idUsuarioVendedor" : 5697 } on : shard10003 Timestamp(27, 9) 
+			{ "idUsuarioVendedor" : 5697 } -->> { "idUsuarioVendedor" : 5701 } on : shard10003 Timestamp(27, 10) 
+			{ "idUsuarioVendedor" : 5701 } -->> { "idUsuarioVendedor" : 5735 } on : shard10003 Timestamp(15, 7) 
+			{ "idUsuarioVendedor" : 5735 } -->> { "idUsuarioVendedor" : 5873 } on : shard10003 Timestamp(8, 7) 
+			{ "idUsuarioVendedor" : 5873 } -->> { "idUsuarioVendedor" : 5974 } on : shard10002 Timestamp(31, 8) 
+			{ "idUsuarioVendedor" : 5974 } -->> { "idUsuarioVendedor" : 6076 } on : shard10002 Timestamp(31, 9) 
+			{ "idUsuarioVendedor" : 6076 } -->> { "idUsuarioVendedor" : 6118 } on : shard10002 Timestamp(31, 10) 
+			{ "idUsuarioVendedor" : 6118 } -->> { "idUsuarioVendedor" : 6212 } on : shard10002 Timestamp(39, 11) 
+			{ "idUsuarioVendedor" : 6212 } -->> { "idUsuarioVendedor" : 6306 } on : shard10002 Timestamp(39, 12) 
+			{ "idUsuarioVendedor" : 6306 } -->> { "idUsuarioVendedor" : 6339 } on : shard10002 Timestamp(39, 13) 
+			{ "idUsuarioVendedor" : 6339 } -->> { "idUsuarioVendedor" : 6432 } on : shard10002 Timestamp(39, 17) 
+			{ "idUsuarioVendedor" : 6432 } -->> { "idUsuarioVendedor" : 6522 } on : shard10002 Timestamp(39, 18) 
+			{ "idUsuarioVendedor" : 6522 } -->> { "idUsuarioVendedor" : 6556 } on : shard10002 Timestamp(39, 19) 
+			{ "idUsuarioVendedor" : 6556 } -->> { "idUsuarioVendedor" : 6594 } on : shard10002 Timestamp(15, 22) 
+			{ "idUsuarioVendedor" : 6594 } -->> { "idUsuarioVendedor" : 6686 } on : shard10002 Timestamp(39, 20) 
+			{ "idUsuarioVendedor" : 6686 } -->> { "idUsuarioVendedor" : 6778 } on : shard10002 Timestamp(39, 21) 
+			{ "idUsuarioVendedor" : 6778 } -->> { "idUsuarioVendedor" : 6811 } on : shard10002 Timestamp(39, 22) 
+			{ "idUsuarioVendedor" : 6811 } -->> { "idUsuarioVendedor" : 6904 } on : shard10002 Timestamp(39, 14) 
+			{ "idUsuarioVendedor" : 6904 } -->> { "idUsuarioVendedor" : 6996 } on : shard10002 Timestamp(39, 15) 
+			{ "idUsuarioVendedor" : 6996 } -->> { "idUsuarioVendedor" : 7032 } on : shard10002 Timestamp(39, 16) 
+			{ "idUsuarioVendedor" : 7032 } -->> { "idUsuarioVendedor" : 7070 } on : shard10002 Timestamp(15, 25) 
+			{ "idUsuarioVendedor" : 7070 } -->> { "idUsuarioVendedor" : 7194 } on : shard10002 Timestamp(10, 7) 
+			{ "idUsuarioVendedor" : 7194 } -->> { "idUsuarioVendedor" : 7362 } on : shard10000 Timestamp(23, 2) 
+			{ "idUsuarioVendedor" : 7362 } -->> { "idUsuarioVendedor" : 7530 } on : shard10000 Timestamp(23, 3) 
+			{ "idUsuarioVendedor" : 7530 } -->> { "idUsuarioVendedor" : 7549 } on : shard10000 Timestamp(23, 4) 
+			{ "idUsuarioVendedor" : 7549 } -->> { "idUsuarioVendedor" : 7635 } on : shard10000 Timestamp(49, 2) 
+			{ "idUsuarioVendedor" : 7635 } -->> { "idUsuarioVendedor" : 7721 } on : shard10000 Timestamp(49, 3) 
+			{ "idUsuarioVendedor" : 7721 } -->> { "idUsuarioVendedor" : 7737 } on : shard10000 Timestamp(49, 4) 
+			{ "idUsuarioVendedor" : 7737 } -->> { "idUsuarioVendedor" : 7926 } on : shard10000 Timestamp(20, 6) 
+			{ "idUsuarioVendedor" : 7926 } -->> { "idUsuarioVendedor" : 8000 } on : shard10000 Timestamp(20, 7) 
+			{ "idUsuarioVendedor" : 8000 } -->> { "idUsuarioVendedor" : { "$maxKey" : 1 } } on : shard10000 Timestamp(10, 19) 
