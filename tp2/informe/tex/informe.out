@@ -21,7 +21,12 @@
 \BOOKMARK [2][-]{subsection.3.5}{Ejercicio 5}{section.3}% 21
 \BOOKMARK [2][-]{subsection.3.6}{Ejercicio 6}{section.3}% 22
 \BOOKMARK [1][-]{section.4}{Parte 3 - Sharding}{}% 23
-\BOOKMARK [2][-]{subsection.4.1}{Inserccion de datos en la base de datos}{section.4}% 24
-\BOOKMARK [2][-]{subsection.4.2}{Resultados}{section.4}% 25
-\BOOKMARK [2][-]{subsection.4.3}{Creacion de Shards}{section.4}% 26
-\BOOKMARK [1][-]{section.5}{Conclusiones}{}% 27
+\BOOKMARK [2][-]{subsection.4.1}{Introduccion}{section.4}% 24
+\BOOKMARK [2][-]{subsection.4.2}{Inserccion de datos en la base de datos}{section.4}% 25
+\BOOKMARK [1][-]{section.5}{Indice Simple}{}% 26
+\BOOKMARK [2][-]{subsection.5.1}{Creacion de Shards}{section.5}% 27
+\BOOKMARK [2][-]{subsection.5.2}{Evolucion de Shards}{section.5}% 28
+\BOOKMARK [1][-]{section.6}{Indice Hash}{}% 29
+\BOOKMARK [2][-]{subsection.6.1}{Creacion de Shards}{section.6}% 30
+\BOOKMARK [2][-]{subsection.6.2}{Evolucion de Shards}{section.6}% 31
+\BOOKMARK [1][-]{section.7}{Indice Simple vs Indice Hash}{}% 32

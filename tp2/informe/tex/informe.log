@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.14)  19 JUN 2016 23:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.14)  20 JUN 2016 22:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -941,13 +941,13 @@ LaTeX Info: Redefining \nameref on input line 174.
 \@outlinefile=\write4
 \openout4 = `informe.out'.
 
- <DC.png, id=112, 802.9197pt x 287.6346pt>
+ <DC.png, id=132, 802.9197pt x 287.6346pt>
 File: DC.png Graphic file (type png)
 
 <use DC.png>
 Package pdftex.def Info: DC.png used on input line 186.
 (pdftex.def)             Requested size: 158.84137pt x 56.9055pt.
- <UBA.jpg, id=114, 233.4321pt x 233.9139pt>
+ <UBA.jpg, id=134, 233.4321pt x 233.9139pt>
 File: UBA.jpg Graphic file (type jpg)
  <use UBA.jpg>
 Package pdftex.def Info: UBA.jpg used on input line 188.
@@ -975,7 +975,7 @@ LaTeX Font Info:    Font shape `T1/fve/m/n' will be
 (Font)              scaled to size 10.79993pt on input line 245.
 LaTeX Font Info:    Font shape `T1/fve/b/n' will be
 (Font)              scaled to size 10.79993pt on input line 245.
- <der.png, id=124, 1157.32375pt x 813.0375pt>
+ <der.png, id=144, 1157.32375pt x 813.0375pt>
 File: der.png Graphic file (type png)
  <use der.png>
 Package pdftex.def Info: der.png used on input line 248.
@@ -1029,26 +1029,63 @@ LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
 (Font)              scaled to size 7.19995pt on input line 458.
 LaTeX Font Info:    Font shape `T1/fvm/b/n' will be
 (Font)              scaled to size 7.19995pt on input line 459.
-[7] [8] 
+[7] [8]
+Overfull \hbox (80.21893pt too wide) in paragraph at lines 595--597
+\T1/fve/m/n/10 men-tos de shar-ding. Ca-da 200000 in-sert ha-ce-mos un out-put 
+en un ar-chi-vo de db.publicaciones.getShardDistribution()
+ []
+
+[9] <resultado_indice_simple.png, id=327, 415.5525pt x 382.42876pt>
+File: resultado_indice_simple.png Graphic file (type png)
+
+<use resultado_indice_simple.png>
+Package pdftex.def Info: resultado_indice_simple.png used on input line 639.
+(pdftex.def)             Requested size: 332.44244pt x 305.9434pt.
+
+<indice_simple.png, id=328, 903.375pt x 422.57875pt>
+File: indice_simple.png Graphic file (type png)
+ <use indice_simple.png>
+Package pdftex.def Info: indice_simple.png used on input line 641.
+(pdftex.def)             Requested size: 451.6864pt x 211.28885pt.
+
+[10 <./resultado_indice_simple.png> <./indice_simple.png>]
+<resultado_indice_hash.png, id=336, 549.05125pt x 476.78125pt>
+File: resultado_indice_hash.png Graphic file (type png)
+
+<use resultado_indice_hash.png>
+Package pdftex.def Info: resultado_indice_hash.png used on input line 658.
+(pdftex.def)             Requested size: 384.33325pt x 333.74458pt.
+
+<indice_hash.png, id=337, 903.375pt x 422.57875pt>
+File: indice_hash.png Graphic file (type png)
+ <use indice_hash.png>
+Package pdftex.def Info: indice_hash.png used on input line 660.
+(pdftex.def)             Requested size: 451.6864pt x 211.28885pt.
+
+[11 <./resultado_indice_hash.png>] 
 AED: lastpage setting LastPage
-[9]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 628.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 628.
+[12 <./indice_hash.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 670.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 670.
  (./informe.aux
 LaTeX Info: Redefining \. on input line 20.
 LaTeX Info: Redefining \% on input line 20.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 628.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 628.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 670.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 670.
 Package rerunfilecheck Info: File `informe.out' has not changed.
-(rerunfilecheck)             Checksum: E2452E66D2D6AF660331659C9F5AD457;1812.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 628.
+(rerunfilecheck)             Checksum: B0AEF699DD7AD1CD70AF375CDA288168;2132.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 670.
  ) 
 Here is how much of TeX's memory you used:
- 11535 strings out of 493117
- 161389 string characters out of 6135433
- 351697 words of memory out of 5000000
- 14624 multiletter control sequences out of 15000+600000
+ 11569 strings out of 493117
+ 162051 string characters out of 6135433
+ 351701 words of memory out of 5000000
+ 14646 multiletter control sequences out of 15000+600000
  36578 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  30i,12n,43p,279b,1875s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1057,10 +1094,10 @@ exlive/2014/texmf-dist/fonts/type1/public/bera/fveb8a.pfb></usr/local/texlive/2
 014/texmf-dist/fonts/type1/public/bera/fver8a.pfb></usr/local/texlive/2014/texm
 f-dist/fonts/type1/public/bera/fvmb8a.pfb></usr/local/texlive/2014/texmf-dist/f
 onts/type1/public/bera/fvmr8a.pfb>
-Output written on informe.pdf (9 pages, 902278 bytes).
+Output written on informe.pdf (12 pages, 1309147 bytes).
 PDF statistics:
- 360 PDF objects out of 1000 (max. 8388607)
- 336 compressed objects within 4 object streams
- 172 named destinations out of 1000 (max. 500000)
- 232 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 404 PDF objects out of 1000 (max. 8388607)
+ 369 compressed objects within 4 object streams
+ 180 named destinations out of 1000 (max. 500000)
+ 292 words of extra memory for PDF output out of 10000 (max. 10000000)
 

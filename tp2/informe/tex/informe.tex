@@ -590,10 +590,14 @@ var ej6_r = function(k,vs){
 %% Parte 3                                                                   %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Parte 3 - Sharding}
+\subsection{Introduccion}
+
+Utilizamos 5 shards para hacer las pruebas y a la coleccion de publicaciones le agregamos un atributo extra "idUsuarioVendedor" para poder usarlo como atributo clave a la hora de ahcer experimentos de sharding.
+Cada 200000 insert hacemos un output en un archivo de db.publicaciones.getShardDistribution() y sh.status() y con estos datos hicimos los graficos.
+
 
 \subsection{Inserccion de datos en la base de datos}
 Para insertar 500000 registros en la base de datos lo que hicimos fue generar un script en Python que nos devuelva 500000 publicaciones. 
-Nota: A la coleccion de publicaciones le agregamos un atributo extra "idUsuarioVendedor" para poder usarlo como atributo clave a la hora de ahcer experimentos de sharding.
 
 El pseudocodigo para la generacion de los 500000 registros:
 \begin{verbatim}
@@ -618,32 +622,44 @@ print ']'
 
 A continuacion, para insertar estos datos en la base de datos de mongo, hicimos un scrpit de JavaScript para correrlo desde el Shell de mongo y que pueda importar todos estos datos en los distintos shards
 
+
 \section{Indice Simple}
 
-\subsection{Resultados}
-
-poner que devuelve db.publicaciones.getShardDistribution() y sh.status() 
-
 \subsection{Creacion de Shards}
 
 Poner como hicimos para crear los shards
 
 \subsection{Evolucion de Shards}
-Poner el grafico y explicarlo
 
+A continuacion se muestra un cuadro donde se encuentran los datos obtenidos del analisis de los Shards. Lo que hicimos fue ver el getShardDistribution() cada 20000 inserciones y mostrar el porcentaje de distrubucion de los datos en los distintos Shards.
+Como ya fue explicado, utilizamos 5 Shards y en el cuadro se ve el porcentaje de datos que contiene cada Shard cada 20000 insert desde 0 hasta 500000 registros.
+Para este analisis utilizamos indices simples sobre la columna "idUsuarioVendedor" del documento de Publicaciones.
+
+\begin{center}
+\includegraphics[scale=0.8]{resultado_indice_simple.png}
+\end{center}
+\includegraphics[scale=0.5]{indice_simple.png}
+
+En el grafico se puede ver que ....
 \section{Indice Hash}
 
-\subsection{Resultados}
-
-\emph{poner que devuelve \color{red}db.publicaciones.getShardDistribution() y sh.status() } 
-
 \subsection{Creacion de Shards}
 
 Poner como hicimos para crear los shards
 
 \subsection{Evolucion de Shards}
-Poner el grafico y explicarlo
 
+A continuacion se muestra un cuadro donde se encuentran los datos obtenidos del analisis de los Shards. Lo que hicimos fue ver el getShardDistribution() cada 20000 inserciones y mostrar el porcentaje de distrubucion de los datos en los distintos Shards.
+Como ya fue explicado, utilizamos 5 Shards y en el cuadro se ve el porcentaje de datos que contiene cada Shard cada 20000 insert desde 0 hasta 500000 registros.
+Para este analisis utilizamos indices hash sobre la columna "idUsuarioVendedor" del documento de Publicaciones.
+
+
+\begin{center}
+\includegraphics[scale=0.7]{resultado_indice_hash.png}
+\end{center}
+\includegraphics[scale=0.5]{indice_hash.png}
+
+En el grafico se puede ver que ....
 
 \section{Indice Simple vs Indice Hash}
 aca escribir la conclusion 
