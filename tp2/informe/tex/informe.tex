@@ -623,6 +623,20 @@ print ']'
 A continuacion, para insertar estos datos en la base de datos de mongo, hicimos un scrpit de JavaScript para correrlo desde el Shell de mongo y que pueda importar todos estos datos en los distintos shards
 
 
+
+
+\begin{lstlisting}[caption=Ejercicio 6]
+var collection = "publicaciones";
+
+pubs.forEach(function(e, i){
+    if (i % 20000 == 0){
+        db[collection].getShardDistribution();
+    }
+    db[collection].insert(e);
+});
+\end{lstlisting}
+
+
 \section{Indice Simple}
 
 \subsection{Creacion de Shards}
