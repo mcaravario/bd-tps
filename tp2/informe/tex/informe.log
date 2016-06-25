@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.14)  20 JUN 2016 23:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.14)  25 JUN 2016 14:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1005,47 +1005,34 @@ LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
 LaTeX Font Info:    Font shape `T1/fve/m/n' will be
 (Font)              scaled to size 6.29996pt on input line 268.
  [3] [4] [5]
-Overfull \hbox (159.26085pt too wide) in paragraph at lines 397--397
-[]  \T1/fvm/m/n/10 when s.idPublicacion is not null and (v.idPublicacion is not
- null or su.idPublicacion is not null) then "mixto"[] 
- []
-
-
-Overfull \hbox (543.93555pt too wide) in paragraph at lines 413--413
+Overfull \hbox (7.55815pt too wide) in paragraph at lines 415--415
 []\T1/fvm/m/n/10 select c.idCompra, c.idUsuario as idUsarioComprador,p.idUsuari
-o as idUsuarioVendedor,c.fecha, c.cantidad, c.idPublicacion, p.precio, tp.costo
-, tp.porcentajeVenta, tp.nombre, ca.puntaje 
+o as idUsuarioVendedor, 
  []
 
 [6]
-Overfull \hbox (2.1402pt too wide) in paragraph at lines 448--448
+Overfull \hbox (2.1402pt too wide) in paragraph at lines 452--452
 []\T1/fvm/m/n/10 mongoimport --db tp2 --collection publicacion --drop --file ./
 publicacion_mongo.json[] 
  []
 
 LaTeX Font Info:    Font shape `T1/fve/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 458.
+(Font)              scaled to size 7.19995pt on input line 462.
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 458.
+(Font)              scaled to size 7.19995pt on input line 462.
 LaTeX Font Info:    Font shape `T1/fvm/b/n' will be
-(Font)              scaled to size 7.19995pt on input line 459.
-[7] [8]
-Overfull \hbox (80.21893pt too wide) in paragraph at lines 595--597
-\T1/fve/m/n/10 men-tos de shar-ding. Ca-da 200000 in-sert ha-ce-mos un out-put 
-en un ar-chi-vo de db.publicaciones.getShardDistribution()
- []
-
-[9] <resultado_indice_simple.png, id=336, 415.5525pt x 382.42876pt>
+(Font)              scaled to size 7.19995pt on input line 463.
+[7] [8] [9] <resultado_indice_simple.png, id=336, 415.5525pt x 382.42876pt>
 File: resultado_indice_simple.png Graphic file (type png)
 
 <use resultado_indice_simple.png>
-Package pdftex.def Info: resultado_indice_simple.png used on input line 653.
+Package pdftex.def Info: resultado_indice_simple.png used on input line 659.
 (pdftex.def)             Requested size: 332.44244pt x 305.9434pt.
 
 <indice_simple.png, id=337, 903.375pt x 422.57875pt>
 File: indice_simple.png Graphic file (type png)
  <use indice_simple.png>
-Package pdftex.def Info: indice_simple.png used on input line 655.
+Package pdftex.def Info: indice_simple.png used on input line 661.
 (pdftex.def)             Requested size: 451.6864pt x 211.28885pt.
 
 [10 <./resultado_indice_simple.png>]
@@ -1053,29 +1040,29 @@ Package pdftex.def Info: indice_simple.png used on input line 655.
 File: resultado_indice_hash.png Graphic file (type png)
 
 <use resultado_indice_hash.png>
-Package pdftex.def Info: resultado_indice_hash.png used on input line 672.
+Package pdftex.def Info: resultado_indice_hash.png used on input line 678.
 (pdftex.def)             Requested size: 384.33325pt x 333.74458pt.
  [11 <./indice_simple.png>]
 <indice_hash.png, id=351, 903.375pt x 422.57875pt>
 File: indice_hash.png Graphic file (type png)
  <use indice_hash.png>
-Package pdftex.def Info: indice_hash.png used on input line 674.
+Package pdftex.def Info: indice_hash.png used on input line 680.
 (pdftex.def)             Requested size: 451.6864pt x 211.28885pt.
 
 
 AED: lastpage setting LastPage
 [12 <./resultado_indice_hash.png> <./indice_hash.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 684.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 684.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 690.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 690.
  (./informe.aux
 LaTeX Info: Redefining \. on input line 20.
 LaTeX Info: Redefining \% on input line 20.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 684.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 684.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 690.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 690.
 Package rerunfilecheck Info: File `informe.out' has not changed.
-(rerunfilecheck)             Checksum: B0AEF699DD7AD1CD70AF375CDA288168;2132.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 684.
+(rerunfilecheck)             Checksum: E59A8307ACF024F8947A73D8D505DF75;2153.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 690.
  ) 
 Here is how much of TeX's memory you used:
  11603 strings out of 493117
@@ -1084,13 +1071,13 @@ Here is how much of TeX's memory you used:
  14664 multiletter control sequences out of 15000+600000
  39678 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 30i,12n,43p,279b,1875s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 30i,12n,43p,282b,1875s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2014/texmf-dist/fonts/type1/public/bera/fveb8a.pfb></usr/local/texlive/2
 014/texmf-dist/fonts/type1/public/bera/fver8a.pfb></usr/local/texlive/2014/texm
 f-dist/fonts/type1/public/bera/fvmb8a.pfb></usr/local/texlive/2014/texmf-dist/f
 onts/type1/public/bera/fvmr8a.pfb>
-Output written on informe.pdf (12 pages, 1310056 bytes).
+Output written on informe.pdf (12 pages, 1310268 bytes).
 PDF statistics:
  416 PDF objects out of 1000 (max. 8388607)
  381 compressed objects within 4 object streams

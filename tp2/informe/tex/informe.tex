@@ -234,8 +234,8 @@ Christian Russo  & 679/10 & christian.russo8@gmail.com\\
 
 \section{Introducción}
 
-En el siguiente trabajo se desarrolla un modelo de Bases de Datos NoSQL con MongoDB teniendo el cuenta el problema descripto en el TP1.
-Para esto se utilizo una seccion del DER completo del TP1 y se diseñaron los documentos correspondientes para realizar las consultas pedidas en el enunciado del TP2.
+En el siguiente trabajo se desarrolla un modelo de Bases de Datos NoSQL con MongoDB teniendo en cuenta el problema descripto en el TP1.
+Para esto, se utiliz\'o una secci\'on del DER completo del TP1 y se diseñaron los documentos correspondientes para realizar las consultas pedidas en el enunciado del TP2.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Parte 1                                                                   %%
@@ -252,15 +252,15 @@ Las consultas pedidas solamente necesitan de usuarios, ventas, reputaciones, cal
 
 \begin{itemize}
 \item Para usuarios y ventas, las tablas de Usuarios, Publicaciones y Compra
-\item Para reputaciones de usuarios, las tablas de Calificacion y Usuario
-\item Para comisiones, usamos las tablas de Publicacion y Tipo de Publicacion.
+\item Para reputaciones de usuarios, las tablas de Calificaci\'on y Usuario
+\item Para comisiones, usamos las tablas de Publicaci\'on y Tipo de Publicaci\'on.
 \item Para monto de facturas, usamos las tabla de Facturas
 \end{itemize}
 
 \newpage
 \subsection{Colecciones}
 
-A continuacion mostramos las colecciones que utilizamos para resolver las consultas propuestas en el enunciado
+A continuaci\'on, mostramos las colecciones que utilizamos para resolver las consultas propuestas en el enunciado
 
 \subsubsection{Publicaciones}
 
@@ -313,9 +313,10 @@ A continuacion mostramos las colecciones que utilizamos para resolver las consul
 }
 \end{lstlisting}
 \newpage
-\subsection{Migracion datos SQL a Colecciones}
+\subsection{Migraci\'on datos SQL a Colecciones}
 Para migrar los datos de SQL (MySQLWorkwench) al formato de JSON que se necesita en MongoDB lo que hicimos fue exportar los datos directo desde MySQLWorkwench, pero estos se exportan en JSON plano, es decir no quedaba formateado de la forma que nosotros queriamos. 
-Para solucionar este problema realizamos unos algoritmos en python para formatearlos a mano. Estos algoritmos reciben como input el JSON plano y devuelven un JSON formateado para MongoDB
+
+Para solucionar este problema, realizamos unos algoritmos en python para formatearlos a mano. Estos algoritmos reciben como input el JSON plano y devuelven un JSON formateado para MongoDB
 
 \subsubsection{Parser para el JSON de la compra}
 
@@ -344,7 +345,7 @@ for a in data:
 \end{verbatim}
 
 \newpage
-\subsubsection{Parser para el JSON de la Facutra}
+\subsubsection{Parser para el JSON de la Factutra}
 
 \begin{verbatim}
 import json
@@ -382,19 +383,20 @@ for a in c:
 
 \end{verbatim}
 
-\textbf{Nota:} para la coleccion de publicaciones no tuvimos que hacer ningun algoritmo.
+\textbf{Nota:} para la colecci\'on de publicaciones no tuvimos que hacer ning\'un algoritmo.
 
 \newpage
 \subsection{Consultas SQL}
 
-A continuacion listamos las consultas realizadas para conseguir los datos necesarios para nuestras colecciones:
+A continuaci\'on listamos las consultas realizadas para conseguir los datos necesarios para nuestras colecciones:
 \subsubsection{SQL de Publicaciones}
 
 
 \begin{verbatim}
 select p.idPublicacion,   
 CASE
-  when s.idPublicacion is not null and (v.idPublicacion is not null or su.idPublicacion is not null) then "mixto"
+  when s.idPublicacion is not null and 
+  (v.idPublicacion is not null or su.idPublicacion is not null) then "mixto"
   when s.idPublicacion is not null then "servicio"
     when v.idPublicacion is not null then "articulo"
     when su.idPublicacion is not null then "articulo"
@@ -410,7 +412,9 @@ left join subasta su on su.idPublicacion = p.idPublicacion
 \subsubsection{SQL de Compras}
 
 \begin{verbatim}
-select c.idCompra, c.idUsuario as idUsarioComprador,p.idUsuario as idUsuarioVendedor,c.fecha, c.cantidad, c.idPublicacion, p.precio, tp.costo, tp.porcentajeVenta, tp.nombre, ca.puntaje
+select c.idCompra, c.idUsuario as idUsarioComprador,p.idUsuario as idUsuarioVendedor,
+c.fecha, c.cantidad, c.idPublicacion, p.precio,
+tp.costo, tp.porcentajeVenta, tp.nombre, ca.puntaje
 from compra c 
 join publicacion p
  
@@ -439,7 +443,7 @@ on tp.idTipoPublicacion = p.idTipoDePublicacion
 
 \end{verbatim}
 \newpage
-\subsection{Implementacion MongoDB}
+\subsection{Implementaci\'on MongoDB}
 Para implementar la base de datos de documentos en mongoDB utilizamos los JSON de las colecciones descriptos anteriormente y los importamos de la siguiente forma:
 
 \begin{verbatim}
@@ -590,16 +594,18 @@ var ej6_r = function(k,vs){
 %% Parte 3                                                                   %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Parte 3 - Sharding}
-\subsection{Introduccion}
+\subsection{Introducci\'on}
 
-Utilizamos 5 shards para hacer las pruebas y a la coleccion de publicaciones le agregamos un atributo extra "idUsuarioVendedor" para poder usarlo como atributo clave a la hora de ahcer experimentos de sharding.
-Cada 200000 insert hacemos un output en un archivo de db.publicaciones.getShardDistribution() y sh.status() y con estos datos hicimos los graficos.
+Utilizamos 5 shards para hacer las pruebas y a la colecci\'on de publicaciones le agregamos un atributo extra "idUsuarioVendedor" para poder usarlo como atributo clave a la hora de hacer experimentos de sharding.
+Cada 200000 insert hacemos un output en un archivo de 
+
+db.publicaciones.getShardDistribution() y sh.status() y con estos datos hicimos los gr\'aficos.
 
 
-\subsection{Inserccion de datos en la base de datos}
+\subsection{Inserci\'on de datos en la base de datos}
 Para insertar 500000 registros en la base de datos lo que hicimos fue generar un script en Python que nos devuelva 500000 publicaciones. 
 
-El pseudocodigo para la generacion de los 500000 registros:
+El pseudocodigo para la generaci\'on de los 500000 registros:
 \begin{verbatim}
 import json
 from pprint import pprint
@@ -620,7 +626,7 @@ print ']'
 \end{verbatim}
 
 
-A continuacion, para insertar estos datos en la base de datos de mongo, hicimos un scrpit de JavaScript para correrlo desde el Shell de mongo y que pueda importar todos estos datos en los distintos shards
+A continuaci\'on, para insertar estos datos en la base de datos de mongo, hicimos un scrpit de JavaScript para correrlo desde el Shell de mongo y que pueda importar todos estos datos en los distintos shards
 
 
 
@@ -637,17 +643,17 @@ pubs.forEach(function(e, i){
 \end{lstlisting}
 
 
-\section{Indice Simple}
+\section{\'Indice Simple}
 
-\subsection{Creacion de Shards}
+\subsection{Creaci\'on de Shards}
 
 Poner como hicimos para crear los shards
 
 \subsection{Evolucion de Shards}
 
-A continuacion se muestra un cuadro donde se encuentran los datos obtenidos del analisis de los Shards. Lo que hicimos fue ver el getShardDistribution() cada 20000 inserciones y mostrar el porcentaje de distrubucion de los datos en los distintos Shards.
+A continuaci\'on se muestra un cuadro donde se encuentran los datos obtenidos del an\'alisis de los Shards. Lo que hicimos fue ver el getShardDistribution() cada 20000 inserciones y mostrar el porcentaje de distrubuci\'on de los datos en los distintos Shards.
 Como ya fue explicado, utilizamos 5 Shards y en el cuadro se ve el porcentaje de datos que contiene cada Shard cada 20000 insert desde 0 hasta 500000 registros.
-Para este analisis utilizamos indices simples sobre la columna "idUsuarioVendedor" del documento de Publicaciones.
+Para este an\'alisis utilizamos \'indices simples sobre la columna "idUsuarioVendedor" del documento de Publicaciones.
 
 \begin{center}
 \includegraphics[scale=0.8]{resultado_indice_simple.png}
@@ -661,11 +667,11 @@ En el grafico se puede ver que ....
 
 Poner como hicimos para crear los shards
 
-\subsection{Evolucion de Shards}
+\subsection{Evoluci\'on de Shards}
 
-A continuacion se muestra un cuadro donde se encuentran los datos obtenidos del analisis de los Shards. Lo que hicimos fue ver el getShardDistribution() cada 20000 inserciones y mostrar el porcentaje de distrubucion de los datos en los distintos Shards.
+A continuaci\'on se muestra un cuadro donde se encuentran los datos obtenidos del an\'alisis de los Shards. Lo que hicimos, fue ver el getShardDistribution() cada 20000 inserciones y mostrar el porcentaje de distrubuci\'on de los datos en los distintos Shards.
 Como ya fue explicado, utilizamos 5 Shards y en el cuadro se ve el porcentaje de datos que contiene cada Shard cada 20000 insert desde 0 hasta 500000 registros.
-Para este analisis utilizamos indices hash sobre la columna "idUsuarioVendedor" del documento de Publicaciones.
+Para este an\'alisis utilizamos \'indices hash sobre la columna "idUsuarioVendedor" del documento de Publicaciones.
 
 
 \begin{center}
@@ -673,7 +679,7 @@ Para este analisis utilizamos indices hash sobre la columna "idUsuarioVendedor" 
 \end{center}
 \includegraphics[scale=0.5]{indice_hash.png}
 
-En el grafico se puede ver que ....
+En el gr\'afico se puede ver que ....
 
 \section{Indice Simple vs Indice Hash}
 aca escribir la conclusion 

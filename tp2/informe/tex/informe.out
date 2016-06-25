@@ -5,14 +5,14 @@
 \BOOKMARK [3][-]{subsubsection.2.2.1}{Publicaciones}{subsection.2.2}% 5
 \BOOKMARK [3][-]{subsubsection.2.2.2}{Compra}{subsection.2.2}% 6
 \BOOKMARK [3][-]{subsubsection.2.2.3}{Factura}{subsection.2.2}% 7
-\BOOKMARK [2][-]{subsection.2.3}{Migracion datos SQL a Colecciones}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.3}{Migraci\363n datos SQL a Colecciones}{section.2}% 8
 \BOOKMARK [3][-]{subsubsection.2.3.1}{Parser para el JSON de la compra}{subsection.2.3}% 9
-\BOOKMARK [3][-]{subsubsection.2.3.2}{Parser para el JSON de la Facutra}{subsection.2.3}% 10
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Parser para el JSON de la Factutra}{subsection.2.3}% 10
 \BOOKMARK [2][-]{subsection.2.4}{Consultas SQL}{section.2}% 11
 \BOOKMARK [3][-]{subsubsection.2.4.1}{SQL de Publicaciones}{subsection.2.4}% 12
 \BOOKMARK [3][-]{subsubsection.2.4.2}{SQL de Compras}{subsection.2.4}% 13
 \BOOKMARK [3][-]{subsubsection.2.4.3}{SQL de Facturas}{subsection.2.4}% 14
-\BOOKMARK [2][-]{subsection.2.5}{Implementacion MongoDB}{section.2}% 15
+\BOOKMARK [2][-]{subsection.2.5}{Implementaci\363n MongoDB}{section.2}% 15
 \BOOKMARK [1][-]{section.3}{Parte 2 - Map Reduce}{}% 16
 \BOOKMARK [2][-]{subsection.3.1}{Ejercicio 1}{section.3}% 17
 \BOOKMARK [2][-]{subsection.3.2}{Ejercicio 2}{section.3}% 18
@@ -21,12 +21,12 @@
 \BOOKMARK [2][-]{subsection.3.5}{Ejercicio 5}{section.3}% 21
 \BOOKMARK [2][-]{subsection.3.6}{Ejercicio 6}{section.3}% 22
 \BOOKMARK [1][-]{section.4}{Parte 3 - Sharding}{}% 23
-\BOOKMARK [2][-]{subsection.4.1}{Introduccion}{section.4}% 24
-\BOOKMARK [2][-]{subsection.4.2}{Inserccion de datos en la base de datos}{section.4}% 25
-\BOOKMARK [1][-]{section.5}{Indice Simple}{}% 26
-\BOOKMARK [2][-]{subsection.5.1}{Creacion de Shards}{section.5}% 27
+\BOOKMARK [2][-]{subsection.4.1}{Introducci\363n}{section.4}% 24
+\BOOKMARK [2][-]{subsection.4.2}{Inserci\363n de datos en la base de datos}{section.4}% 25
+\BOOKMARK [1][-]{section.5}{\315ndice Simple}{}% 26
+\BOOKMARK [2][-]{subsection.5.1}{Creaci\363n de Shards}{section.5}% 27
 \BOOKMARK [2][-]{subsection.5.2}{Evolucion de Shards}{section.5}% 28
 \BOOKMARK [1][-]{section.6}{Indice Hash}{}% 29
 \BOOKMARK [2][-]{subsection.6.1}{Creacion de Shards}{section.6}% 30
-\BOOKMARK [2][-]{subsection.6.2}{Evolucion de Shards}{section.6}% 31
+\BOOKMARK [2][-]{subsection.6.2}{Evoluci\363n de Shards}{section.6}% 31
 \BOOKMARK [1][-]{section.7}{Indice Simple vs Indice Hash}{}% 32
