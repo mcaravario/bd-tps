@@ -810,4 +810,45 @@ Para este an\'alisis utilizamos \'indices hash sobre la columna "idUsuarioVended
 En el caso de shards utilizando indice hash se puede ver que la distribucion en caso de hash es casi ideal. A medida que se van agregando documendo, van creciendo la cantidad de documentos en cada shard pero siempre cumpliendo una uniformidad.
 Mientras que en el caso de shards utilizando indices simples se puede ver que luego de la primera corrida casi el 100\% de la informacion esta en el shard numero 1.
 Luego se empiezan a utilizar los otros shard pero con una distribucion no tan regular, y se basa mas en la reguladirdad de los shards 1 a 4 y a medida que va creciendo la cantidad de documendo se va regularizando.
+
+\section{Posibles escenarios de Sharding}
+
+\begin{itemize}
+\item Un posible escenario seria uno en el cual tenemos una base de datos muy
+  grande y con una distribucion uniforme de datos de todo el mundo. Para eso se
+  podria definir un atributo continente, lo cual nos permitiria dividir la base
+  en diversos shards (uno en cada continente) para poder trabajar con una menor
+  cantidad de datos. Esto traeria la ventaja de que ante la caida de un nodo de
+  un continente no se perderian los datos de todo el mundo y solo habria que
+  recuperar ese continente determinado. Esta escenario no seria recomendado en
+  caso de tener muchos datos sobre un continente determinado, ya que estariamos
+  sobrecargando ese nodo en particular.
+
+
+\item Otro posible escenario seria uno en el cual tengamos una base de datos
+  muy grande sobre personas con distribucion uniforme sobre sus apellidos,(es
+  decir sobre las letras con las que comienza cada apellido). En este caso podriamos
+  crear una letra como atributo y asi particionar en shards nuestra base,
+  ubicando en cada servidor las personas cuyos apellidos comienzan con
+  determinada letra. Esto trae la ventaja de que trabajermos en cada servidor
+  con una menor cantidad de personas, en particular con las personas cuyo
+  apellido comienza con la letra del shard correspondiente. Esto nuevamente es
+  posible en el escenario en el cual tengamos una distribucion uniforme sobre la
+  primer letra de cada apellido, pues de lo contrario estariamos sobrecargando
+  ese nodo.
+
+\item Un tercer escenario posible en cual usar un atributo para sharding podria
+  ser uno en el cual tengamos una base de datos sobre personas en un hospital y
+  decidamos definir un atributo que sea el factor sanguineo. Esto permitira
+  dividir nuestra base de datos en shards, en el cual cada nodo tendra un
+  factor sanguineo en particular. Esto agilizara la consulta a la hora de
+  resolver una emergencia medica, ya que a la hora de resolver una consulta
+  solo debera buscarse en ese nodo particular y no en toda la base, por ejemplo
+  si se quisieran buscar donantes de sangre para un factor en particular.
+  
+
+
+
+\end{itemize}
+
 \end{document}
