@@ -715,11 +715,10 @@ Como ya fue explicado, utilizamos 5 Shards y en el cuadro se ve el porcentaje de
 Para este an\'alisis utilizamos \'indices simples sobre la columna "idUsuarioVendedor" del documento de Publicaciones.
 
 \begin{center}
-\includegraphics[scale=0.8]{resultado_indice_simple.png}
+\includegraphics[scale=0.6]{tabla_indice.png}
 \end{center}
-\includegraphics[scale=0.5]{indice_simple.png}
+\includegraphics[scale=0.4]{grafico_indice.png}
 
-En el grafico se puede ver que ....
 \section{Indice Hash}
 
 \subsection{Creacion de Shards}
@@ -795,12 +794,9 @@ Para este an\'alisis utilizamos \'indices hash sobre la columna "idUsuarioVended
 
 
 \begin{center}
-\includegraphics[scale=0.7]{resultado_indice_hash.png}
+\includegraphics[scale=0.7]{tabla_hash.png}
 \end{center}
-\includegraphics[scale=0.5]{indice_hash.png}
-
-En el gr\'afico se puede ver que ....
-
+\includegraphics[scale=0.4]{grafico_hash.png}
 
 
 
@@ -810,6 +806,8 @@ En el gr\'afico se puede ver que ....
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Indice Simple vs Indice Hash}
-aca escribir la conclusion 
 
+En el caso de shards utilizando indice hash se puede ver que la distribucion en caso de hash es casi ideal. A medida que se van agregando documendo, van creciendo la cantidad de documentos en cada shard pero siempre cumpliendo una uniformidad.
+Mientras que en el caso de shards utilizando indices simples se puede ver que luego de la primera corrida casi el 100\% de la informacion esta en el shard numero 1.
+Luego se empiezan a utilizar los otros shard pero con una distribucion no tan regular, y se basa mas en la reguladirdad de los shards 1 a 4 y a medida que va creciendo la cantidad de documendo se va regularizando.
 \end{document}
